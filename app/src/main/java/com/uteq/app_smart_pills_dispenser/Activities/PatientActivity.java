@@ -16,18 +16,18 @@ import java.util.ArrayList;
 
 public class PatientActivity extends AppCompatActivity {
 
-    SearchView txtBuscar;
-    RecyclerView listaPacientes;
-    ArrayList<Patient>listaArraPacientes;
+    SearchView txtSearch;
+    RecyclerView listPatients;
+    ArrayList<Patient>listArrayPatients;
     FloatingActionButton  fabNuevo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
-        txtBuscar = findViewById(R.id.txtBuscar);
-        listaPacientes.setLayoutManager(new LinearLayoutManager(this));
-        fabNuevo = findViewById(R.id.favNuevo);
+        txtSearch = findViewById(R.id.txtSearch);
+        listPatients.setLayoutManager(new LinearLayoutManager(this));
+        fabNuevo = findViewById(R.id.favNewPatient);
 
     }
 }
