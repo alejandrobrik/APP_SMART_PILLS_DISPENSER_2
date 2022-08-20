@@ -8,8 +8,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">App Settings</string>
     <string name="action_about">About</string>
+    <string name="action_logout">Log out</string>
 
     <string name="menu_home">Patients</string>
-    <string name="menu_gallery">Alert</string>
+    <string name="menu_gallery">Alerts</string>
     <string name="menu_slideshow">Setings</string>
+    <string name="schedule">Schedule</string>
 </resources>
