@@ -1,4 +1,4 @@
-package com.uteq.app_smart_pills_dispenser.Activities.ui.gallery;
+package com.uteq.app_smart_pills_dispenser.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
