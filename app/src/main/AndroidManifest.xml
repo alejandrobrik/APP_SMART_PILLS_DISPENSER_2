@@ -17,7 +17,7 @@
         android:theme="@style/Theme.APP_SMART_PILLS_DISPENSER"
         tools:targetApi="31">
         <activity
-            android:name=".PatientActivity"
+            android:name=".Activities.PatientActivity"
             android:exported="false" />
         <activity
             android:name=".MenuActivity"
