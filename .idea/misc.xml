@@ -3,15 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_menu_camera.xml" value="0.133" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.133" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.133" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/side_nav_bar.xml" value="0.133" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_main.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_menu.xml" value="0.25" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_patient.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/app_bar_menu.xml" value="0.18802083333333333" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/content_menu.xml" value="0.18802083333333333" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_gallery.xml" value="0.18802083333333333" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_home.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_slideshow.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/nav_header_menu.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/nav_header_menu2.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/menu/activity_main_drawer.xml" value="0.67" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/menu/activity_menu_drawer.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/menu/menu.xml" value="0.67" />
         <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_menu.xml" value="0.33" />
-        <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/content_menu.xml" value="0.18" />
-        <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
-        <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
-        <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/nav_header_menu.xml" value="0.1" />
-        <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/nav_header_menu2.xml" value="0.22" />
-        <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_patient.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
