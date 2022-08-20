@@ -12,7 +12,7 @@
 
     android:background="@drawable/background"
 
-    tools:context=".MainActivity">
+    tools:context=".Activities.PatientMenuActivity">
 
 
     <TextView
@@ -99,7 +99,7 @@
                 android:layout_height="75dp"
 
                 android:src="@drawable/ic_medical_treatment"
-                 />
+                />
 
             <TextView
 

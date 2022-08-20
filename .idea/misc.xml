@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2535" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_menu_camera.xml" value="0.133" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.133" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.133" />
@@ -10,11 +11,15 @@
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_main.xml" value="0.24791666666666667" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_menu.xml" value="0.25" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_patient.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_patient_menu.xml" value="0.33" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_patiente_menu.xml" value="0.12056737588652482" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_prueba_menu.xml" value="0.5" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/app_bar_menu.xml" value="0.18802083333333333" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/content_menu.xml" value="0.18802083333333333" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_gallery.xml" value="0.18802083333333333" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_home.xml" value="0.24791666666666667" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_slideshow.xml" value="0.24791666666666667" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/menu_patients.xml" value="0.25" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/nav_header_menu.xml" value="0.24791666666666667" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/nav_header_menu2.xml" value="0.24791666666666667" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/menu/activity_main_drawer.xml" value="0.67" />
