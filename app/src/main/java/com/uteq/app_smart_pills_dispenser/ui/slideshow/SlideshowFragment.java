@@ -1,4 +1,4 @@
-package com.uteq.app_smart_pills_dispenser.Activities.ui.slideshow;
+package com.uteq.app_smart_pills_dispenser.ui.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.uteq.app_smart_pills_dispenser.Activities.databinding.FragmentSlideshowBinding;
+import com.uteq.app_smart_pills_dispenser.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.uteq.app_smart_pills_dispenser.Activities;
+package com.uteq.app_smart_pills_dispenser;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.uteq.app_smart_pills_dispenser.Activities.databinding.ActivityMenuBinding;
+import com.uteq.app_smart_pills_dispenser.databinding.ActivityMenuBinding;
 
 public class MenuActivity extends AppCompatActivity {
 
