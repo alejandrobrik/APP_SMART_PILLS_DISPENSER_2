@@ -17,28 +17,25 @@
         android:theme="@style/Theme.APP_SMART_PILLS_DISPENSER"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.PillActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.PatientMenuActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-
         <activity
             android:name=".Activities.PatientActivity"
-            android:exported="false">
-    </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".MenuActivity"
             android:exported="true"
             android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.APP_SMART_PILLS_DISPENSER.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.APP_SMART_PILLS_DISPENSER.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
