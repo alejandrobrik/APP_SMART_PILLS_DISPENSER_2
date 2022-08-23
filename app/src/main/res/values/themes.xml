@@ -19,6 +19,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="Theme.APP_SMART_PILLS_DISPENSER.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.APP_SMART_PILLS_DISPENSER.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
