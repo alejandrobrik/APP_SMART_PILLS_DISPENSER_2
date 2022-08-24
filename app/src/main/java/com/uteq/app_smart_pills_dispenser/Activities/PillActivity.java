@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.uteq.app_smart_pills_dispenser.R;
+
 public class PillActivity extends AppCompatActivity {
 
     @Override

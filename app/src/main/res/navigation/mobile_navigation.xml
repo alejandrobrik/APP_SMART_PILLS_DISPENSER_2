@@ -14,12 +14,17 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.uteq.app_smart_pills_dispenser.Activities.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_patients"
         tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/nav_alerts"
+        android:name="com.uteq.app_smart_pills_dispenser.Activities.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_alerts"
+        tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_setings"
         android:name="com.uteq.app_smart_pills_dispenser.Activities.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_setings"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>
