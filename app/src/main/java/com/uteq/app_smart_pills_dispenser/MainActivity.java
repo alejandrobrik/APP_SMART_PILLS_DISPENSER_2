@@ -11,15 +11,27 @@ import com.uteq.app_smart_pills_dispenser.Activities.CarerAddActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button singup;
+    Button btnlogin;
+    Button btnsingup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        singup = findViewById(R.id.buttonSingup);
+        btnlogin = findViewById(R.id.buttonLogin);
 
-        singup.setOnClickListener(new View.OnClickListener() {
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btnsingup = findViewById(R.id.buttonSingup);
+
+        btnsingup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CarerAddActivity.class);
