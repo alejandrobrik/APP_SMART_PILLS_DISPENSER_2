@@ -1,5 +1,6 @@
 package com.uteq.app_smart_pills_dispenser.utils;
 
+import com.uteq.app_smart_pills_dispenser.services.CarerService;
 import com.uteq.app_smart_pills_dispenser.services.DoctorService;
 
 public class Apis {
@@ -8,5 +9,10 @@ public class Apis {
     public static DoctorService getDoctorService()
     {
         return ClientRetrofit.getClient(URL_001).create(DoctorService.class);
+    }
+
+    public static CarerService getCarerService()
+    {
+        return ClientRetrofit.getClient(URL_001).create(CarerService.class);
     }
 }
