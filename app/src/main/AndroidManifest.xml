@@ -20,7 +20,7 @@
             android:name=".Activities.CarerAddActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.PillActivity"
+            android:name=".Activities.PillAddActivity"
             android:exported="false" />
         <activity
             android:name=".Activities.PatientMenuActivity"
