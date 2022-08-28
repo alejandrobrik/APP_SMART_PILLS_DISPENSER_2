@@ -62,7 +62,6 @@ public class GalleryFragment extends Fragment {
         patientAdapter = new PatientAdapter();
         recyclerView.setAdapter(patientAdapter);
 
-
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction =fragmentManager.beginTransaction();
         transaction.setReorderingAllowed(true);

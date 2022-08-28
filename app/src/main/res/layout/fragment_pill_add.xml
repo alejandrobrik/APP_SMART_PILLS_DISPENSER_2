@@ -7,7 +7,7 @@
     tools:context=".ui.pills.PillAddFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarCarerRegister"
+        android:id="@+id/toolbarPillRegister"
         android:background="@color/design_default_color_primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="PATIENT REGISTER"
+                android:text="PILL REGISTER"
                 android:textColor="@color/white"
                 android:layout_marginLeft="120dp"
                 android:textStyle="bold" />
@@ -42,54 +42,33 @@
             android:text="Back"
             app:icon="?attr/actionModeCloseDrawable" />
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/pillName"
             android:layout_width="match_parent"
             android:layout_height="50px"
             android:textStyle="bold"
             android:text="Name"/>
 
         <EditText
-            android:id="@+id/txtNamePatient"
+            android:id="@+id/txtAddPillName"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
+
         <TextView
-            android:id="@+id/birthdatePatient"
+            android:id="@+id/pillDescription"
             android:layout_width="match_parent"
             android:layout_height="50px"
             android:textStyle="bold"
-            android:text="Patient Birthday"/>
+            android:text="Description"/>
 
         <EditText
-            android:id="@+id/txtBirthDatePatient"
+            android:id="@+id/txtAddPillDescription"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
-
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Gender"/>
-
-        <Spinner
-            android:id="@+id/spinerGenderPatient"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
-
-
         <Button
-            android:id="@+id/btnSavePatient"
+            android:id="@+id/btnPillSave"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="SAVE" />
-
-        <Button
-            android:id="@+id/btnClean"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Clean" />
-
-
     </LinearLayout>
 
 </FrameLayout>
