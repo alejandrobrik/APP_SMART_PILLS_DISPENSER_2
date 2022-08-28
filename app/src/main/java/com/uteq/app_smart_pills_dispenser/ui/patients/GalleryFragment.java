@@ -94,7 +94,7 @@ public class GalleryFragment extends Fragment {
     }
 
     public void getpatient() throws Exception {
-        String id= "1";
+
         Call<List<Patient>> patientList = Apis.getPatientService().getPatient(id);
 
         patientList.enqueue(new Callback<List<Patient>>() {

@@ -14,6 +14,7 @@ import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.services.CarerService;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 
+import java.io.Serializable;
 import java.util.List;
 
 import retrofit2.Call;
@@ -74,11 +75,13 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Carer>> call, Response<List<Carer>> response) {
                 if (response.isSuccessful()) {
                     List<Carer> carers = response.body();
-                    for (Carer user : carers) {
-                        if(user.getEmail().equals(txtemail.getText().toString()) &&
-                                user.getPassword().equals(txtpassword.getText().toString()))
+                    for (Carer carer : carers) {
+                        if(carer.getEmail().equals(txtemail.getText().toString()) &&
+                                carer.getPassword().equals(txtpassword.getText().toString()))
                         {
                             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+
+                            intent.putExtra("c",  carer);
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(), "Inicio de sesión exitoso.", Toast.LENGTH_LONG).show();
                             return;
