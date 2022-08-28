@@ -72,10 +72,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void optionSelect() {
 
-
-
         getSupportFragmentManager().beginTransaction().replace(R.id.layoutReemplazar, new PatientAddFragment()).commit();
-
 
 
     }

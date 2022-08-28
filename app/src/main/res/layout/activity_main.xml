@@ -12,7 +12,7 @@ tools:context=".MainActivity">
         android:layout_height="159dp"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/txttUser"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmailLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,12 +23,12 @@ tools:context=".MainActivity">
         app:strokeWidth="5dp" />
 
     <EditText
-        android:id="@+id/txttUser"
+        android:id="@+id/txtEmailLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:hint="User"
+        android:hint="Email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
@@ -37,13 +37,13 @@ tools:context=".MainActivity">
         app:layout_constraintVertical_bias="0.303" />
 
     <EditText
-        android:id="@+id/txtPassword"
+        android:id="@+id/txtPasswordLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
         android:hint="Password"
-        app:layout_constraintTop_toBottomOf="@+id/txttUser"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailLogin"
         tools:layout_editor_absoluteX="10dp" />
 
 
@@ -56,7 +56,7 @@ tools:context=".MainActivity">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPasswordLogin" />
 
     <Button
         android:id="@+id/buttonSingup"

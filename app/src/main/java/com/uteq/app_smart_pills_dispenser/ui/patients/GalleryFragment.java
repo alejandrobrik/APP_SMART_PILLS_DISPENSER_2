@@ -72,9 +72,8 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                onDestroyView();
                 ((MenuActivity)getActivity()).optionSelect();
-
-
 
 
                 return;
