@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.subfragments.PatientAddFragment">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarCarerRegister"
+            android:background="@color/design_default_color_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="PATIENT REGISTER"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="120dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="100px">
+            <Button
+                android:id="@+id/btnBackPatient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80px"
+                android:text="Back"
+                app:icon="?attr/actionModeCloseDrawable" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="50px"
+                android:textStyle="bold"
+                android:text="Name"/>
+
+            <EditText
+                android:id="@+id/txtNamePatient"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+            <TextView
+                android:id="@+id/birthdatePatient"
+                android:layout_width="match_parent"
+                android:layout_height="50px"
+                android:textStyle="bold"
+                android:text="Patient Birthday"/>
+
+            <EditText
+                android:id="@+id/txtBirthDatePatient"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="50px"
+                android:textStyle="bold"
+                android:text="Gender"/>
+
+            <Spinner
+                android:id="@+id/spinerGenderPatient"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+
+            <Button
+                android:id="@+id/btnSavePatient"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="SAVE" />
+
+            <Button
+                android:id="@+id/btnClean"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Clean" />
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
