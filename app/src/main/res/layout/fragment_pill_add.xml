@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.PillAddActivity">
+    tools:context=".ui.pills.PillAddFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarCarerRegister"
@@ -32,8 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
-            android:text="Back"
-            app:icon="?attr/actionModeCloseDrawable" />
+            android:text="Back" />
 
         <TextView
             android:id="@+id/PillName"
@@ -63,7 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:text="SAVE" />
-
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

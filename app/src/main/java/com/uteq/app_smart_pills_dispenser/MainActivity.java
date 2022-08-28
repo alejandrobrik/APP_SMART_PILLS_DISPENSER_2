@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         btnsingup = findViewById(R.id.buttonSingup);
 
         btnsingup.setOnClickListener(new View.OnClickListener() {
