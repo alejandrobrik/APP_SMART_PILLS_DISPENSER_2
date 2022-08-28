@@ -1,8 +1,11 @@
 package com.uteq.app_smart_pills_dispenser;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -18,6 +21,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.uteq.app_smart_pills_dispenser.databinding.ActivityMenuBinding;
+import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.ui.patients.GalleryFragment;
 import com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientAddFragment;
 
@@ -27,12 +31,39 @@ public class MenuActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMenuBinding binding;
 
+    private TextView tvNameCarerMenu, tvEmailCarerMenu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Bundle bundle = this.getIntent().getExtras();
+
+        Carer carer = (Carer)  bundle.getSerializable("c");
+
+
+        String name = carer.getName();
+        String email = carer.getEmail();
+
+
+
+
+
+
+
+
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        View vistaHeader = binding.navView.getHeaderView(0);
+
+        tvNameCarerMenu = vistaHeader.findViewById(R.id.tvNameCarerMenu);
+        tvEmailCarerMenu = vistaHeader.findViewById(R.id.tvEmailCarerMenu);
+
+        tvNameCarerMenu.setText("NAME: "+ name.toString());
+
+        tvEmailCarerMenu.setText("EMAIL: "+email.toString());
+
 
         setSupportActionBar(binding.appBarMenu.toolbar);
         binding.appBarMenu.fab.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +71,9 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+
+
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -53,6 +87,9 @@ public class MenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainer);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+
     }
 
     @Override
