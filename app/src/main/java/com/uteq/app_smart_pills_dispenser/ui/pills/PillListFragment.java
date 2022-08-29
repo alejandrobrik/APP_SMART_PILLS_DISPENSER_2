@@ -82,7 +82,7 @@ public class PillListFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<List<Pill>> call, Throwable t) {
-                Log.e("faliure", t.getLocalizedMessage());
+                Log.e("failure", t.getLocalizedMessage());
             }
         });
     }
