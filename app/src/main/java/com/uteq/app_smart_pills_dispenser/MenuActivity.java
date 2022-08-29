@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -47,11 +48,6 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -63,6 +59,16 @@ public class MenuActivity extends AppCompatActivity {
         tvNameCarerMenu.setText("NAME: "+ name.toString());
 
         tvEmailCarerMenu.setText("EMAIL: "+email.toString());
+
+       // Envar datos de un activity a fragment
+        GalleryFragment galleryFragment = new GalleryFragment();
+        bundle.putInt("id_carer", carer.getId());
+        galleryFragment.setArguments(bundle);
+
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.add(R.id.nav_host_fragment_content_menu,galleryFragment);
+//        fragmentTransaction.commit();
 
 
         setSupportActionBar(binding.appBarMenu.toolbar);
@@ -81,12 +87,15 @@ public class MenuActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_setings)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainer);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+
 
 
 
@@ -109,7 +118,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void optionSelect() {
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.layoutReemplazar, new PatientAddFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.layoutReemplazar, new PatientAddFragment()).commit();
 
 
     }

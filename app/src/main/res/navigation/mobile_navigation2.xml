@@ -15,7 +15,11 @@
         android:id="@+id/nav_patients"
         android:name="com.uteq.app_smart_pills_dispenser.ui.patients.GalleryFragment"
         android:label="@string/menu_patients"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_patients_to_patientAddFragment"
+            app:destination="@id/patientAddFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_alerts"
         android:name="com.uteq.app_smart_pills_dispenser.ui.alerts.SlideshowFragment"
@@ -27,4 +31,9 @@
         android:name="com.uteq.app_smart_pills_dispenser.ui.setings.SetingsFragment"
         android:label="@string/menu_setings"
         tools:layout="@layout/fragment_setings" />
+    <fragment
+        android:id="@+id/patientAddFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientAddFragment"
+        android:label="fragment_patient_add"
+        tools:layout="@layout/fragment_patient_add" />
 </navigation>
