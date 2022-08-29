@@ -91,6 +91,7 @@ public class PatientAddFragment extends Fragment {
                 p.setGender(genero);
                 p.setState((true));
 
+
                 addPatient(p);
 
             }

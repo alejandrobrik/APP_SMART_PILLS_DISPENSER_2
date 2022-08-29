@@ -11,7 +11,7 @@ public class Patient {
     private String gender;
     private String name;
     private Boolean state;
-    private Carer idCarer;
+    private Carer carer;
 
 
 }

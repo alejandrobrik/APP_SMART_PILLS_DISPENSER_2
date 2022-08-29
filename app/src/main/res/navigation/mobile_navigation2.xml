@@ -35,5 +35,9 @@
         android:id="@+id/patientAddFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientAddFragment"
         android:label="fragment_patient_add"
-        tools:layout="@layout/fragment_patient_add" />
+        tools:layout="@layout/fragment_patient_add" >
+        <action
+            android:id="@+id/action_patientAddFragment_to_nav_patients"
+            app:destination="@id/nav_patients" />
+    </fragment>
 </navigation>

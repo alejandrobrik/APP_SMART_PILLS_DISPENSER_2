@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,7 @@ import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.adapters.PatientAdapter;
 import com.uteq.app_smart_pills_dispenser.databinding.FragmentGalleryBinding;
+import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientAddFragment;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
@@ -43,6 +45,9 @@ public class GalleryFragment extends Fragment {
     FragmentTransaction transaction;
     Fragment patientAddFragment;
 
+    private int id_carer;
+    private Carer carer;
+
     private RecyclerView recyclerView;
     private PatientAdapter patientAdapter;
 
@@ -54,6 +59,12 @@ public class GalleryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        if (getArguments() != null) {
+            id_carer = getArguments().getInt("id_carer", 0);
+            carer = getArguments().getParcelable("c");
+        }
+
+
         recyclerView = view.findViewById(R.id.reciclerviewPatient);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -62,17 +73,20 @@ public class GalleryFragment extends Fragment {
         patientAdapter = new PatientAdapter();
         recyclerView.setAdapter(patientAdapter);
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction =fragmentManager.beginTransaction();
-        transaction.setReorderingAllowed(true);
+
+//       FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//       FragmentTransaction transaction =fragmentManager.beginTransaction();
+//       transaction.setReorderingAllowed(true);
 
         favNewPatient = view.findViewById(R.id.favNewPatient);
         favNewPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                onDestroyView();
-                ((MenuActivity)getActivity()).optionSelect();
+
+                Navigation.findNavController(view).navigate(R.id.patientAddFragment);
+
+                //  ((MenuActivity)getActivity()).optionSelect();
 
 
                 return;
@@ -94,7 +108,7 @@ public class GalleryFragment extends Fragment {
 
     public void getpatient() throws Exception {
 
-        Call<List<Patient>> patientList = Apis.getPatientService().getPatient(id);
+        Call<List<Patient>> patientList = Apis.getPatientService().getPatient("1");
 
         patientList.enqueue(new Callback<List<Patient>>() {
             @Override
