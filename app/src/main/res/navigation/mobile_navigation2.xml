@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_nav_patients_to_patientAddFragment"
             app:destination="@id/patientAddFragment" />
+        <action
+            android:id="@+id/action_nav_patients_to_patientMenuFragment"
+            app:destination="@id/patientMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_alerts"
@@ -40,4 +43,9 @@
             android:id="@+id/action_patientAddFragment_to_nav_patients"
             app:destination="@id/nav_patients" />
     </fragment>
+    <fragment
+        android:id="@+id/patientMenuFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientMenuFragment"
+        android:label="fragment_patient_menu"
+        tools:layout="@layout/fragment_patient_menu" />
 </navigation>
