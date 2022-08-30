@@ -2,6 +2,8 @@ package com.uteq.app_smart_pills_dispenser.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +12,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.utils.MoreUtils;
@@ -50,6 +54,22 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
         holder.txtname.setText(MoreUtils.coalesce(patient.getName(), "N/D"));
         holder.txtgender.setText(MoreUtils.coalesce(patient.getGender(), "N/D"));
         holder.txtbirthDate.setText(MoreUtils.coalesce(patient.getBirth_date(), "N/D"));
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.patientMenuFragment);
+
+//                Intent intent = new Intent(context, EvaluadosActivity.class);
+//                Bundle b = new Bundle();
+//                b.putString("Evaluador", new Gson().toJson(data.get(holder.getAdapterPosition())));
+//                intent.putExtras(b);
+//                context.startActivity(intent);
+                //Toast.makeText(context, evaluador.getNombres(), Toast.LENGTH_SHORT).show();
+            }
+        };
+        holder.imgEvaluador.setOnClickListener(listener);
+
     }
 
 
