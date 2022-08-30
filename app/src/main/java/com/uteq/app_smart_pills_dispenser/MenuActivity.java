@@ -114,12 +114,4 @@ public class MenuActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
-    public void optionSelect() {
-
-        getSupportFragmentManager().beginTransaction().add(R.id.layoutReemplazar, new PatientAddFragment()).commit();
-
-
-    }
 }
