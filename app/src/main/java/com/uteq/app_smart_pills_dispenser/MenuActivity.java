@@ -34,13 +34,15 @@ public class MenuActivity extends AppCompatActivity {
 
     private TextView tvNameCarerMenu, tvEmailCarerMenu;
 
+    Carer carer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Bundle bundle = this.getIntent().getExtras();
 
-        Carer carer = (Carer)  bundle.getSerializable("c");
+        this.carer = (Carer)  bundle.getSerializable("c");
 
 
         String name = carer.getName();
@@ -59,6 +61,8 @@ public class MenuActivity extends AppCompatActivity {
         tvNameCarerMenu.setText("NAME: "+ name.toString());
 
         tvEmailCarerMenu.setText("EMAIL: "+email.toString());
+
+
 
        // Envar datos de un activity a fragment
         GalleryFragment galleryFragment = new GalleryFragment();
@@ -87,20 +91,24 @@ public class MenuActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_setings)
+                R.id.nav_home, R.id.nav_patients, R.id.nav_alerts, R.id.nav_setings)
                 .setOpenableLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainer);
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
-
-
-
-
     }
+
+
+    public Carer loadData() {
+
+        Carer carer = this.carer;
+        return carer;
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
