@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientViewHolder>  {
 
     private List<Patient> data = new ArrayList<>();
-    private  List<Patient> originalData;
+    private  List<Patient> originalData = new ArrayList<>();
     private Context context;
 
 
@@ -40,7 +40,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
 
     public void setData(List<Patient> data) {
         this.data = data;
-        this.originalData = data;
+        this.originalData.addAll(data);
         notifyDataSetChanged();
     }
 
@@ -93,12 +93,13 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
 
     public void filter(@NonNull String strSearch ){
 
-        final  List<Patient> original = this.originalData;
+        //final  List<Patient> original = this.originalData;
 
         if (strSearch.length() == 0){
 
+            this.data.clear();
             this.data.addAll(this.originalData);
-           // this.data.clear();
+
         }
         else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

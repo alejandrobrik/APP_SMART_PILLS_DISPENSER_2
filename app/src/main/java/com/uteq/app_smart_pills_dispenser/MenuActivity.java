@@ -104,7 +104,6 @@ public class MenuActivity extends AppCompatActivity {
 
 
     public Carer loadData() {
-
         Carer carer = this.carer;
         return carer;
     }

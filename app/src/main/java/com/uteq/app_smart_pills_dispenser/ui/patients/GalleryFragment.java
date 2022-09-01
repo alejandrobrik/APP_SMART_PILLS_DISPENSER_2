@@ -119,10 +119,12 @@ public class GalleryFragment extends Fragment implements  SearchView.OnQueryText
 
         try {
             getpatient();
-            initListener();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        initListener();
 
 
 
@@ -151,11 +153,6 @@ public class GalleryFragment extends Fragment implements  SearchView.OnQueryText
     }
 
     private  void initListener(){
-        try {
-            getpatient();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         svSearchPatient.setOnQueryTextListener(this);
     }
 
