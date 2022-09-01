@@ -79,7 +79,9 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.patientMenuFragment);
+                Bundle b = new Bundle();
+                b.putSerializable("patient",new Gson().toJson(data.get(holder.getAdapterPosition())));
+                Navigation.findNavController(view).navigate(R.id.patientMenuFragment,b);
             }
         });
 
