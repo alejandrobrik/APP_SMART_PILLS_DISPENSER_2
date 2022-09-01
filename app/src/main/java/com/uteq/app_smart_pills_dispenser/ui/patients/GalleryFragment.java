@@ -63,16 +63,15 @@ public class GalleryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         if (getArguments() != null) {
-            id_carer = getArguments().getInt("id_carer", 0);
-            carer = getArguments().getParcelable("c");
+            id_carer = getArguments().getInt("id_carer");
+            //carer = getArguments().getParcelable("c");
         }
 
 
-        recyclerView = view.findViewById(R.id.reciclerviewPatient);
 
+        recyclerView = view.findViewById(R.id.reciclerviewPatient);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getContext(), DividerItemDecoration.VERTICAL));
-
         patientAdapter = new PatientAdapter();
         recyclerView.setAdapter(patientAdapter);
 

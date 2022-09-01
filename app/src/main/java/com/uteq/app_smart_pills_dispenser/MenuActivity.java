@@ -37,15 +37,11 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Bundle bundle = this.getIntent().getExtras();
-
-        Carer carer = (Carer)  bundle.getSerializable("c");
-
-
+        Bundle extra = getIntent().getExtras();
+        Carer carer = (Carer)  extra.getSerializable("c");
         String name = carer.getName();
         String email = carer.getEmail();
-
+        int id_carer = carer.getId();
 
 
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
@@ -55,21 +51,17 @@ public class MenuActivity extends AppCompatActivity {
 
         tvNameCarerMenu = vistaHeader.findViewById(R.id.tvNameCarerMenu);
         tvEmailCarerMenu = vistaHeader.findViewById(R.id.tvEmailCarerMenu);
-
         tvNameCarerMenu.setText("NAME: "+ name.toString());
-
         tvEmailCarerMenu.setText("EMAIL: "+email.toString());
 
-       // Envar datos de un activity a fragment
-        GalleryFragment galleryFragment = new GalleryFragment();
-        bundle.putInt("id_carer", carer.getId());
-        galleryFragment.setArguments(bundle);
-
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.add(R.id.nav_host_fragment_content_menu,galleryFragment);
-//        fragmentTransaction.commit();
-
+       // Enviar datos de un activity a fragment
+        //GalleryFragment galleryFragment = new GalleryFragment();
+        //extra.putInt("id_carer", carer.getId());
+        //galleryFragment.setArguments(extra);
+        View view = this.navigationView;
+        Bundle bundle = new Bundle();
+        bundle.putInt("id_carer", id_carer);
+        Navigation.findNavController(view).navigate(R.id.nav_gallery, bundle);
 
         setSupportActionBar(binding.appBarMenu.toolbar);
         binding.appBarMenu.fab.setOnClickListener(new View.OnClickListener() {
@@ -77,9 +69,6 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
-
-
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
