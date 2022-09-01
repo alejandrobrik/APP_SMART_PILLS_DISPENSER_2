@@ -2,13 +2,18 @@ package com.uteq.app_smart_pills_dispenser.ui.subfragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.models.Patient;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +30,10 @@ public class PatientMenuFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    String patientGson ;
+    Patient patient;
+    TextView patientTitle;
+
 
     public PatientMenuFragment() {
         // Required empty public constructor
@@ -49,12 +58,23 @@ public class PatientMenuFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            patientGson =  getArguments().getString("patient");
+
         }
+
+        patient = new Gson().fromJson(patientGson,Patient.class);
+
+        patientTitle = view.findViewById(R.id.textViewPatientTitle);
+
+        patientTitle.setText("Patient: "+ patient.getName());
+
+        System.out.println("Aqui termino");
     }
 
     @Override

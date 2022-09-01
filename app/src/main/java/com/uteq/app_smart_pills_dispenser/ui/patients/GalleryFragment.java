@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,8 +40,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GalleryFragment extends Fragment {
-    Button btnSearch;
+public class GalleryFragment extends Fragment implements  SearchView.OnQueryTextListener {
+
     Button btnAddPatient;
     Button btnViewAll;
     FloatingActionButton favNewPatient;
@@ -55,6 +56,7 @@ public class GalleryFragment extends Fragment {
     Carer carerLogin = new Carer();
 
     private RecyclerView recyclerView;
+    private SearchView svSearchPatient;
     private PatientAdapter patientAdapter;
 
     public GalleryFragment() {
@@ -79,6 +81,8 @@ public class GalleryFragment extends Fragment {
 
         patientAdapter = new PatientAdapter();
         recyclerView.setAdapter(patientAdapter);
+
+        svSearchPatient = view.findViewById(R.id.svSearchPatient);
 
         //Llama a un metodo del activity que toma el carer que inicio sesion
         ((MenuActivity)getActivity()).loadData();
@@ -115,9 +119,14 @@ public class GalleryFragment extends Fragment {
 
         try {
             getpatient();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        initListener();
+
+
 
 
     }
@@ -143,6 +152,20 @@ public class GalleryFragment extends Fragment {
         });
     }
 
+    private  void initListener(){
+        svSearchPatient.setOnQueryTextListener(this);
+    }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+
+        patientAdapter.filter(newText);
+        return false;
+    }
 }

@@ -91,7 +91,7 @@ public class MenuActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_patients, R.id.nav_alerts, R.id.nav_setings)
+                R.id.nav_home, R.id.nav_patients, R.id.nav_alerts, R.id.nav_doctors, R.id.nav_setings)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -104,7 +104,6 @@ public class MenuActivity extends AppCompatActivity {
 
 
     public Carer loadData() {
-
         Carer carer = this.carer;
         return carer;
     }
