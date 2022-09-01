@@ -102,6 +102,8 @@ public class PatientAddFragment extends Fragment {
 
                 addPatient(p);
 
+                Navigation.findNavController(view).navigate(R.id.nav_patients);
+
             }
         });
 
