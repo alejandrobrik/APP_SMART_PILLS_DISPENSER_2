@@ -55,22 +55,31 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
         holder.txtgender.setText(MoreUtils.coalesce(patient.getGender(), "N/D"));
         holder.txtbirthDate.setText(MoreUtils.coalesce(patient.getBirth_date(), "N/D"));
 
-        View.OnClickListener listener = new View.OnClickListener() {
+//        View.OnClickListener listener = new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Navigation.findNavController(view).navigate(R.id.patientMenuFragment);
+//
+////                Intent intent = new Intent(context, EvaluadosActivity.class);
+////                Bundle b = new Bundle();
+////                b.putString("Evaluador", new Gson().toJson(data.get(holder.getAdapterPosition())));
+////                intent.putExtras(b);
+////                context.startActivity(intent);
+//                //Toast.makeText(context, evaluador.getNombres(), Toast.LENGTH_SHORT).show();
+//            }
+//        };
+//        holder.imgEvaluador.setOnClickListener(listener);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.patientMenuFragment);
-
-//                Intent intent = new Intent(context, EvaluadosActivity.class);
-//                Bundle b = new Bundle();
-//                b.putString("Evaluador", new Gson().toJson(data.get(holder.getAdapterPosition())));
-//                intent.putExtras(b);
-//                context.startActivity(intent);
-                //Toast.makeText(context, evaluador.getNombres(), Toast.LENGTH_SHORT).show();
             }
-        };
-        holder.imgEvaluador.setOnClickListener(listener);
+        });
 
     }
+
+
 
 
     public int getItemCount() {

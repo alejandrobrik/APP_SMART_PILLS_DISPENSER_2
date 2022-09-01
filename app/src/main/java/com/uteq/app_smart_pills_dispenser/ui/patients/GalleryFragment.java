@@ -2,6 +2,7 @@ package com.uteq.app_smart_pills_dispenser.ui.patients;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +52,8 @@ public class GalleryFragment extends Fragment {
     private int id_carer;
     private Carer carer;
 
+    Carer carerLogin = new Carer();
+
     private RecyclerView recyclerView;
     private PatientAdapter patientAdapter;
 
@@ -63,18 +66,24 @@ public class GalleryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         if (getArguments() != null) {
-            id_carer = getArguments().getInt("id_carer");
-            //carer = getArguments().getParcelable("c");
+            id_carer = getArguments().getInt("id_carer", 0);
+            carer = getArguments().getParcelable("c");
         }
 
 
 
         recyclerView = view.findViewById(R.id.reciclerviewPatient);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getContext(), DividerItemDecoration.VERTICAL));
+
         patientAdapter = new PatientAdapter();
         recyclerView.setAdapter(patientAdapter);
 
+        //Llama a un metodo del activity que toma el carer que inicio sesion
+        ((MenuActivity)getActivity()).loadData();
+
+        carerLogin = ((MenuActivity)getActivity()).loadData();
 
 //       FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 //       FragmentTransaction transaction =fragmentManager.beginTransaction();
@@ -85,8 +94,11 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("id_login", carerLogin);
 
-                Navigation.findNavController(view).navigate(R.id.patientAddFragment);
+
+                Navigation.findNavController(view).navigate(R.id.patientAddFragment,bundle);
 
                 //  ((MenuActivity)getActivity()).optionSelect();
 
@@ -97,6 +109,8 @@ public class GalleryFragment extends Fragment {
 
             }
         });
+
+
 
 
         try {
@@ -110,7 +124,8 @@ public class GalleryFragment extends Fragment {
 
     public void getpatient() throws Exception {
 
-        Call<List<Patient>> patientList = Apis.getPatientService().getPatient("1");
+        String id = ""+carerLogin.getId();
+        Call<List<Patient>> patientList = Apis.getPatientService().getPatient(id);
 
         patientList.enqueue(new Callback<List<Patient>>() {
             @Override

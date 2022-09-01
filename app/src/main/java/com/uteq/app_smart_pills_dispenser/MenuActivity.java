@@ -34,14 +34,20 @@ public class MenuActivity extends AppCompatActivity {
 
     private TextView tvNameCarerMenu, tvEmailCarerMenu;
 
+    Carer carer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle extra = getIntent().getExtras();
-        Carer carer = (Carer)  extra.getSerializable("c");
+
+        Bundle bundle = this.getIntent().getExtras();
+
+        this.carer = (Carer)  bundle.getSerializable("c");
+
+
         String name = carer.getName();
         String email = carer.getEmail();
-        int id_carer = carer.getId();
+
 
 
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
@@ -51,17 +57,23 @@ public class MenuActivity extends AppCompatActivity {
 
         tvNameCarerMenu = vistaHeader.findViewById(R.id.tvNameCarerMenu);
         tvEmailCarerMenu = vistaHeader.findViewById(R.id.tvEmailCarerMenu);
+
         tvNameCarerMenu.setText("NAME: "+ name.toString());
+
         tvEmailCarerMenu.setText("EMAIL: "+email.toString());
 
-       // Enviar datos de un activity a fragment
-        //GalleryFragment galleryFragment = new GalleryFragment();
-        //extra.putInt("id_carer", carer.getId());
-        //galleryFragment.setArguments(extra);
-        View view = this.navigationView;
-        Bundle bundle = new Bundle();
-        bundle.putInt("id_carer", id_carer);
-        Navigation.findNavController(view).navigate(R.id.nav_gallery, bundle);
+
+
+       // Envar datos de un activity a fragment
+        GalleryFragment galleryFragment = new GalleryFragment();
+        bundle.putInt("id_carer", carer.getId());
+        galleryFragment.setArguments(bundle);
+
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.add(R.id.nav_host_fragment_content_menu,galleryFragment);
+//        fragmentTransaction.commit();
+
 
         setSupportActionBar(binding.appBarMenu.toolbar);
         binding.appBarMenu.fab.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +81,9 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+
+
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -76,20 +91,24 @@ public class MenuActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_setings)
+                R.id.nav_home, R.id.nav_patients, R.id.nav_alerts, R.id.nav_setings)
                 .setOpenableLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainer);
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
-
-
-
-
     }
+
+
+    public Carer loadData() {
+
+        Carer carer = this.carer;
+        return carer;
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

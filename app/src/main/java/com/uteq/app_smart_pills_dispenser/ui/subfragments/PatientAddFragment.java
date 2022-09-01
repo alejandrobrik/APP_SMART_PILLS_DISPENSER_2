@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.services.PatientService;
 import com.uteq.app_smart_pills_dispenser.ui.patients.GalleryFragment;
@@ -46,6 +48,8 @@ public class PatientAddFragment extends Fragment {
     Button save;
     Button btnClean;
 
+    Carer carerLogin;
+
     public PatientAddFragment() {
         super(R.layout.fragment_patient_add);
     }
@@ -53,6 +57,10 @@ public class PatientAddFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if (getArguments() != null) {
+            carerLogin = (Carer) getArguments().get("id_login");
+        }
 
         txtname = view.findViewById(R.id.txtNamePatient);
         txtbirthdate = view.findViewById(R.id.txtBirthDatePatient);
@@ -90,7 +98,7 @@ public class PatientAddFragment extends Fragment {
                 p.setBirth_date(txtbirthdate.getText().toString());
                 p.setGender(genero);
                 p.setState((true));
-
+                p.setCarer((carerLogin));
 
                 addPatient(p);
 
@@ -101,8 +109,7 @@ public class PatientAddFragment extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), GalleryFragment.class);
-                startActivity(intent);
+                Navigation.findNavController(view).navigate(R.id.nav_patients);
             }
         });
 
