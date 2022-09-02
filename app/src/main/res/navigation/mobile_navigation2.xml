@@ -66,4 +66,9 @@
         android:name="com.uteq.app_smart_pills_dispenser.ui.pills.PillAddFragment"
         android:label="fragment_pill_add"
         tools:layout="@layout/fragment_pill_add" />
+    <fragment
+        android:id="@+id/medicalTreatmentListFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.medicalTreatment.MedicalTreatmentListFragment"
+        android:label="fragment_medical_treatment_list"
+        tools:layout="@layout/fragment_medical_treatment_list" />
 </navigation>

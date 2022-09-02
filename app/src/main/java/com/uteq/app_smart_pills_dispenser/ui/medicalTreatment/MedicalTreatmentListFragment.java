@@ -9,12 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.models.Carer;
+import com.uteq.app_smart_pills_dispenser.models.Patient;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MedicalTreatmentListFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class MedicalTreatmentListFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -25,19 +23,12 @@ public class MedicalTreatmentListFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    String patient;
 
     public MedicalTreatmentListFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MedicalTreatmentListFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static MedicalTreatmentListFragment newInstance(String param1, String param2) {
         MedicalTreatmentListFragment fragment = new MedicalTreatmentListFragment();
@@ -54,6 +45,8 @@ public class MedicalTreatmentListFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            patient = getArguments().getString("id_patient");
+            System.out.println(patient);
         }
     }
 

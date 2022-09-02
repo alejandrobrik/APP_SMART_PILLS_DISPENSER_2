@@ -89,19 +89,6 @@
             android:text="Select a doctor"
             android:layout_height="60dp" />
 
-        <TextView
-            android:id="@+id/SelectPatient"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Select patient"/>
-
-        <EditText
-            android:id="@+id/txtSelectPatient"
-            android:layout_width="match_parent"
-            android:text="Select a patient"
-            android:layout_height="60dp" />
-
         <Button
             android:id="@+id/btnMedicalTreatmentDescriptionSave"
             android:layout_width="match_parent"

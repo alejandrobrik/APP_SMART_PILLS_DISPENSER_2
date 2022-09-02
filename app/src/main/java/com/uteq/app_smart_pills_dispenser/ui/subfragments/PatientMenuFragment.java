@@ -4,7 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +15,10 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
+import com.uteq.app_smart_pills_dispenser.ui.medicalTreatment.MedicalTreatmentListFragment;
+import com.uteq.app_smart_pills_dispenser.ui.patients.PatientListFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +38,7 @@ public class PatientMenuFragment extends Fragment {
     String patientGson ;
     Patient patient;
     TextView patientTitle;
+    CardView cardViewMedicalTreatment;
 
 
     public PatientMenuFragment() {
@@ -75,6 +81,18 @@ public class PatientMenuFragment extends Fragment {
         patientTitle.setText("Patient: "+ patient.getName());
 
         System.out.println("Aqui termino");
+
+        cardViewMedicalTreatment = view.findViewById(R.id.cardViewMedicalTreatment);
+        cardViewMedicalTreatment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                MedicalTreatmentListFragment medicalTreatmentListFragment = new MedicalTreatmentListFragment();
+                bundle.putString("id_patient", patient.getId());
+                medicalTreatmentListFragment.setArguments(bundle);
+                Navigation.findNavController(view).navigate(R.id.medicalTreatmentListFragment,bundle);
+            }
+        });
     }
 
     @Override
