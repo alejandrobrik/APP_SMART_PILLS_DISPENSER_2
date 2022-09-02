@@ -6,6 +6,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".ui.subfragments.PatientAddFragment">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarCarerRegister"
             android:background="@color/design_default_color_primary"
