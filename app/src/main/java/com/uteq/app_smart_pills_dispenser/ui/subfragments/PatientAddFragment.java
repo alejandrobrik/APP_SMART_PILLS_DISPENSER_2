@@ -34,7 +34,7 @@ public class PatientAddFragment extends Fragment {
 
     EditText txtname;
     Spinner  spinerGenderPatient;
-    CalendarView txtbirthdate;
+    EditText txtbirthdate;
     EditText txtpassword;
     EditText txtRepeatPassword;
     String genero;
@@ -92,13 +92,18 @@ public class PatientAddFragment extends Fragment {
             public void onClick(View view) {
                 Patient p = new Patient();
                 p.setName(txtname.getText().toString());
-                p.setBirth_date(txtbirthdate.toString());
+                p.setBirth_date(txtbirthdate.getText().toString());
                 p.setGender(genero);
                 p.setState((true));
                 p.setCarer((carerLogin));
 
                 addPatient(p);
 
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Navigation.findNavController(view).navigate(R.id.nav_patients);
 
             }
