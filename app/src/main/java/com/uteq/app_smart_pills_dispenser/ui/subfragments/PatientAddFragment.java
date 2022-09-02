@@ -1,6 +1,5 @@
 package com.uteq.app_smart_pills_dispenser.ui.subfragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,12 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,7 +21,6 @@ import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.services.PatientService;
-import com.uteq.app_smart_pills_dispenser.ui.patients.GalleryFragment;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 
 import retrofit2.Call;
@@ -37,7 +34,7 @@ public class PatientAddFragment extends Fragment {
 
     EditText txtname;
     Spinner  spinerGenderPatient;
-    EditText txtbirthdate;
+    CalendarView txtbirthdate;
     EditText txtpassword;
     EditText txtRepeatPassword;
     String genero;
@@ -95,7 +92,7 @@ public class PatientAddFragment extends Fragment {
             public void onClick(View view) {
                 Patient p = new Patient();
                 p.setName(txtname.getText().toString());
-                p.setBirth_date(txtbirthdate.getText().toString());
+                p.setBirth_date(txtbirthdate.toString());
                 p.setGender(genero);
                 p.setState((true));
                 p.setCarer((carerLogin));

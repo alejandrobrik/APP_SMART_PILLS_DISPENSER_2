@@ -1,24 +1,16 @@
 package com.uteq.app_smart_pills_dispenser.ui.patients;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,10 +20,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.adapters.PatientAdapter;
-import com.uteq.app_smart_pills_dispenser.databinding.FragmentGalleryBinding;
+import com.uteq.app_smart_pills_dispenser.databinding.FragmentPatientAddBinding;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
-import com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientAddFragment;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 
 import java.util.List;
@@ -40,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GalleryFragment extends Fragment implements  SearchView.OnQueryTextListener {
+public class PatientListFragment extends Fragment implements  SearchView.OnQueryTextListener {
 
     Button btnAddPatient;
     Button btnViewAll;
@@ -59,8 +50,8 @@ public class GalleryFragment extends Fragment implements  SearchView.OnQueryText
     private SearchView svSearchPatient;
     private PatientAdapter patientAdapter;
 
-    public GalleryFragment() {
-        super(R.layout.fragment_gallery);
+    public PatientListFragment() {
+        super(R.layout.fragment_patient_list);
     }
 
     @Override

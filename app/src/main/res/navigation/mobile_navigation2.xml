@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_patients"
-        android:name="com.uteq.app_smart_pills_dispenser.ui.patients.GalleryFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.patients.PatientListFragment"
         android:label="@string/menu_patients"
-        tools:layout="@layout/fragment_gallery" >
+        tools:layout="@layout/fragment_patient_list" >
 
 
 
@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/nav_doctors"
         android:name="com.uteq.app_smart_pills_dispenser.ui.doctors.DoctorListFragment"
-        android:label="fragment_doctor_list"
+        android:label="@string/menu_doctors"
         tools:layout="@layout/fragment_doctor_list" />
 
     <fragment
