@@ -1,19 +1,13 @@
 package com.uteq.app_smart_pills_dispenser;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,8 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.uteq.app_smart_pills_dispenser.databinding.ActivityMenuBinding;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
-import com.uteq.app_smart_pills_dispenser.ui.patients.GalleryFragment;
-import com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientAddFragment;
+import com.uteq.app_smart_pills_dispenser.ui.patients.PatientListFragment;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -65,9 +58,9 @@ public class MenuActivity extends AppCompatActivity {
 
 
        // Envar datos de un activity a fragment
-        GalleryFragment galleryFragment = new GalleryFragment();
+        PatientListFragment patientListFragment = new PatientListFragment();
         bundle.putInt("id_carer", carer.getId());
-        galleryFragment.setArguments(bundle);
+        patientListFragment.setArguments(bundle);
 
 //        FragmentManager fragmentManager = getSupportFragmentManager();
 //         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
