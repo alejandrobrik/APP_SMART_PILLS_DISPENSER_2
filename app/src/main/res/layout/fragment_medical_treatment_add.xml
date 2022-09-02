@@ -53,10 +53,24 @@
             android:textStyle="bold"
             android:text="Start date"/>
 
+        <EditText
+            android:id="@+id/txtStartDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/EndDate"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:textStyle="bold"
+            android:text="Start date"/>
 
         <EditText
-            android:id="@+id/etPlannedDate"
-            android:hint="@string/report_planned_date"
+            android:id="@+id/txtEndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
@@ -65,7 +79,7 @@
             android:maxLines="1" />
 
         <Button
-            android:id="@+id/btnPillSave"
+            android:id="@+id/btnMedicalTreatmentDescriptionSave"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:text="SAVE" />
