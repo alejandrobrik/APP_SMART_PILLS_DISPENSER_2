@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/cardViewMedicalTreatment">
+    android:id="@+id/cardViewMainMedicalTreatment">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_user"
+                android:src="@drawable/ic_medical_treatment_item"
                 app:strokeWidth="5dp"
                 android:padding="5dp"
                 app:strokeColor="@android:color/darker_gray"
@@ -43,14 +43,34 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Names:" />
+                    android:text="Description:" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
-                    android:id="@+id/tvListPillName"
+                    android:id="@+id/tvTreatmentDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <LinearLayout
+            android:gravity="top"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="Star Date:" />
+            <TextView
+                android:text="N/D"
+                android:layout_weight="1"
+                android:id="@+id/tvTreatmentStarDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
             <LinearLayout
                 android:gravity="top"
@@ -63,11 +83,11 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Description:" />
+                    android:text="End Date:" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
-                    android:id="@+id/tvListPillDescription"
+                    android:id="@+id/tvTreatmentEndDate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>

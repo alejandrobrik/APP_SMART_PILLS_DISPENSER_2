@@ -2,58 +2,149 @@ package com.uteq.app_smart_pills_dispenser.ui.medicalTreatment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.SearchView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.adapters.MedicalTreatmentAdapter;
+import com.uteq.app_smart_pills_dispenser.adapters.PatientAdapter;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
+import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
+import com.uteq.app_smart_pills_dispenser.utils.Apis;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
-public class MedicalTreatmentListFragment extends Fragment {
+public class MedicalTreatmentListFragment extends Fragment implements  SearchView.OnQueryTextListener  {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    Button btnAddPatient;
+    FloatingActionButton favNewPatient;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    String patient;
+    private int id_carer;
+    private Carer carer;
+
+    Carer carerLogin = new Carer();
+
+    private RecyclerView recyclerView;
+    private SearchView svSearchPatient;
+    private MedicalTreatmentAdapter medicalTreatmentAdapter;
 
     public MedicalTreatmentListFragment() {
-        // Required empty public constructor
-    }
-
-    // TODO: Rename and change types and number of parameters
-    public static MedicalTreatmentListFragment newInstance(String param1, String param2) {
-        MedicalTreatmentListFragment fragment = new MedicalTreatmentListFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        super(R.layout.fragment_medical_treatment_list);
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-            patient = getArguments().getString("id_patient");
-            System.out.println(patient);
+            id_carer = getArguments().getInt("id_carer", 0);
+            carer = getArguments().getParcelable("c");
         }
+
+        recyclerView = view.findViewById(R.id.reciclerviewMedicalTreatment);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this.getContext(), DividerItemDecoration.VERTICAL));
+
+        medicalTreatmentAdapter = new MedicalTreatmentAdapter();
+        recyclerView.setAdapter(medicalTreatmentAdapter);
+
+        svSearchPatient = view.findViewById(R.id.svSearchMedicalTreatment);
+
+        //Llama a un metodo del activity que toma el carer que inicio sesion
+        ((MenuActivity)getActivity()).loadData();
+
+        carerLogin = ((MenuActivity)getActivity()).loadData();
+
+
+        favNewPatient = view.findViewById(R.id.favNewMedicalTreatment);
+        favNewPatient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("id_login", carerLogin);
+
+
+                Navigation.findNavController(view).navigate(R.id.patientAddFragment,bundle);
+
+            }
+        });
+
+
+
+
+        try {
+            getMedicalTreatment();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        initListener();
+
+
+
+
+    }
+
+    public void getMedicalTreatment() throws Exception {
+
+        String id = ""+carerLogin.getId();
+        Call<List<MedicalTreatment>> medicalTreatmentList = Apis.getMedicalTreatmentService().getMedicalTreatment(id);
+
+        medicalTreatmentList.enqueue(new Callback<List<MedicalTreatment>>() {
+            @Override
+            public void onResponse(Call<List<MedicalTreatment>> call, Response<List<MedicalTreatment>> response) {
+                if(response.isSuccessful()){
+                    List <MedicalTreatment>  medicalTreatmentList = response.body();
+                    medicalTreatmentAdapter.setData(medicalTreatmentList);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<MedicalTreatment>> call, Throwable t) {
+                Log.e("faliure", t.getLocalizedMessage());
+            }
+        });
+    }
+
+    private  void initListener(){
+        svSearchPatient.setOnQueryTextListener(this);
+    }
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_medical_treatment_list, container, false);
+    public boolean onQueryTextChange(String newText) {
+
+        medicalTreatmentAdapter.filter(newText);
+        return false;
     }
 }

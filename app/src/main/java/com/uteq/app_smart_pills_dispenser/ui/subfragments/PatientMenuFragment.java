@@ -8,9 +8,11 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -39,6 +41,7 @@ public class PatientMenuFragment extends Fragment {
     Patient patient;
     TextView patientTitle;
     CardView cardViewMedicalTreatment;
+    LinearLayout linearLayout;
 
 
     public PatientMenuFragment() {
@@ -82,14 +85,18 @@ public class PatientMenuFragment extends Fragment {
 
         System.out.println("Aqui termino");
 
-        cardViewMedicalTreatment = view.findViewById(R.id.cardViewMedicalTreatment);
+        cardViewMedicalTreatment = view.findViewById(R.id.cardView);
+
+        //linearLayout = view.findViewById(R.id.linearMedical);
+
+        System.out.println("Aqui termino 2");
         cardViewMedicalTreatment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Bundle bundle = new Bundle();
-                MedicalTreatmentListFragment medicalTreatmentListFragment = new MedicalTreatmentListFragment();
-                bundle.putString("id_patient", patient.getId());
-                medicalTreatmentListFragment.setArguments(bundle);
+                bundle.putSerializable("patient", patient);
+
                 Navigation.findNavController(view).navigate(R.id.medicalTreatmentListFragment,bundle);
             }
         });

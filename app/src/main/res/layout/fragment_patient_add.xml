@@ -63,7 +63,12 @@
             <EditText
                 android:id="@+id/txtBirthDatePatient"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                android:layout_height="60dp"
+                android:maxLines="1"
+                />
 
             <TextView
                 android:id="@+id/email"
@@ -78,10 +83,13 @@
                 android:layout_height="60dp" />
 
 
+
             <Button
                 android:id="@+id/btnSavePatient"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_marginTop="90dp"
+
                 android:text="SAVE" />
 
             <Button
