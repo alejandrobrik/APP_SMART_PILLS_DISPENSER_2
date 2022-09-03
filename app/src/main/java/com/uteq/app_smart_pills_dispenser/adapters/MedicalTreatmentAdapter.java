@@ -62,20 +62,6 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
         holder.tvStartDate.setText(MoreUtils.coalesce(medicalTreatment.getStart_Date(), "N/D"));
         holder.tvEndDate.setText(MoreUtils.coalesce(medicalTreatment.getEndDate(), "N/D"));
 
-//        View.OnClickListener listener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.patientMenuFragment);
-//
-////                Intent intent = new Intent(context, EvaluadosActivity.class);
-////                Bundle b = new Bundle();
-////                b.putString("Evaluador", new Gson().toJson(data.get(holder.getAdapterPosition())));
-////                intent.putExtras(b);
-////                context.startActivity(intent);
-//                //Toast.makeText(context, evaluador.getNombres(), Toast.LENGTH_SHORT).show();
-//            }
-//        };
-//        holder.imgEvaluador.setOnClickListener(listener);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

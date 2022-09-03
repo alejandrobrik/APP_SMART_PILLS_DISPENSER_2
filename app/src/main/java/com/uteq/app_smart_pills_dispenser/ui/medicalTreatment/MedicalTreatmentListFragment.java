@@ -88,7 +88,7 @@ public class MedicalTreatmentListFragment extends Fragment implements  SearchVie
                 bundle.putSerializable("id_login", carerLogin);
 
 
-                Navigation.findNavController(view).navigate(R.id.patientAddFragment,bundle);
+                Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd,bundle);
 
             }
         });

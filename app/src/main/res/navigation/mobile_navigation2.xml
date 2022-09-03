@@ -55,7 +55,11 @@
         android:id="@+id/patientMenuFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientMenuFragment"
         android:label="fragment_patient_menu"
-        tools:layout="@layout/fragment_patient_menu" />
+        tools:layout="@layout/fragment_patient_menu" >
+        <action
+            android:id="@+id/action_patientMenuFragment_to_medicalTreatmentListFragment"
+            app:destination="@id/medicalTreatmentListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pillListFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.pills.PillListFragment"
@@ -70,5 +74,18 @@
         android:id="@+id/medicalTreatmentListFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.medicalTreatment.MedicalTreatmentListFragment"
         android:label="fragment_medical_treatment_list"
-        tools:layout="@layout/fragment_medical_treatment_list" />
+        tools:layout="@layout/fragment_medical_treatment_list" >
+        <action
+            android:id="@+id/action_medicalTreatmentListFragment_to_medicalTreatmentAdd"
+            app:destination="@id/medicalTreatmentAdd" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicalTreatmentAdd"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.medicalTreatment.MedicalTreatmentAdd"
+        android:label="fragment_medical_treatment_add"
+        tools:layout="@layout/fragment_medical_treatment_add" >
+        <action
+            android:id="@+id/action_medicalTreatmentAdd_to_nav_doctors"
+            app:destination="@id/nav_doctors" />
+    </fragment>
 </navigation>
