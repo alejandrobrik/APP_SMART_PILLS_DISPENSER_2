@@ -34,25 +34,23 @@
             app:icon="?attr/actionModeCloseDrawable" />
 
         <TextView
-            android:id="@+id/MedicalTreatmentDescription"
             android:layout_width="match_parent"
             android:layout_height="50px"
             android:textStyle="bold"
             android:text="Description"/>
 
         <EditText
-            android:id="@+id/txtMedicalTreatmentDescription"
+            android:id="@+id/txtTreatmentDescription"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
         <TextView
-            android:id="@+id/StartDate"
             android:layout_width="match_parent"
             android:layout_height="50px"
             android:textStyle="bold"
             android:text="Start date"/>
 
         <EditText
-            android:id="@+id/txtStartDate"
+            android:id="@+id/txtTreatmentStartDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
@@ -61,14 +59,13 @@
             android:maxLines="1" />
 
         <TextView
-            android:id="@+id/EndDate"
             android:layout_width="match_parent"
             android:layout_height="50px"
             android:textStyle="bold"
             android:text="End date"/>
 
         <EditText
-            android:id="@+id/txtEndDate"
+            android:id="@+id/txtTreatmentEndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
@@ -81,7 +78,6 @@
         android:orientation="horizontal"
         android:layout_height="125dp">
         <TextView
-            android:id="@+id/SelectDoctor"
             android:layout_width="100dp"
             android:layout_height="50px"
             android:textStyle="bold"
@@ -90,7 +86,6 @@
 
         <Button
             android:id="@+id/btnSelectDoctor"
-
             android:layout_width="175dp"
             android:backgroundTint="#4BAEFD"
             android:layout_marginTop="40dp"
@@ -105,7 +100,7 @@
             android:textAlignment="center"
             android:text="You have not selected any doctor" />
         <Button
-            android:id="@+id/btnMedicalTreatmentDescriptionSave"
+            android:id="@+id/btnMedicalTreatmentSave"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:text="Add Dosge" />
