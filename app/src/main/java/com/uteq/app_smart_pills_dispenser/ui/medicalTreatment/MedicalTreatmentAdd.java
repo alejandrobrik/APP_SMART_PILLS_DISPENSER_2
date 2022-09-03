@@ -2,22 +2,23 @@ package com.uteq.app_smart_pills_dispenser.ui.medicalTreatment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.uteq.app_smart_pills_dispenser.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MedicalTreatmentAdd#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class MedicalTreatmentAdd extends Fragment {
 
 
+    Button selectDoctor;
 
     public MedicalTreatmentAdd() {
         // Required empty public constructor
@@ -34,11 +35,22 @@ public class MedicalTreatmentAdd extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
 
         }
+
+        selectDoctor = view.findViewById(R.id.btnSelectDoctor);
+
+        selectDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.nav_doctors);
+            }
+        });
+
+
     }
 
     @Override
