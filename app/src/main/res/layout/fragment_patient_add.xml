@@ -1,81 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    tools:context=".ui.subfragments.PatientAddFragment">
+
+    <TextView
+        android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".ui.subfragments.PatientAddFragment">
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txtNamePatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/birthdatePatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Patient Birthday"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txtBirthDatePatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        android:inputType="date"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinerGenderPatient"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <LinearLayout
-            android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:hapticFeedbackEnabled="false"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnSavePatient"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="100px">
-            <Button
-                android:id="@+id/btnBackPatient"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80px"
-                android:text="Back"
-                app:icon="?attr/actionModeCloseDrawable" />
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="50px"
-                android:textStyle="bold"
-                android:text="Name"/>
-
-            <EditText
-                android:id="@+id/txtNamePatient"
-                android:layout_width="match_parent"
-                android:layout_height="60dp" />
-            <TextView
-                android:id="@+id/birthdatePatient"
-                android:layout_width="match_parent"
-                android:layout_height="50px"
-                android:textStyle="bold"
-                android:text="Patient Birthday"/>
-
-            <EditText
-                android:id="@+id/txtBirthDatePatient"
-                android:layout_width="match_parent"
-                android:inputType="date"
-                android:focusable="false"
-                android:clickable="true"
-                android:layout_height="60dp"
-                android:maxLines="1"
-                />
-
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="50px"
-                android:textStyle="bold"
-                android:text="Gender"/>
-
-            <Spinner
-                android:id="@+id/spinerGenderPatient"
-                android:layout_width="match_parent"
-                android:layout_height="60dp" />
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginTop="90dp"
+            android:text="SAVE" />
 
 
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/btnSavePatient"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="90dp"
-
-                android:text="SAVE" />
-
-            <Button
-                android:id="@+id/btnClean"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Clean" />
-
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
