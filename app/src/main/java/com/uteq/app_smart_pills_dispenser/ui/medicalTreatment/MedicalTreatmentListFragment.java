@@ -29,6 +29,7 @@ import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 
+import java.io.Serializable;
 import java.util.List;
 
 import retrofit2.Call;
@@ -43,6 +44,7 @@ public class MedicalTreatmentListFragment extends Fragment implements  SearchVie
 
     private int id_carer;
     private Carer carer;
+    private Patient patient;
 
     Carer carerLogin = new Carer();
 
@@ -61,6 +63,7 @@ public class MedicalTreatmentListFragment extends Fragment implements  SearchVie
         if (getArguments() != null) {
             id_carer = getArguments().getInt("id_carer", 0);
             carer = getArguments().getParcelable("c");
+            patient = (Patient) getArguments().getSerializable("patient");
         }
 
         recyclerView = view.findViewById(R.id.reciclerviewMedicalTreatment);
@@ -85,7 +88,7 @@ public class MedicalTreatmentListFragment extends Fragment implements  SearchVie
             public void onClick(View view) {
 
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("id_login", carerLogin);
+                bundle.putSerializable("patient", patient);
 
 
                 Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd,bundle);
@@ -112,7 +115,7 @@ public class MedicalTreatmentListFragment extends Fragment implements  SearchVie
 
     public void getMedicalTreatment() throws Exception {
 
-        String id = ""+carerLogin.getId();
+        String id = ""+patient.getId();
         Call<List<MedicalTreatment>> medicalTreatmentList = Apis.getMedicalTreatmentService().getMedicalTreatment(id);
 
         medicalTreatmentList.enqueue(new Callback<List<MedicalTreatment>>() {

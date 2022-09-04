@@ -13,6 +13,7 @@ public class Carer implements Serializable{
         private String password;
         private String phone_number;
         private boolean state;
+        private String url_image;
 
 
         public int getId() {
@@ -61,5 +62,13 @@ public class Carer implements Serializable{
 
         public void setState(boolean state) {
                 this.state = state;
+        }
+
+        public String getUrl_image() {
+                return url_image;
+        }
+
+        public void setUrl_image(String url_image) {
+                this.url_image = url_image;
         }
 }
