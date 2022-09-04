@@ -42,13 +42,7 @@ public class PatientAddFragment extends Fragment {
     EditText txtRepeatPassword;
     String genero;
 
-<<<<<<< HEAD
-    String[] generos = {"Male", "Femelale", "No binary"};
 
-    Button btnBack;
-=======
-    String [] generos = {"Male", "Femelale", "No binary"};
->>>>>>> fb2c571fd5b80773c1375a50fc57d3b2f6f18b62
     Button save;
 
     Carer carerLogin;
@@ -125,19 +119,12 @@ public class PatientAddFragment extends Fragment {
             }
         });
 
-<<<<<<< HEAD
-        btnBack = view.findViewById(R.id.btnBackPatient);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.nav_patients);
-            }
-        });
+
+
 
     }
-=======
-        }
->>>>>>> fb2c571fd5b80773c1375a50fc57d3b2f6f18b62
+    
+
 
     private void showDatePickerDialog() {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
