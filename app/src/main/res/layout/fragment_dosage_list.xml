@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.dosages.DosageListFragment">
+
+        <LinearLayout
+            android:id="@+id/layoutMedicalTreatmentList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <SearchView
+                android:id="@+id/svSearchDosage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reciclerviewDosage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".9" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/favNewDosage"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".1"
+                android:backgroundTint="?android:attr/colorFocusedHighlight"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@android:drawable/ic_input_add"
+                app:backgroundTint="@color/design_default_color_primary" />
+        </LinearLayout>
+    </FrameLayout>

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/border.xml" value="0.21" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2535" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_menu_camera.xml" value="0.133" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.133" />
@@ -20,12 +21,14 @@
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_prueba_menu.xml" value="0.5" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/app_bar_menu.xml" value="0.18802083333333333" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/cardview_doctor.xml" value="0.25" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/cardview_dosage.xml" value="0.25833333333333336" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/cardview_medicaltreatment.xml" value="0.25" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/cardview_pill.xml" value="0.11980749746707194" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/carview_patient.xml" value="0.2484375" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/content_menu.xml" value="0.18802083333333333" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_doctor_list.xml" value="0.12335359675785208" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_doctor_list_select.xml" value="0.27239583333333334" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_dosage_list.xml" value="0.12613981762917933" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_home.xml" value="0.24791666666666667" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_medical_treatment_add.xml" value="0.1" />

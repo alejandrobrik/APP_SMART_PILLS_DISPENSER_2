@@ -36,13 +36,13 @@ public class PatientAddFragment extends Fragment {
     PatientService service;
 
     EditText txtname;
-    Spinner  spinerGenderPatient;
+    Spinner spinerGenderPatient;
     EditText txtbirthdate;
     EditText txtpassword;
     EditText txtRepeatPassword;
     String genero;
 
-    String [] generos = {"Male", "Femelale", "No binary"};
+    String[] generos = {"Male", "Femelale", "No binary"};
 
     Button btnBack;
     Button save;
@@ -69,7 +69,7 @@ public class PatientAddFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                        showDatePickerDialog();
+                showDatePickerDialog();
 
             }
         });
@@ -77,7 +77,7 @@ public class PatientAddFragment extends Fragment {
 
         spinerGenderPatient = (Spinner) view.findViewById(R.id.spinerGenderPatient);
 
-        ArrayAdapter<CharSequence> adapter =  ArrayAdapter.createFromResource(getContext(),R.array.combo_gender, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.combo_gender, android.R.layout.simple_spinner_item);
 
         spinerGenderPatient.setAdapter(adapter);
         spinerGenderPatient.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -96,7 +96,6 @@ public class PatientAddFragment extends Fragment {
 
         txtpassword = view.findViewById(R.id.txtpassword);
         txtRepeatPassword = view.findViewById(R.id.txtrepeatPassword);
-
 
 
         save = view.findViewById(R.id.btnSavePatient);
@@ -131,55 +130,55 @@ public class PatientAddFragment extends Fragment {
             }
         });
 
-        }
+    }
 
     private void showDatePickerDialog() {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because January is zero
+                month = month +1;
+                String monthParse;
+                String dayParse;
                 String selectedDate;
-                if(day >9 && month>9) {
-                    selectedDate = year + "-" + (month + 1) + "-" + day;
-                }else{
-                    if (day <9 && month>9)
-                        selectedDate = year + "-" + (month+1) + "-0" + day;
-                    else if (month < 9 && day>9)
-                        selectedDate = year + "-0" + (month+1) + "-" + day;
-                    else
-                        selectedDate = year + "-0" + (month+1) + "-0" + day;
-                }
+
+                if (month <10)
+                    monthParse = "0"+month;
+                else
+                    monthParse = ""+month;
+                if (day < 10)
+                    dayParse = "0"+day;
+                else
+                    dayParse = ""+day;
+                selectedDate = (year + "-" +monthParse +"-" + dayParse);
 
                 txtbirthdate.setText(selectedDate);
+
             }
         });
 
         newFragment.show(getChildFragmentManager(), "datePicker");
     }
 
-
-
-
-            public void addPatient(Patient p)
-    {
+    public void addPatient(Patient p) {
         service = Apis.getPatientService();
         Call<Patient> call = service.addPatient(p);
 
         call.enqueue(new Callback<Patient>() {
             @Override
             public void onResponse(Call<Patient> call, Response<Patient> response) {
-                if(response!=null) {
-                    Toast.makeText(getContext(), "Successful registration.",Toast.LENGTH_LONG).show();
+                if (response != null) {
+                    Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Patient> call, Throwable t) {
-                Log.e("Error:",t.getMessage());
+                Log.e("Error:", t.getMessage());
 
             }
         });
     }
-    }
+}
 
 
