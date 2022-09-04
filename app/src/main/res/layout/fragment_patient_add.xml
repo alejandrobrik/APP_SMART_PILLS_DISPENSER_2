@@ -7,98 +7,59 @@
         android:orientation="vertical"
         tools:context=".ui.subfragments.PatientAddFragment">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarCarerRegister"
-            android:background="@color/design_default_color_primary"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10px">
+
+        <TextView
+            android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="PATIENT REGISTER"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="120dp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <LinearLayout
-            android:orientation="vertical"
+        <EditText
+            android:id="@+id/txtNamePatient"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="100px">
-            <Button
-                android:id="@+id/btnBackPatient"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80px"
-                android:text="Back"
-                app:icon="?attr/actionModeCloseDrawable" />
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="50px"
-                android:textStyle="bold"
-                android:text="Name"/>
+            android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/txtNamePatient"
-                android:layout_width="match_parent"
-                android:layout_height="60dp" />
-            <TextView
-                android:id="@+id/birthdatePatient"
-                android:layout_width="match_parent"
-                android:layout_height="50px"
-                android:textStyle="bold"
-                android:text="Patient Birthday"/>
+        <TextView
+            android:id="@+id/birthdatePatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Patient Birthday"
+            android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/txtBirthDatePatient"
-                android:layout_width="match_parent"
-                android:inputType="date"
-                android:focusable="false"
-                android:clickable="true"
-                android:layout_height="60dp"
-                android:maxLines="1"
-                />
+        <EditText
+            android:id="@+id/txtBirthDatePatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="date"
+            android:maxLines="1" />
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="50px"
-                android:textStyle="bold"
-                android:text="Gender"/>
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/spinerGenderPatient"
-                android:layout_width="match_parent"
-                android:layout_height="60dp" />
+        <Spinner
+            android:id="@+id/spinerGenderPatient"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
 
+        <Button
+            android:id="@+id/btnSavePatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:text="SAVE" />
 
-
-            <Button
-                android:id="@+id/btnSavePatient"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="90dp"
-
-                android:text="SAVE" />
-
-            <Button
-                android:id="@+id/btnClean"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Clean" />
-
-
-        </LinearLayout>
+    </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
