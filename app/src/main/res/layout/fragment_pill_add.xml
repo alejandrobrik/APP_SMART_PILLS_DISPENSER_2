@@ -1,74 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.pills.PillAddFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarPillRegister"
-        android:background="@color/design_default_color_primary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="PILL REGISTER"
-                android:textColor="@color/white"
-                android:layout_marginLeft="120dp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="100px">
-        <Button
-            android:id="@+id/btnBackPill"
-            android:layout_width="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80px"
-            android:text="Back"
-            app:icon="?attr/actionModeCloseDrawable" />
-        <TextView
-            android:id="@+id/pillName"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Name"/>
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="30dp">
 
-        <EditText
-            android:id="@+id/txtAddPillName"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
+                <TextView
+                    android:id="@+id/pillName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/pillDescription"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Description"/>
+                <EditText
+                    android:id="@+id/txtAddPillName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/txtAddPillDescription"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
-        <Button
-            android:id="@+id/btnPillSave"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="SAVE" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/pillDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textStyle="bold" />
 
-</FrameLayout>
+                <EditText
+                    android:id="@+id/txtAddPillDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom|center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnPillSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SAVE" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
