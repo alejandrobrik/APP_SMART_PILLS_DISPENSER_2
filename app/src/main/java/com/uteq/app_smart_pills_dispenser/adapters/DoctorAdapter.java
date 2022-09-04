@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Doctor;
+import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.utils.MoreUtils;
 
@@ -26,6 +27,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder> {
+
+    private MedicalTreatment treatment;
 
     private List<Doctor> data = new ArrayList<>();
     private  List<Doctor> originalData = new ArrayList<>();
@@ -40,6 +43,15 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
         this.originalData.addAll(data);
         notifyDataSetChanged();
     }
+
+    public void setData(List<Doctor> data, MedicalTreatment treatment) {
+        this.data = data;
+        this.originalData.addAll(data);
+        this.treatment = treatment;
+        notifyDataSetChanged();
+    }
+
+
     @NonNull
     @Override
     public DoctorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -60,20 +72,24 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
         holder.tvDirection.setText(MoreUtils.coalesce(doctor.getDirection(),"N/D"));
 
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Bundle b = new Bundle();
-                        b.putSerializable("doctor",new Gson().toJson(data.get(holder.getAdapterPosition())));
+        if (this.treatment != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle b = new Bundle();
+                    b.putSerializable("doctor", new Gson().toJson(data.get(holder.getAdapterPosition())));
+                    b.putSerializable("treatment",treatment);
 
-                        try {
-                            Thread.sleep(250);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd,b);
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                });
+                    Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd, b);
+                }
+            });
+
+        }
 
     }
 

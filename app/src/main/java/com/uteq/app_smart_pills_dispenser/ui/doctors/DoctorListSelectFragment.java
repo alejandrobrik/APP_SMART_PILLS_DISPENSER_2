@@ -29,6 +29,7 @@ import com.uteq.app_smart_pills_dispenser.adapters.PatientAdapter;
 import com.uteq.app_smart_pills_dispenser.databinding.FragmentHomeBinding;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Doctor;
+import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 
@@ -47,6 +48,8 @@ public class DoctorListSelectFragment extends Fragment implements SearchView.OnQ
 
     private int id_carer;
     private Carer carer;
+    private MedicalTreatment treatment;
+    private Patient patient;
 
     Carer carerLogin = new Carer();
 
@@ -68,6 +71,8 @@ public class DoctorListSelectFragment extends Fragment implements SearchView.OnQ
         if (getArguments() != null) {
             id_carer = getArguments().getInt("id_carer", 0);
             carer = getArguments().getParcelable("c");
+            treatment = (MedicalTreatment) getArguments().getSerializable("treatment");
+            patient = (Patient) getArguments().getSerializable("patient");
         }
 
         recyclerView = view.findViewById(R.id.reciclerviewDoctor);
@@ -125,7 +130,7 @@ public class DoctorListSelectFragment extends Fragment implements SearchView.OnQ
             public void onResponse(Call<List<Doctor>> call, Response<List<Doctor>> response) {
                 if(response.isSuccessful()){
                     List <Doctor>  doctors = response.body();
-                    doctorAdapter.setData(doctors);
+                    doctorAdapter.setData(doctors, treatment);
                 }
             }
 

@@ -39,6 +39,10 @@ public class MedicalTreatmentAdd extends Fragment {
     String doctorGson, patientGson;
     Doctor doctor;
     Patient patient;
+
+    MedicalTreatment mt;
+    MedicalTreatment mtCardview;
+
     Boolean stateDate;
     EditText txtDescription;
     EditText txtStartDate;
@@ -56,8 +60,15 @@ public class MedicalTreatmentAdd extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
-            patientGson = getArguments().getString("patient");
+            //  patientGson = getArguments().getString("patient");
             doctorGson = getArguments().getString("doctor");
+
+            patient = (Patient) getArguments().getSerializable("patient");
+
+
+
+
+            mtCardview = (MedicalTreatment) getArguments().getSerializable("treatment");
 
 
             doctor = new Gson().fromJson(doctorGson, Doctor.class);
@@ -66,7 +77,11 @@ public class MedicalTreatmentAdd extends Fragment {
 
             if (doctor != null)
                 tvNameSelectedDoctor.setText("The doctor selected is: " + doctor.getName());
+            if(patient == null)
+                patient = mtCardview.getPatient();
         }
+
+
 
 
         txtDescription = view.findViewById(R.id.txtTreatmentDescription);
@@ -93,7 +108,14 @@ public class MedicalTreatmentAdd extends Fragment {
         btnSelectDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.doctorListSelectFragment);
+                mt = new MedicalTreatment();
+                mt.setDescription(txtDescription.getText().toString());
+                mt.setStart_Date(txtStartDate.getText().toString());
+                mt.setEndDate(txtEndDate.getText().toString());
+                mt.setPatient(patient);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("treatment", mt);
+                Navigation.findNavController(view).navigate(R.id.doctorListSelectFragment,bundle);
             }
         });
 
@@ -101,11 +123,11 @@ public class MedicalTreatmentAdd extends Fragment {
         btnAddDosages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MedicalTreatment mt = new MedicalTreatment();
+                mt = new MedicalTreatment();
                 mt.setDescription(txtDescription.getText().toString());
                 mt.setStart_Date(txtStartDate.getText().toString());
                 mt.setEndDate(txtEndDate.getText().toString());
-                mt.setPatient(patient);
+                mt.setPatient(mtCardview.getPatient());
                 mt.setDoctor(doctor);
                 addMedicalTreatment(mt);
 
@@ -117,6 +139,12 @@ public class MedicalTreatmentAdd extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.nav_home);
             }
         });
+
+        if (mtCardview!=null){
+                txtDescription.setText(mtCardview.getDescription());
+                txtStartDate.setText(mtCardview.getStart_Date());
+                txtEndDate.setText(mtCardview.getEndDate());
+        }
 
 
     }

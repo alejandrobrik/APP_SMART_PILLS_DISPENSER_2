@@ -3,8 +3,11 @@ package com.uteq.app_smart_pills_dispenser;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -18,6 +21,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.uteq.app_smart_pills_dispenser.databinding.ActivityMenuBinding;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.ui.patients.PatientListFragment;
+import com.uteq.app_smart_pills_dispenser.utils.MoreUtils;
+
+import java.util.Locale;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -26,6 +32,7 @@ public class MenuActivity extends AppCompatActivity {
     private ActivityMenuBinding binding;
 
     private TextView tvNameCarerMenu, tvEmailCarerMenu;
+    private ShapeableImageView navHeaderImageView;
 
     Carer carer;
 
@@ -40,6 +47,7 @@ public class MenuActivity extends AppCompatActivity {
 
         String name = carer.getName();
         String email = carer.getEmail();
+        String image = carer.getUrl_image();
 
 
 
@@ -53,7 +61,17 @@ public class MenuActivity extends AppCompatActivity {
 
         tvNameCarerMenu.setText("NAME: "+ name.toString());
 
-        tvEmailCarerMenu.setText("EMAIL: "+email.toString());
+        tvEmailCarerMenu.setText("EMAIL: "+email.toLowerCase(Locale.ROOT));
+
+        navHeaderImageView = vistaHeader.findViewById((R.id.imvCarer));
+
+        Glide.with(this)
+                .load(image)
+                .error(R.drawable.ic_user)
+                .into(navHeaderImageView);
+
+
+
 
 
 

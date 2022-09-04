@@ -1,5 +1,6 @@
 package com.uteq.app_smart_pills_dispenser.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Data;
@@ -7,21 +8,21 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class MedicalTreatment {
-    private int id;
+public class MedicalTreatment implements Serializable {
+    private String id;
     private String description;
     private String registration_date;
-    private String start_Date;
+    private String startDate;
     private String endDate;
     private Boolean state;
     Doctor doctor;
     Patient patient;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -42,11 +43,11 @@ public class MedicalTreatment {
     }
 
     public String getStart_Date() {
-        return start_Date;
+        return startDate;
     }
 
     public void setStart_Date(String start_Date) {
-        this.start_Date = start_Date;
+        this.startDate = start_Date;
     }
 
     public String getEndDate() {
