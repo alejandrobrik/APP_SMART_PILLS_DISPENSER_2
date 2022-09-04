@@ -19,6 +19,7 @@
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_pill_add.xml" value="0.3125" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_prueba_menu.xml" value="0.5" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/app_bar_menu.xml" value="0.18802083333333333" />
+        <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/cardview_doctor.xml" value="0.25" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/cardview_medicaltreatment.xml" value="0.25" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/cardview_pill.xml" value="0.11980749746707194" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/carview_patient.xml" value="0.2484375" />
@@ -46,7 +47,7 @@
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2835" />
         <entry key="..\:/ProyectoFinalDistribuidasMovilDefinitive/APP_SMART_PILLS_DISPENSER/app/src/main/res/xml/root_preferences.xml" value="0.25" />
         <entry key="..\:/Users/jonat/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_main.xml" value="0.17" />
+        <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_medical_treatment.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/activity_patient.xml" value="0.20416666666666666" />
@@ -62,7 +63,7 @@
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_medical_treatment_add.xml" value="0.33" />
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_medical_treatment_list.xml" value="0.13854166666666667" />
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_menu_patient.xml" value="0.1" />
-        <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_patient_add.xml" value="0.25" />
+        <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_patient_add.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_patient_list.xml" value="0.13854166666666667" />
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_patient_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/linja/AndroidStudioProjects/APP_SMART_PILLS_DISPENSER/app/src/main/res/layout/fragment_pill_add.xml" value="0.1" />
