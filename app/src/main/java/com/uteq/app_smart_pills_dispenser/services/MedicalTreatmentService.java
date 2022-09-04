@@ -15,6 +15,6 @@ public interface MedicalTreatmentService {
     @GET("api/patient/medical-treatments/{id}")
     Call<List<MedicalTreatment>> getMedicalTreatment(@Path("id") String id);
 
-    @POST("api/patient")
+    @POST("api/medical-treatment")
     Call<MedicalTreatment>addMedicalTreatment(@Body MedicalTreatment medicalTreatment);
 }
