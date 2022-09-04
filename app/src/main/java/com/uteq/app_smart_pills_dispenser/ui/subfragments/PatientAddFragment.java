@@ -43,10 +43,7 @@ public class PatientAddFragment extends Fragment {
     String genero;
 
     String [] generos = {"Male", "Femelale", "No binary"};
-
-    Button btnBack;
     Button save;
-    Button btnClean;
 
     Carer carerLogin;
 
@@ -120,14 +117,6 @@ public class PatientAddFragment extends Fragment {
                 }
                 Navigation.findNavController(view).navigate(R.id.nav_patients);
 
-            }
-        });
-
-        btnBack = view.findViewById(R.id.btnBackPatient);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.nav_patients);
             }
         });
 
