@@ -100,5 +100,14 @@
         android:id="@+id/dosageListFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.dosages.DosageListFragment"
         android:label="fragment_dosage_list"
-        tools:layout="@layout/fragment_dosage_list" />
+        tools:layout="@layout/fragment_dosage_list" >
+        <action
+            android:id="@+id/action_dosageListFragment_to_dosageAddFragment"
+            app:destination="@id/dosageAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dosageAddFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.dosages.DosageAddFragment"
+        android:label="fragment_dosage_add"
+        tools:layout="@layout/fragment_dosage_add" />
 </navigation>
