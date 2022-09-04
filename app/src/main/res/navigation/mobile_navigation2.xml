@@ -45,8 +45,8 @@
     <fragment
         android:id="@+id/patientAddFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientAddFragment"
-        android:label="fragment_patient_add"
-        tools:layout="@layout/fragment_patient_add" >
+        android:label="Patient Registration"
+        tools:layout="@layout/fragment_patient_add">
         <action
             android:id="@+id/action_patientAddFragment_to_nav_patients"
             app:destination="@id/nav_patients" />
@@ -54,8 +54,8 @@
     <fragment
         android:id="@+id/patientMenuFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientMenuFragment"
-        android:label="fragment_patient_menu"
-        tools:layout="@layout/fragment_patient_menu" >
+        android:label="Menu Patient"
+        tools:layout="@layout/fragment_patient_menu">
         <action
             android:id="@+id/action_patientMenuFragment_to_medicalTreatmentListFragment"
             app:destination="@id/medicalTreatmentListFragment" />
@@ -68,13 +68,13 @@
     <fragment
         android:id="@+id/pillAddFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.pills.PillAddFragment"
-        android:label="fragment_pill_add"
+        android:label="Pill Registration"
         tools:layout="@layout/fragment_pill_add" />
     <fragment
         android:id="@+id/medicalTreatmentListFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.medicalTreatment.MedicalTreatmentListFragment"
-        android:label="fragment_medical_treatment_list"
-        tools:layout="@layout/fragment_medical_treatment_list" >
+        android:label="Medical Treatment"
+        tools:layout="@layout/fragment_medical_treatment_list">
         <action
             android:id="@+id/action_medicalTreatmentListFragment_to_medicalTreatmentAdd"
             app:destination="@id/medicalTreatmentAdd" />
@@ -82,8 +82,8 @@
     <fragment
         android:id="@+id/medicalTreatmentAdd"
         android:name="com.uteq.app_smart_pills_dispenser.ui.medicalTreatment.MedicalTreatmentAdd"
-        android:label="fragment_medical_treatment_add"
-        tools:layout="@layout/fragment_medical_treatment_add" >
+        android:label="Medical Treatment Registration"
+        tools:layout="@layout/fragment_medical_treatment_add">
         <action
             android:id="@+id/action_medicalTreatmentAdd_to_doctorListSelectFragment"
             app:destination="@id/doctorListSelectFragment" />
@@ -91,6 +91,6 @@
     <fragment
         android:id="@+id/doctorListSelectFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.doctors.DoctorListSelectFragment"
-        android:label="fragment_doctor_list_select"
+        android:label="Doctor"
         tools:layout="@layout/fragment_doctor_list_select" />
 </navigation>

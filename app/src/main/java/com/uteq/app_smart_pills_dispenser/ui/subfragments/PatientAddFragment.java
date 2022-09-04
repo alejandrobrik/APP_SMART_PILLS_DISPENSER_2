@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.uteq.app_smart_pills_dispenser.MainActivity;
+import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
@@ -54,7 +56,6 @@ public class PatientAddFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         if (getArguments() != null) {
             carerLogin = (Carer) getArguments().get("id_login");
         }
