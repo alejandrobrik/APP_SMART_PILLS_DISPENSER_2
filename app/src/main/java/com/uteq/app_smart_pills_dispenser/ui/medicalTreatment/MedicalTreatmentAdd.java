@@ -136,7 +136,7 @@ public class MedicalTreatmentAdd extends Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Navigation.findNavController(view).navigate(R.id.nav_home);
+                Navigation.findNavController(view).navigate(R.id.dosageListFragment);
             }
         });
 
@@ -162,17 +162,21 @@ public class MedicalTreatmentAdd extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because January is zero
+                // +1 because January is zero
+                month = month +1;
+                String monthParse;
+                String dayParse;
                 String selectedDate;
-                if (day > 9 && month > 9) {
-                    selectedDate = year + "-" + (month + 1) + "-" + day;
-                } else {
-                    if (day < 9 && month > 9)
-                        selectedDate = year + "-" + (month + 1) + "-0" + day;
-                    else if (month < 9 && day > 9)
-                        selectedDate = year + "-0" + (month + 1) + "-" + day;
-                    else
-                        selectedDate = year + "-0" + (month + 1) + "-0" + day;
-                }
+
+                if (month <10)
+                    monthParse = "0"+month;
+                else
+                    monthParse = ""+month;
+                if (day < 10)
+                    dayParse = "0"+day;
+                else
+                    dayParse = ""+day;
+                selectedDate = (year + "-" +monthParse +"-" + dayParse);
 
                 if (stateDate)
                     txtStartDate.setText(selectedDate);

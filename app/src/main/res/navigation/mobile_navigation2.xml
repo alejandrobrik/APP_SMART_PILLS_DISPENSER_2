@@ -87,10 +87,18 @@
         <action
             android:id="@+id/action_medicalTreatmentAdd_to_doctorListSelectFragment"
             app:destination="@id/doctorListSelectFragment" />
+        <action
+            android:id="@+id/action_medicalTreatmentAdd_to_dosageListFragment"
+            app:destination="@id/dosageListFragment" />
     </fragment>
     <fragment
         android:id="@+id/doctorListSelectFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.doctors.DoctorListSelectFragment"
         android:label="Doctor"
         tools:layout="@layout/fragment_doctor_list_select" />
+    <fragment
+        android:id="@+id/dosageListFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.dosages.DosageListFragment"
+        android:label="fragment_dosage_list"
+        tools:layout="@layout/fragment_dosage_list" />
 </navigation>
