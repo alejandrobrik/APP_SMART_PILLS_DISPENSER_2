@@ -85,7 +85,12 @@
         android:label="fragment_medical_treatment_add"
         tools:layout="@layout/fragment_medical_treatment_add" >
         <action
-            android:id="@+id/action_medicalTreatmentAdd_to_nav_doctors"
-            app:destination="@id/nav_doctors" />
+            android:id="@+id/action_medicalTreatmentAdd_to_doctorListSelectFragment"
+            app:destination="@id/doctorListSelectFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/doctorListSelectFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.doctors.DoctorListSelectFragment"
+        android:label="fragment_doctor_list_select"
+        tools:layout="@layout/fragment_doctor_list_select" />
 </navigation>

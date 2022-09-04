@@ -64,14 +64,14 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
                     @Override
                     public void onClick(View view) {
                         Bundle b = new Bundle();
-                        b.putSerializable("patient",new Gson().toJson(data.get(holder.getAdapterPosition())));
+                        b.putSerializable("doctor",new Gson().toJson(data.get(holder.getAdapterPosition())));
 
                         try {
                             Thread.sleep(250);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        Navigation.findNavController(view).navigate(R.id.patientMenuFragment,b);
+                        Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd,b);
                     }
                 });
 
