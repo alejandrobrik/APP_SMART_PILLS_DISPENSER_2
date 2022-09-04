@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dosages.DosageAddFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarCarerRegister"
+            android:background="@color/design_default_color_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="100px">
+
+            <Button
+                android:id="@+id/btnPillBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80px"
+                android:text="Back"
+                app:icon="?attr/actionModeCloseDrawable" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50px"
+                android:textStyle="bold"
+                android:text="Description"/>
+
+            <EditText
+                android:id="@+id/txtTreatmentDescription"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50px"
+                android:textStyle="bold"
+                android:text="Start date"/>
+
+            <EditText
+                android:id="@+id/txtTreatmentStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                android:maxLines="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50px"
+                android:textStyle="bold"
+                android:text="End date"/>
+
+            <EditText
+                android:id="@+id/txtTreatmentEndDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                android:maxLines="1" />
+            <LinearLayout
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="125dp">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50px"
+                    android:textStyle="bold"
+                    android:layout_marginTop="40dp"
+                    android:text="Select Pill: "/>
+
+                <Button
+                    android:id="@+id/btnSelectDoctor"
+                    android:layout_width="175dp"
+                    android:backgroundTint="#4BAEFD"
+                    android:layout_marginTop="40dp"
+                    android:text="Choose "
+                    android:layout_height="50dp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvNameSelectedDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="You have not selected any pill" />
+            <Button
+                android:id="@+id/btnMedicalTreatmentSave"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Save Dosage" />
+
+        </LinearLayout>
+
+    </FrameLayout>
