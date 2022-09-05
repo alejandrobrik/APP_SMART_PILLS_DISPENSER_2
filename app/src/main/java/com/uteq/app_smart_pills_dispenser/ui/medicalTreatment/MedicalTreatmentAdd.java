@@ -66,8 +66,6 @@ public class MedicalTreatmentAdd extends Fragment {
             patient = (Patient) getArguments().getSerializable("patient");
 
 
-
-
             mtCardview = (MedicalTreatment) getArguments().getSerializable("treatment");
 
 

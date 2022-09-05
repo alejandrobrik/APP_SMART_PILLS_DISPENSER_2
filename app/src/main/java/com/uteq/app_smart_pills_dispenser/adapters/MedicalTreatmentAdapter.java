@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.models.Dosage;
 import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.utils.MoreUtils;
@@ -30,6 +31,8 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatmentAdapter.MedicalTreatmentViewHolder> {
+
+    private Dosage dosage;
 
     private List<MedicalTreatment> data = new ArrayList<>();
     private List<MedicalTreatment> originalData = new ArrayList<>();
@@ -42,6 +45,13 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
     public void setData(List<MedicalTreatment> data) {
         this.data = data;
         this.originalData.addAll(data);
+        notifyDataSetChanged();
+    }
+
+    public void setData(List<MedicalTreatment> data, Dosage dosage) {
+        this.data = data;
+        this.originalData.addAll(data);
+        this.dosage = dosage;
         notifyDataSetChanged();
     }
 

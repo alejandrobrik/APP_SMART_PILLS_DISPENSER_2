@@ -5,24 +5,26 @@ import java.util.Date;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import retrofit2.http.Body;
 
 @Data
 @NoArgsConstructor
 public class Dosage implements Serializable {
-    private int id;
+    private String id;
     private String registration_date;
     private String endDate;
     private String starDate;
     private int quantity;
+    private Boolean state;
     private String hour;
     private MedicalTreatment medicalTreatment;
     private Pill pill;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -56,6 +58,14 @@ public class Dosage implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Boolean getState() {
+        return state;
+    }
+
+    public void setState(Boolean state) {
+        this.state = state;
     }
 
     public String getHour() {

@@ -39,7 +39,7 @@ public class DosageAddFragment extends Fragment {
 
     DosageService service;
 
-    String doctorGson, patientGson;
+    String pillGson, patientGson;
     Pill pill;
     MedicalTreatment medicalTreatment;
 
@@ -64,7 +64,7 @@ public class DosageAddFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
             //  patientGson = getArguments().getString("patient");
-            doctorGson = getArguments().getString("doctor");
+            pillGson = getArguments().getString("pill");
 
             medicalTreatment = (MedicalTreatment) getArguments().getSerializable("treatment");
 
@@ -72,9 +72,9 @@ public class DosageAddFragment extends Fragment {
             dosageCardview = (Dosage) getArguments().getSerializable("dosage");
 
 
-            pill = new Gson().fromJson(doctorGson, Pill.class);
+            pill = new Gson().fromJson(pillGson, Pill.class);
 
-            tvNameSelectedPill = view.findViewById(R.id.tvNameSelectedDoctor);
+            tvNameSelectedPill = view.findViewById(R.id.tvNameSelectedPill);
 
             if (pill != null)
                 tvNameSelectedPill.setText("The doctor selected is: " + pill.getName());
@@ -83,6 +83,7 @@ public class DosageAddFragment extends Fragment {
         }
 
         txtHorus = view.findViewById(R.id.txtDosageHours);
+        txtQuantity = view.findViewById(R.id.txtDosageQuantity);
         txtStartDate = view.findViewById(R.id.txtDosageStartDate);
         txtStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,11 +107,20 @@ public class DosageAddFragment extends Fragment {
         btnSelectPill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("antes de la desgracia");
+                int cantidad;
+                if (txtQuantity.getText().toString().isEmpty())
+                    cantidad = 0;
+                else
+                    cantidad = Integer.parseInt(txtQuantity.getText().toString());
+
                 dosage = new Dosage();
                 dosage.setHour(txtHorus.getText().toString());
                 dosage.setStarDate(txtStartDate.getText().toString());
                 dosage.setEndDate(txtEndDate.getText().toString());
-                dosage.setQuantity(Integer.parseInt(txtQuantity.getText().toString()));
+                dosage.setQuantity(cantidad);
+                int palomita = 512;
+                System.out.println(palomita);
                 dosage.setMedicalTreatment(medicalTreatment);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("dosage", dosage);
@@ -122,11 +132,17 @@ public class DosageAddFragment extends Fragment {
         btnAddDosages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int cantidad;
+                if (txtQuantity.getText().toString().isEmpty())
+                    cantidad = 0;
+                else
+                    cantidad = Integer.parseInt(txtQuantity.getText().toString());
+
                 dosage = new Dosage();
                 dosage.setHour(txtHorus.getText().toString());
                 dosage.setStarDate(txtStartDate.getText().toString());
                 dosage.setEndDate(txtEndDate.getText().toString());
-                dosage.setQuantity(Integer.parseInt(txtQuantity.getText().toString()));
+                dosage.setQuantity(cantidad);
                 dosage.setMedicalTreatment(dosageCardview.getMedicalTreatment());
                 dosage.setPill(pill);
                 addDosage(dosage);
