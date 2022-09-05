@@ -51,9 +51,7 @@ public class PillListFragment extends Fragment {
         pillAdapter = new PillAdapter();
         recyclerView.setAdapter(pillAdapter);
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.setReorderingAllowed(true);
+
 
         favAddPill = view.findViewById(R.id.favAddPill);
         favAddPill.setOnClickListener(new View.OnClickListener() {

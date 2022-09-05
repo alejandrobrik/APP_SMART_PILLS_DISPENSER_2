@@ -37,10 +37,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50px"
                 android:textStyle="bold"
-                android:text="Description"/>
+                android:text="Hours Dosage description"/>
 
             <EditText
-                android:id="@+id/txtTreatmentDescription"
+                android:id="@+id/txtDosageHours"
                 android:layout_width="match_parent"
                 android:layout_height="60dp" />
             <TextView
@@ -50,7 +50,7 @@
                 android:text="Start date"/>
 
             <EditText
-                android:id="@+id/txtTreatmentStartDate"
+                android:id="@+id/txtDosageStartDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -65,10 +65,24 @@
                 android:text="End date"/>
 
             <EditText
-                android:id="@+id/txtTreatmentEndDate"
+                android:id="@+id/txtDosageEndDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                android:maxLines="1" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50px"
+                android:textStyle="bold"
+                android:text="Quantity"/>
+
+            <EditText
+                android:id="@+id/txtDosageQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
                 android:focusable="false"
                 android:clickable="true"
                 android:maxLines="1" />
@@ -85,7 +99,7 @@
                     android:text="Select Pill: "/>
 
                 <Button
-                    android:id="@+id/btnSelectDoctor"
+                    android:id="@+id/btnSelectPill"
                     android:layout_width="175dp"
                     android:backgroundTint="#4BAEFD"
                     android:layout_marginTop="40dp"
@@ -93,14 +107,14 @@
                     android:layout_height="50dp" />
             </LinearLayout>
             <TextView
-                android:id="@+id/tvNameSelectedDoctor"
+                android:id="@+id/tvNameSelectedPill"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:text="You have not selected any pill" />
             <Button
-                android:id="@+id/btnMedicalTreatmentSave"
+                android:id="@+id/btnSaveDosage"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:text="Save Dosage" />

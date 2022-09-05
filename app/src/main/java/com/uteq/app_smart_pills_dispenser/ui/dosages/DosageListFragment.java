@@ -42,10 +42,11 @@ import retrofit2.Response;
 public class DosageListFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     Button btnAddPatient;
-    FloatingActionButton favNewPatient;
+    FloatingActionButton favNewDosage;
 
     private int id_carer;
     private Carer carer;
+    MedicalTreatment treatment;
     private Patient patient;
 
     Carer carerLogin = new Carer();
@@ -66,7 +67,7 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
         if (getArguments() != null) {
             id_carer = getArguments().getInt("id_carer", 0);
             carer = getArguments().getParcelable("c");
-            patient = (Patient) getArguments().getSerializable("patient");
+            treatment = (MedicalTreatment) getArguments().getSerializable("treatment");
         }
 
         recyclerView = view.findViewById(R.id.reciclerviewDosage);
@@ -85,16 +86,15 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
         carerLogin = ((MenuActivity)getActivity()).loadData();
 
 
-        favNewPatient = view.findViewById(R.id.favNewDosage);
-        favNewPatient.setOnClickListener(new View.OnClickListener() {
+        favNewDosage = view.findViewById(R.id.favNewDosage);
+        favNewDosage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("patient", patient);
+                bundle.putSerializable("treatment", treatment);
 
-
-                Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd,bundle);
+                Navigation.findNavController(view).navigate(R.id.dosageAddFragment,bundle);
 
             }
         });
