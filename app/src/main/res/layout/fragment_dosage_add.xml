@@ -18,9 +18,10 @@
             android:id="@+id/tvTreamentCode"
             android:layout_width="match_parent"
             android:layout_height="50px"
-            android:textStyle="bold"
             android:gravity="end"
-            android:text="Aqui va el codigo"/>
+            android:text="Aqui va el codigo"
+            android:textStyle="bold"
+            android:visibility="invisible" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50px"

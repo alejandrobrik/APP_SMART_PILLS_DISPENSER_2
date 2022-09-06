@@ -54,6 +54,7 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
     private RecyclerView recyclerView;
     private SearchView svSearchDosage;
     private DosageAdapter dosageAdapter;
+    private Dosage dosage;
 
     public DosageListFragment() {
         // Required empty public constructor
@@ -68,6 +69,10 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
             id_carer = getArguments().getInt("id_carer", 0);
             carer = getArguments().getParcelable("c");
             treatment = (MedicalTreatment) getArguments().getSerializable("treatment");
+            dosage = (Dosage) getArguments().getSerializable("dosage");
+            if (treatment == null)
+                treatment = dosage.getMedicalTreatment();
+
         }
 
         recyclerView = view.findViewById(R.id.reciclerviewDosage);

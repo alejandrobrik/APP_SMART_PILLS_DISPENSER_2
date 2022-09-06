@@ -204,7 +204,9 @@ public class DosageAddFragment extends Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Navigation.findNavController(view).navigate(R.id.dosageListFragment);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("dosage", dosage);
+                Navigation.findNavController(view).navigate(R.id.dosageListFragment, bundle);
             }
         });
 
