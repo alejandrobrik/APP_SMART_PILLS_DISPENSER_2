@@ -73,7 +73,7 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
         holder.tvEndDate.setText(MoreUtils.coalesce(medicalTreatment.getEndDate(), "N/D"));
 
 
-        if(this.dosage != null){
+/*        if(this.dosage != null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -104,7 +104,7 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
                     Navigation.findNavController(view).navigate(R.id.patientMenuFragment, b);
                 }
             });
-        }
+        }*/
 
     }
 

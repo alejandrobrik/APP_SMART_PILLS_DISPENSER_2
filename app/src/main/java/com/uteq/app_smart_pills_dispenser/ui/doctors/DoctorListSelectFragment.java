@@ -97,9 +97,9 @@ public class DoctorListSelectFragment extends Fragment implements SearchView.OnQ
             public void onClick(View view) {
 
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("id_login", carerLogin);
+                bundle.putSerializable("treatment", treatment);
 
-                Navigation.findNavController(view).navigate(R.id.patientAddFragment,bundle);
+                Navigation.findNavController(view).navigate(R.id.doctorAddFragment,bundle);
 
                 return;
 

@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
+import com.uteq.app_smart_pills_dispenser.models.Dosage;
+import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.models.Pill;
 import com.uteq.app_smart_pills_dispenser.services.PatientService;
@@ -36,6 +38,9 @@ public class PillAddFragment extends Fragment{
     EditText txtAddPillName;
     EditText txtAddPillDescription;
     Button btnPillSave;
+
+    private Dosage dosage;
+    private MedicalTreatment treatment;
 
     public PillAddFragment()
     {
@@ -61,6 +66,13 @@ public class PillAddFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if (getArguments() != null){
+            dosage = (Dosage) getArguments().getSerializable("dosage");
+            treatment = (MedicalTreatment) getArguments().getSerializable("treatment");
+
+        }
+
         txtAddPillName = view.findViewById(R.id.txtAddPillName);
         txtAddPillDescription = view.findViewById(R.id.txtAddPillDescription);
         btnPillSave = view.findViewById(R.id.btnPillSave);
@@ -69,10 +81,19 @@ public class PillAddFragment extends Fragment{
             public void onClick(View view) {
                 Pill pill = new Pill();
                 pill.setName(txtAddPillName.getText().toString());
-                pill.setName(txtAddPillDescription.getText().toString());
+                pill.setDescription(txtAddPillDescription.getText().toString());
                 pill.setState((true));
                 addPill(pill);
-                Navigation.findNavController(view).navigate(R.id.nav_patients);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("dosage",dosage);
+
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Navigation.findNavController(view).navigate(R.id.pillListFragment, bundle);
             }
         });
     }

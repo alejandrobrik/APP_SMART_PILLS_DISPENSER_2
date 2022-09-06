@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.R;
-import com.uteq.app_smart_pills_dispenser.adapters.CadenaAdapter;
 import com.uteq.app_smart_pills_dispenser.models.Doctor;
 import com.uteq.app_smart_pills_dispenser.models.Dosage;
 import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
@@ -60,7 +59,6 @@ public class DosageAddFragment extends Fragment {
     Button btnSelectTreatment;
     Button btnAddDosages;
     String cadenaRespuesta;
-    CadenaAdapter cadenaAdapter;
 
     public DosageAddFragment() {
         // Required empty public constructor
@@ -206,16 +204,16 @@ public class DosageAddFragment extends Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Navigation.findNavController(view).navigate(R.id.nav_home);
+                Navigation.findNavController(view).navigate(R.id.dosageListFragment);
             }
         });
 
         //Si la dosis que viajo es diferente de null seteamos los campos
-        if (dosage!=null){
+        if (dosageCardview!=null){
             txtHorus.setText(dosageCardview.getHour());
             txtStartDate.setText(dosageCardview.getStarDate());
             txtEndDate.setText(dosageCardview.getEndDate());
-            txtQuantity.setText(dosageCardview.getQuantity());
+            txtQuantity.setText( String.valueOf(dosageCardview.getQuantity()));
         }
 
 

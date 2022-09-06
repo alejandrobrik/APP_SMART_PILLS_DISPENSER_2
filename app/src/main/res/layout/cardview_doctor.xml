@@ -27,7 +27,7 @@
                 android:layout_height="128dp"
                 android:padding="5dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_user"
+                android:src="@drawable/ic_doctor"
                 app:shapeAppearanceOverlay="@style/RoundedImageView"
                 app:strokeColor="@android:color/darker_gray"
                 app:strokeWidth="5dp" />

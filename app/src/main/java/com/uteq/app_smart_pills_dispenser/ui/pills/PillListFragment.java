@@ -59,8 +59,6 @@ public class PillListFragment extends Fragment {
         }
 
 
-
-
         int pildora = 5;
         System.out.println("la pildora llego a"+ pildora);
         recyclerView = view.findViewById(R.id.reciclerViewPill);
@@ -76,7 +74,11 @@ public class PillListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 onDestroyView();
-                Navigation.findNavController(view).navigate(R.id.pillListFragment);
+
+                Bundle bundle = new Bundle();
+
+                bundle.putSerializable("dosage",dosage);
+                Navigation.findNavController(view).navigate(R.id.pillAddFragment,bundle);
                 return;
             }
         });

@@ -20,11 +20,11 @@
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_user"
+                android:src="@drawable/ic_pill"
                 app:strokeWidth="5dp"
                 android:padding="5dp"
                 app:strokeColor="@android:color/darker_gray"
-                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+                app:shapeAppearanceOverlay="@style/Base.CardView" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
