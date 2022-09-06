@@ -109,5 +109,9 @@
         android:id="@+id/dosageAddFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.dosages.DosageAddFragment"
         android:label="fragment_dosage_add"
-        tools:layout="@layout/fragment_dosage_add" />
+        tools:layout="@layout/fragment_dosage_add" >
+        <action
+            android:id="@+id/action_dosageAddFragment_to_pillListFragment"
+            app:destination="@id/pillListFragment" />
+    </fragment>
 </navigation>

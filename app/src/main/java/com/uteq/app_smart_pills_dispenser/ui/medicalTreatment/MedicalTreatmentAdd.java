@@ -66,8 +66,6 @@ public class MedicalTreatmentAdd extends Fragment {
             patient = (Patient) getArguments().getSerializable("patient");
 
 
-
-
             mtCardview = (MedicalTreatment) getArguments().getSerializable("treatment");
 
 
@@ -136,7 +134,9 @@ public class MedicalTreatmentAdd extends Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Navigation.findNavController(view).navigate(R.id.dosageListFragment);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("treatment", mt);
+                Navigation.findNavController(view).navigate(R.id.dosageListFragment, bundle);
             }
         });
 
