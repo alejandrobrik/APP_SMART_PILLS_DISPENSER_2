@@ -44,6 +44,8 @@ public class PatientListFragment extends Fragment implements  SearchView.OnQuery
     private int id_carer;
     private Carer carer;
 
+    String cadenaRespuesta;
+
     Carer carerLogin = new Carer();
 
     private RecyclerView recyclerView;
@@ -111,6 +113,9 @@ public class PatientListFragment extends Fragment implements  SearchView.OnQuery
         try {
             getpatient();
 
+            getUltimoId();
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -142,6 +147,26 @@ public class PatientListFragment extends Fragment implements  SearchView.OnQuery
             }
         });
     }
+
+    public String getUltimoId(){
+        Call<String> ultimo = Apis.getMedicalTreatmentService().getMedicalTreatmentLastId();
+        ultimo.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()){
+                    String respuesta = response.body();
+                    cadenaRespuesta = respuesta;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+        return "hola";
+    }
+
 
     private  void initListener(){
         svSearchPatient.setOnQueryTextListener(this);

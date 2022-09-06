@@ -17,4 +17,7 @@ public interface MedicalTreatmentService {
 
     @POST("api/medical-treatment")
     Call<MedicalTreatment>addMedicalTreatment(@Body MedicalTreatment medicalTreatment);
+
+    @GET("api/medical-treatment/max-id")
+    Call<String>getMedicalTreatmentLastId();
 }

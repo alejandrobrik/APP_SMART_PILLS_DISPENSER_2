@@ -81,9 +81,9 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
         svSearchDosage = view.findViewById(R.id.svSearchDosage);
 
         //Llama a un metodo del activity que toma el carer que inicio sesion
-        ((MenuActivity)getActivity()).loadData();
+       // ((MenuActivity)getActivity()).loadData();
 
-        carerLogin = ((MenuActivity)getActivity()).loadData();
+      //  carerLogin = ((MenuActivity)getActivity()).loadData();
 
 
         favNewDosage = view.findViewById(R.id.favNewDosage);

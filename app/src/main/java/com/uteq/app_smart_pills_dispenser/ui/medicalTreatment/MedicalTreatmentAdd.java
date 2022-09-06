@@ -79,9 +79,6 @@ public class MedicalTreatmentAdd extends Fragment {
                 patient = mtCardview.getPatient();
         }
 
-
-
-
         txtDescription = view.findViewById(R.id.txtTreatmentDescription);
         txtStartDate = view.findViewById(R.id.txtTreatmentStartDate);
         txtStartDate.setOnClickListener(new View.OnClickListener() {

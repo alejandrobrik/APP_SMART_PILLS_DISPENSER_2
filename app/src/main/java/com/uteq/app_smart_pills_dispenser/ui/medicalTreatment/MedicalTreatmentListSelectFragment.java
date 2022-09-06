@@ -22,6 +22,7 @@ import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.adapters.MedicalTreatmentAdapter;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
+import com.uteq.app_smart_pills_dispenser.models.Dosage;
 import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
@@ -32,11 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MedicalTreatmentListSelectFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class MedicalTreatmentListSelectFragment extends Fragment implements  SearchView.OnQueryTextListener {
 
     Button btnAddPatient;
@@ -44,7 +41,8 @@ public class MedicalTreatmentListSelectFragment extends Fragment implements  Sea
 
     private int id_carer;
     private Carer carer;
-    private Patient patient;
+    private MedicalTreatment medicalTreatment;
+    private Dosage dosage;
 
     Carer carerLogin = new Carer();
 
@@ -63,10 +61,11 @@ public class MedicalTreatmentListSelectFragment extends Fragment implements  Sea
         if (getArguments() != null) {
             id_carer = getArguments().getInt("id_carer", 0);
             carer = getArguments().getParcelable("c");
-            patient = (Patient) getArguments().getSerializable("patient");
+            dosage = (Dosage) getArguments().getSerializable("dosage");
+            medicalTreatment = (MedicalTreatment) getArguments().getSerializable("treatment");
         }
 
-        recyclerView = view.findViewById(R.id.reciclerviewMedicalTreatment);
+        recyclerView = view.findViewById(R.id.reciclerviewMedicalTreatmentSelect);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getContext(), DividerItemDecoration.VERTICAL));
@@ -74,24 +73,24 @@ public class MedicalTreatmentListSelectFragment extends Fragment implements  Sea
         medicalTreatmentAdapter = new MedicalTreatmentAdapter();
         recyclerView.setAdapter(medicalTreatmentAdapter);
 
-        svSearchPatient = view.findViewById(R.id.svSearchMedicalTreatment);
+        svSearchPatient = view.findViewById(R.id.svSearchMedicalTreatmentSelect);
 
         //Llama a un metodo del activity que toma el carer que inicio sesion
-        ((MenuActivity)getActivity()).loadData();
+       // ((MenuActivity)getActivity()).loadData();
 
-        carerLogin = ((MenuActivity)getActivity()).loadData();
+      // carerLogin = ((MenuActivity)getActivity()).loadData();
 
 
-        favNewPatient = view.findViewById(R.id.favNewMedicalTreatment);
+        favNewPatient = view.findViewById(R.id.favNewMedicalTreatmentSelect);
         favNewPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("patient", patient);
+            //    bundle.putSerializable("patient", patient);
 
 
-                Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd,bundle);
+             //   Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd,bundle);
 
             }
         });
@@ -109,7 +108,7 @@ public class MedicalTreatmentListSelectFragment extends Fragment implements  Sea
 
     public void getMedicalTreatment() throws Exception {
 
-        String id = ""+patient.getId();
+        String id = ""+ medicalTreatment.getPatient().getId();
         Call<List<MedicalTreatment>> medicalTreatmentList = Apis.getMedicalTreatmentService().getMedicalTreatment(id);
 
         medicalTreatmentList.enqueue(new Callback<List<MedicalTreatment>>() {
@@ -117,7 +116,7 @@ public class MedicalTreatmentListSelectFragment extends Fragment implements  Sea
             public void onResponse(Call<List<MedicalTreatment>> call, Response<List<MedicalTreatment>> response) {
                 if(response.isSuccessful()){
                     List <MedicalTreatment>  medicalTreatmentList = response.body();
-                    medicalTreatmentAdapter.setData(medicalTreatmentList);
+                    medicalTreatmentAdapter.setData(medicalTreatmentList, dosage);
                 }
             }
 

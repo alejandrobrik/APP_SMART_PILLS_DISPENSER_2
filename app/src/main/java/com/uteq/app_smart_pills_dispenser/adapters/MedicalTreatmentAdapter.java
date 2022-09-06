@@ -73,20 +73,38 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
         holder.tvEndDate.setText(MoreUtils.coalesce(medicalTreatment.getEndDate(), "N/D"));
 
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle b = new Bundle();
-                b.putSerializable("patient", new Gson().toJson(data.get(holder.getAdapterPosition())));
-
-                try {
-                    Thread.sleep(250);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        if(this.dosage != null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle b = new Bundle();
+                    b.putSerializable("treatment", new Gson().toJson(data.get(holder.getAdapterPosition())));
+                    b.putSerializable("dosage",dosage);
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Navigation.findNavController(view).navigate(R.id.dosageAddFragment, b);
                 }
-                Navigation.findNavController(view).navigate(R.id.patientMenuFragment, b);
-            }
-        });
+            });
+        } else {
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle b = new Bundle();
+                    b.putSerializable("patient", new Gson().toJson(data.get(holder.getAdapterPosition())));
+
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Navigation.findNavController(view).navigate(R.id.patientMenuFragment, b);
+                }
+            });
+        }
 
     }
 

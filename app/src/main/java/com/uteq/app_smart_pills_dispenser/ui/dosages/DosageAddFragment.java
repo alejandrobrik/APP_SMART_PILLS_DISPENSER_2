@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.adapters.CadenaAdapter;
 import com.uteq.app_smart_pills_dispenser.models.Doctor;
 import com.uteq.app_smart_pills_dispenser.models.Dosage;
 import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
@@ -46,6 +47,9 @@ public class DosageAddFragment extends Fragment {
     Dosage dosage;
     Dosage dosageCardview;
 
+    Patient patient;
+
+    TextView ultimoID;
     Boolean stateDate;
     EditText txtQuantity;
     EditText txtStartDate;
@@ -53,7 +57,10 @@ public class DosageAddFragment extends Fragment {
     EditText txtHorus;
     TextView tvNameSelectedPill;
     Button btnSelectPill;
+    Button btnSelectTreatment;
     Button btnAddDosages;
+    String cadenaRespuesta;
+    CadenaAdapter cadenaAdapter;
 
     public DosageAddFragment() {
         // Required empty public constructor
@@ -63,8 +70,8 @@ public class DosageAddFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
-            //  patientGson = getArguments().getString("patient");
-            pillGson = getArguments().getString("pill");
+            patientGson = getArguments().getString("patient");
+           pillGson = getArguments().getString("pill");
 
             medicalTreatment = (MedicalTreatment) getArguments().getSerializable("treatment");
 
@@ -81,6 +88,11 @@ public class DosageAddFragment extends Fragment {
             if(medicalTreatment == null)
                 medicalTreatment = dosageCardview.getMedicalTreatment();
         }
+
+        ultimoID = view.findViewById(R.id.tvTreamentCode);
+
+        getUltimoId();
+
 
         txtHorus = view.findViewById(R.id.txtDosageHours);
         txtQuantity = view.findViewById(R.id.txtDosageQuantity);
@@ -128,10 +140,51 @@ public class DosageAddFragment extends Fragment {
             }
         });
 
+//        btnSelectTreatment = view.findViewById(R.id.btnSelectTreatment);
+//        btnSelectTreatment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                System.out.println("Nuevo boton para seleccionar tratamiento");
+//                int cantidad;
+//                if (txtQuantity.getText().toString().isEmpty())
+//                    cantidad = 0;
+//                else
+//                    cantidad = Integer.parseInt(txtQuantity.getText().toString());
+//
+//                dosage = new Dosage();
+//                dosage.setHour(txtHorus.getText().toString());
+//                dosage.setStarDate(txtStartDate.getText().toString());
+//                dosage.setEndDate(txtEndDate.getText().toString());
+//                dosage.setQuantity(cantidad);
+//                int palomita = 512;
+//                System.out.println(palomita);
+//                if (medicalTreatment!=null)
+//                    dosage.setMedicalTreatment(medicalTreatment);
+//                if (pill!= null)
+//                    dosage.setPill(pill);
+//
+//
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("dosage", dosage);
+//
+//
+//                bundle.putSerializable("treatment", medicalTreatment);
+//
+//                Navigation.findNavController(view).navigate(R.id.medicalTreatmentListSelectFragment, bundle);
+//            }
+//        });
+
+
+
         btnAddDosages = view.findViewById(R.id.btnSaveDosage);
         btnAddDosages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MedicalTreatment tratamiendoSetear= dosageCardview.getMedicalTreatment();
+                getUltimoId();
+                //cadenaAdapter.getData();
+
+                tratamiendoSetear.setId(ultimoID.getText().toString());
                 int cantidad;
                 if (txtQuantity.getText().toString().isEmpty())
                     cantidad = 0;
@@ -143,8 +196,9 @@ public class DosageAddFragment extends Fragment {
                 dosage.setStarDate(txtStartDate.getText().toString());
                 dosage.setEndDate(txtEndDate.getText().toString());
                 dosage.setQuantity(cantidad);
-                dosage.setMedicalTreatment(dosageCardview.getMedicalTreatment());
+                dosage.setMedicalTreatment(tratamiendoSetear);
                 dosage.setPill(pill);
+               // dosage.getMedicalTreatment().setId(getUltimoId());
                 addDosage(dosage);
 
                 try {
@@ -166,6 +220,8 @@ public class DosageAddFragment extends Fragment {
 
 
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -226,4 +282,26 @@ public class DosageAddFragment extends Fragment {
             }
         });
     }
+
+    public void getUltimoId(){
+        Call<String> ultimo = Apis.getMedicalTreatmentService().getMedicalTreatmentLastId();
+        ultimo.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()){
+                    String respuesta = response.body();
+
+                    ultimoID.setText(respuesta);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+
+    }
+
 }
