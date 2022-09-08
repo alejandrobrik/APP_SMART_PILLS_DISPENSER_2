@@ -117,14 +117,13 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
         initListener();
 
 
-
-
     }
 
     public void getDosage() throws Exception {
-
-        //String id = ""+patient.getId();
-        Call<List<Dosage>> dosageList = Apis.getDosageService().getDosage();
+        String id ="";
+        if (dosage.getMedicalTreatment().getId() != null)
+        id= ""+dosage.getMedicalTreatment().getId();
+        Call<List<Dosage>> dosageList = Apis.getDosageService().getDosage(id);
 
         dosageList.enqueue(new Callback<List<Dosage>>() {
             @Override

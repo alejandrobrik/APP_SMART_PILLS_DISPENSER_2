@@ -8,11 +8,12 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface DosageService {
 
-    @GET("api/dosage")
-    Call<List<Dosage>> getDosage();
+    @GET("api/medical-treatment/dosages/{id}")
+    Call<List<Dosage>> getDosage(@Path("id") String id);
 
     @POST("api/dosage")
     Call<Dosage> addDosage(@Body Dosage dosage);
