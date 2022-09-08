@@ -1,6 +1,7 @@
 package com.uteq.app_smart_pills_dispenser.ui.medicalTreatment;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -25,6 +27,7 @@ import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.services.MedicalTreatmentService;
 import com.uteq.app_smart_pills_dispenser.ui.dialogs.DatePickerFragment;
+import com.uteq.app_smart_pills_dispenser.ui.dialogs.TimePickerFragment;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 
 import retrofit2.Call;
@@ -80,6 +83,12 @@ public class MedicalTreatmentAdd extends Fragment {
         }
 
         txtDescription = view.findViewById(R.id.txtTreatmentDescription);
+        txtDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePickerDialog();
+            }
+        });
         txtStartDate = view.findViewById(R.id.txtTreatmentStartDate);
         txtStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,6 +194,37 @@ public class MedicalTreatmentAdd extends Fragment {
 
         newFragment.show(getChildFragmentManager(), "datePicker");
     }
+
+
+    private void showTimePickerDialog() {
+        TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+
+                String hourParse="";
+                String minuteParse="";
+
+                if (hour<10)
+                    hourParse = "0"+hour;
+                else
+                    hourParse = ""+hour;
+
+                if (minute<10)
+                    minuteParse = "0"+minute;
+                else
+                    minuteParse = ""+minute;
+
+
+                System.out.println("la hora que eligio es: " + hourParse + " y los minutos son: "+ minuteParse);
+            }
+        });
+
+        newFragment.show(getChildFragmentManager(), "timePicker");
+    }
+
+
+
+
 
     public void addMedicalTreatment(MedicalTreatment mt) {
         service = Apis.getMedicalTreatmentService();
