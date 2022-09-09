@@ -22,7 +22,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imgEvaluador"
+                android:id="@+id/imgPatient"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:padding="5dp"

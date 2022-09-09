@@ -42,7 +42,48 @@
                 android:orientation="horizontal"
                 android:layout_height="match_parent">
                 <TextView
+                    android:layout_weight=".8"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Pill:" />
+                <TextView
+                    android:text="N/D"
                     android:layout_weight="1"
+                    android:id="@+id/tvDosagePillName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/border"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_weight=".8"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Hours:" />
+                <TextView
+                    android:text="N/D"
+                    android:layout_weight="1"
+                    android:id="@+id/tvDosageHours"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:background="@drawable/border"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_weight=".8"
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
@@ -63,83 +104,22 @@
                 android:orientation="horizontal"
                 android:layout_height="match_parent">
                 <TextView
-                    android:layout_weight="1"
+                    android:layout_weight=".8"
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Star Date:" />
+                    android:text="Prescription:" />
                 <TextView
 
                     android:text="N/D"
                     android:layout_weight="1"
-                    android:id="@+id/tvDosageStarDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:background="@drawable/border"
-                android:gravity="top"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text="End Date:" />
-                <TextView
-                    android:text="N/D"
-                    android:layout_weight="1"
-                    android:id="@+id/tvDosageEndDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:background="@drawable/border"
-                android:gravity="top"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text="Pill:" />
-                <TextView
-                    android:text="N/D"
-                    android:layout_weight="1"
-                    android:id="@+id/tvDosagePillName"
+                    android:id="@+id/tvDosagePrescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
 
-            <LinearLayout
-                android:background="@drawable/border"
-                android:gravity="top"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text="Hours:" />
-                <TextView
-                    android:text="N/D"
-                    android:layout_weight="1"
-                    android:id="@+id/tvDosageHours"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+
 
         </LinearLayout>
 

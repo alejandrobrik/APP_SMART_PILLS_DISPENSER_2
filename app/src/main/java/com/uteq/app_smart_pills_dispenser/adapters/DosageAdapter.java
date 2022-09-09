@@ -67,11 +67,14 @@ public class DosageAdapter extends RecyclerView.Adapter<DosageAdapter.DosageView
 
         Dosage dosage = data.get(position);
 
+      //  String [] horario = dosage.getDate_hour().split("T");
+
         holder.tvQuantity.setText(MoreUtils.coalesce(String.valueOf(dosage.getQuantity()), "N/D"));
-        holder.tvStartDate.setText(MoreUtils.coalesce(dosage.getStarDate(), "N/D"));
-        holder.tvEndaDate.setText(MoreUtils.coalesce(dosage.getEndDate(),"N/D"));
+ //       holder.tvhoursDate.setText(MoreUtils.coalesce(horario[0] +"\n"+ horario[1].substring(0, 8), "N/D"));
+        holder.tvhoursDate.setText(MoreUtils.coalesce(dosage.getDate_hour(), "N/D"));
+        holder.tvPrescription.setText(MoreUtils.coalesce(dosage.getPrescription(),"N/D"));
         holder.tvPill.setText(MoreUtils.coalesce(dosage.getPill().getName(),"N/D"));
-        holder.tvHours.setText(MoreUtils.coalesce(dosage.getHour(),"N/D"));
+//        holder.tvHours.setText(MoreUtils.coalesce(dosage.getHour(),"N/D"));
 
 
 //        if (this.treatment != null) {
@@ -134,8 +137,8 @@ public class DosageAdapter extends RecyclerView.Adapter<DosageAdapter.DosageView
     public class DosageViewHolder  extends RecyclerView.ViewHolder{
 
         TextView tvQuantity;
-        TextView tvStartDate;
-        TextView tvEndaDate;
+        TextView tvhoursDate;
+        TextView tvPrescription;
         TextView tvPill;
         TextView tvHours;
 
@@ -145,11 +148,10 @@ public class DosageAdapter extends RecyclerView.Adapter<DosageAdapter.DosageView
             super(itemView);
 
             tvQuantity = itemView.findViewById(R.id.tvDosageQuantity);
-            tvStartDate = itemView.findViewById(R.id.tvDosageStarDate);
-            tvEndaDate = itemView.findViewById(R.id.tvDosageEndDate);
+            tvhoursDate = itemView.findViewById(R.id.tvDosageHours);
+            tvPrescription = itemView.findViewById(R.id.tvDosagePrescription);
             tvPill = itemView.findViewById(R.id.tvDosagePillName);
-            tvHours = itemView.findViewById(R.id.tvDosageHours);
-
+       //     tvHours = itemView.findViewById(R.id.tvDosageHours);
 
             cardView = itemView.findViewById(R.id.cardViewDosage);
 

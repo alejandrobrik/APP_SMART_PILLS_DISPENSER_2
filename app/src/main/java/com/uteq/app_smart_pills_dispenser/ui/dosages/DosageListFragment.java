@@ -20,6 +20,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.adapters.DosageAdapter;
@@ -47,6 +48,9 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
     private int id_carer;
     private Carer carer;
     MedicalTreatment treatment;
+
+    String medicalTreatmentGson;
+    MedicalTreatment treatmentDosageView;
     private Patient patient;
 
     Carer carerLogin = new Carer();
@@ -70,8 +74,13 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
             carer = getArguments().getParcelable("c");
             treatment = (MedicalTreatment) getArguments().getSerializable("treatment");
             dosage = (Dosage) getArguments().getSerializable("dosage");
-            if (treatment == null)
+            if (treatment == null && dosage != null)
                 treatment = dosage.getMedicalTreatment();
+
+            medicalTreatmentGson =  getArguments().getString("treatmentDosageView");
+            if (medicalTreatmentGson != null)
+                treatment = new Gson().fromJson(medicalTreatmentGson,MedicalTreatment.class);
+           // treatmentDosageView = (MedicalTreatment) getArguments().getSerializable("treatmentDosageView");
 
         }
 
@@ -120,9 +129,14 @@ public class DosageListFragment extends Fragment implements SearchView.OnQueryTe
     }
 
     public void getDosage() throws Exception {
-        String id ="";
-        if (dosage.getMedicalTreatment().getId() != null)
-        id= ""+dosage.getMedicalTreatment().getId();
+        String id ="1";
+        if (dosage!= null) {
+            if (dosage.getMedicalTreatment().getId() != null)
+                id = "" + dosage.getMedicalTreatment().getId();
+        }
+        else {
+            id = "" + treatment.getId();
+        }
         Call<List<Dosage>> dosageList = Apis.getDosageService().getDosage(id);
 
         dosageList.enqueue(new Callback<List<Dosage>>() {

@@ -11,14 +11,14 @@ import retrofit2.http.Body;
 @NoArgsConstructor
 public class Dosage implements Serializable {
     private String id;
-    private String registration_date;
-    private String endDate;
-    private String starDate;
     private int quantity;
+    private  String prescription;
+    private String date_hour;
+    private  String date_dosage;
+    private String registration_date;
     private Boolean state;
-    private String hour;
-    private MedicalTreatment medicalTreatment;
     private Pill pill;
+    private MedicalTreatment medicalTreatment;
 
     public String getId() {
         return id;
@@ -26,30 +26,6 @@ public class Dosage implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getRegistration_date() {
-        return registration_date;
-    }
-
-    public void setRegistration_date(String registration_date) {
-        this.registration_date = registration_date;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getStarDate() {
-        return starDate;
-    }
-
-    public void setStarDate(String starDate) {
-        this.starDate = starDate;
     }
 
     public int getQuantity() {
@@ -60,6 +36,38 @@ public class Dosage implements Serializable {
         this.quantity = quantity;
     }
 
+    public String getPrescription() {
+        return prescription;
+    }
+
+    public void setPrescription(String prescription) {
+        this.prescription = prescription;
+    }
+
+    public String getDate_hour() {
+        return date_hour;
+    }
+
+    public void setDate_hour(String date_hour) {
+        this.date_hour = date_hour;
+    }
+
+    public String getDate_dosage() {
+        return date_dosage;
+    }
+
+    public void setDate_dosage(String date_dosage) {
+        this.date_dosage = date_dosage;
+    }
+
+    public String getRegistration_date() {
+        return registration_date;
+    }
+
+    public void setRegistration_date(String registration_date) {
+        this.registration_date = registration_date;
+    }
+
     public Boolean getState() {
         return state;
     }
@@ -68,12 +76,12 @@ public class Dosage implements Serializable {
         this.state = state;
     }
 
-    public String getHour() {
-        return hour;
+    public Pill getPill() {
+        return pill;
     }
 
-    public void setHour(String hour) {
-        this.hour = hour;
+    public void setPill(Pill pill) {
+        this.pill = pill;
     }
 
     public MedicalTreatment getMedicalTreatment() {
@@ -82,13 +90,5 @@ public class Dosage implements Serializable {
 
     public void setMedicalTreatment(MedicalTreatment medicalTreatment) {
         this.medicalTreatment = medicalTreatment;
-    }
-
-    public Pill getPill() {
-        return pill;
-    }
-
-    public void setPill(Pill pill) {
-        this.pill = pill;
     }
 }

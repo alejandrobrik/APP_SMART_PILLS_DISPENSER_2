@@ -13,7 +13,7 @@ public class MedicalTreatment implements Serializable {
     private String description;
     private String registration_date;
     private String startDate;
-    private String endDate;
+
     private Boolean state;
     Doctor doctor;
     Patient patient;
@@ -50,13 +50,6 @@ public class MedicalTreatment implements Serializable {
         this.startDate = start_Date;
     }
 
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
 
     public Boolean getState() {
         return state;

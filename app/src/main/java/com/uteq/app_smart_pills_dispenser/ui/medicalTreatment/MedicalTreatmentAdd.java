@@ -86,7 +86,7 @@ public class MedicalTreatmentAdd extends Fragment {
         txtDescription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showTimePickerDialog();
+                //showTimePickerDialog();
             }
         });
         txtStartDate = view.findViewById(R.id.txtTreatmentStartDate);
@@ -115,7 +115,7 @@ public class MedicalTreatmentAdd extends Fragment {
                 mt = new MedicalTreatment();
                 mt.setDescription(txtDescription.getText().toString());
                 mt.setStart_Date(txtStartDate.getText().toString());
-                mt.setEndDate(txtEndDate.getText().toString());
+       //         mt.setEndDate(txtEndDate.getText().toString());
                 mt.setPatient(patient);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("treatment", mt);
@@ -130,7 +130,7 @@ public class MedicalTreatmentAdd extends Fragment {
                 mt = new MedicalTreatment();
                 mt.setDescription(txtDescription.getText().toString());
                 mt.setStart_Date(txtStartDate.getText().toString());
-                mt.setEndDate(txtEndDate.getText().toString());
+         //       mt.setEndDate(txtEndDate.getText().toString());
                 mt.setPatient(mtCardview.getPatient());
                 mt.setDoctor(doctor);
                 addMedicalTreatment(mt);
@@ -142,14 +142,14 @@ public class MedicalTreatmentAdd extends Fragment {
                 }
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("treatment", mt);
-                Navigation.findNavController(view).navigate(R.id.dosageListFragment, bundle);
+                Navigation.findNavController(view).navigate(R.id.dosageAddFragment, bundle);
             }
         });
 
         if (mtCardview!=null){
                 txtDescription.setText(mtCardview.getDescription());
                 txtStartDate.setText(mtCardview.getStart_Date());
-                txtEndDate.setText(mtCardview.getEndDate());
+           //     txtEndDate.setText(mtCardview.getEndDate());
         }
 
 

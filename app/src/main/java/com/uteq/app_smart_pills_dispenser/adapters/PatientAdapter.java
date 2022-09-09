@@ -17,6 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
@@ -76,6 +77,9 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
 //        };
 //        holder.imgEvaluador.setOnClickListener(listener);
 
+
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,6 +94,19 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
                 Navigation.findNavController(view).navigate(R.id.patientMenuFragment,b);
             }
         });
+
+        if (patient.getGender().equals("Female")) {
+            Glide.with(context)
+                    .load(R.drawable.ic_female)
+                    .error(R.drawable.ic_user)
+                    .into(holder.imgPatient);
+        }
+        if (patient.getGender().equals("Male")){
+            Glide.with(context)
+                    .load(R.drawable.ic_male)
+                    .error(R.drawable.ic_user)
+                    .into(holder.imgPatient);
+        }
 
     }
 
@@ -135,7 +152,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
         TextView txtname;
         TextView txtgender;
         TextView txtbirthDate;
-        ImageView imgEvaluador;
+        ImageView imgPatient;
         CardView cardView;
 
 
@@ -145,7 +162,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
             txtname = itemView.findViewById(R.id.tvNameCarer);
             txtgender = itemView.findViewById(R.id.tvGenderPatient);
             txtbirthDate = itemView.findViewById(R.id.tvbirthDatePatient);
-            imgEvaluador = itemView.findViewById(R.id.imgEvaluador);
+            imgPatient = itemView.findViewById(R.id.imgPatient);
             cardView = itemView.findViewById(R.id.cardView);
         }
 

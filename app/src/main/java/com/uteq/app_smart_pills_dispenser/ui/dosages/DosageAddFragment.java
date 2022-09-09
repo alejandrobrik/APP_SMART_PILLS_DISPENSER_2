@@ -1,6 +1,7 @@
 package com.uteq.app_smart_pills_dispenser.ui.dosages;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -28,7 +30,10 @@ import com.uteq.app_smart_pills_dispenser.models.Pill;
 import com.uteq.app_smart_pills_dispenser.services.DosageService;
 import com.uteq.app_smart_pills_dispenser.services.MedicalTreatmentService;
 import com.uteq.app_smart_pills_dispenser.ui.dialogs.DatePickerFragment;
+import com.uteq.app_smart_pills_dispenser.ui.dialogs.TimePickerFragment;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
+
+import java.time.LocalDateTime;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,12 +58,22 @@ public class DosageAddFragment extends Fragment {
     EditText txtQuantity;
     EditText txtStartDate;
     EditText txtEndDate;
-    EditText txtHorus;
+    EditText txtPrescription;
     TextView tvNameSelectedPill;
+    TextView tvDateHourSelectedDosage;
+    Button btnSelectDate;
+    Button btnSelectHour;
     Button btnSelectPill;
     Button btnSelectTreatment;
     Button btnAddDosages;
     String cadenaRespuesta;
+    String onlyDate ="";
+    String onlyHour = " ";
+    String fecha ="";
+    String hora ="";
+    String fechaHora;
+
+    LocalDateTime fechita;
 
     public DosageAddFragment() {
         // Required empty public constructor
@@ -88,29 +103,31 @@ public class DosageAddFragment extends Fragment {
         }
 
         ultimoID = view.findViewById(R.id.tvTreamentCode);
-
         getUltimoId();
 
+        btnSelectDate = view.findViewById(R.id.btnSelectDateDosage);
+        btnSelectDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog2();
+            }
+        });
 
-        txtHorus = view.findViewById(R.id.txtDosageHours);
+        btnSelectHour = view.findViewById(R.id.btnSelectHourDosage);
+        btnSelectHour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePickerDialog();
+            }
+        });
+
+        tvDateHourSelectedDosage = view.findViewById(R.id.tvDateHourSelectedDosage);
+
+
+
+        txtPrescription = view.findViewById(R.id.txtPrescription);
         txtQuantity = view.findViewById(R.id.txtDosageQuantity);
-        txtStartDate = view.findViewById(R.id.txtDosageStartDate);
-        txtStartDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stateDate = true;
-                showDatePickerDialog();
 
-            }
-        });
-        txtEndDate = view.findViewById(R.id.txtDosageEndDate);
-        txtEndDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stateDate = false;
-                showDatePickerDialog();
-            }
-        });
 
 
         btnSelectPill = view.findViewById(R.id.btnSelectPill);
@@ -125,9 +142,10 @@ public class DosageAddFragment extends Fragment {
                     cantidad = Integer.parseInt(txtQuantity.getText().toString());
 
                 dosage = new Dosage();
-                dosage.setHour(txtHorus.getText().toString());
-                dosage.setStarDate(txtStartDate.getText().toString());
-                dosage.setEndDate(txtEndDate.getText().toString());
+                dosage.setPrescription(txtPrescription.getText().toString());
+               dosage.setDate_hour(tvDateHourSelectedDosage.getText().toString());
+             //   dosage.setStarDate(txtStartDate.getText().toString());
+             //   dosage.setEndDate(txtEndDate.getText().toString());
                 dosage.setQuantity(cantidad);
                 int palomita = 512;
                 System.out.println(palomita);
@@ -182,6 +200,7 @@ public class DosageAddFragment extends Fragment {
                 getUltimoId();
                 //cadenaAdapter.getData();
 
+                System.out.println(fechaHora);
                 tratamiendoSetear.setId(ultimoID.getText().toString());
                 int cantidad;
                 if (txtQuantity.getText().toString().isEmpty())
@@ -190,9 +209,11 @@ public class DosageAddFragment extends Fragment {
                     cantidad = Integer.parseInt(txtQuantity.getText().toString());
 
                 dosage = new Dosage();
-                dosage.setHour(txtHorus.getText().toString());
-                dosage.setStarDate(txtStartDate.getText().toString());
-                dosage.setEndDate(txtEndDate.getText().toString());
+                dosage.setPrescription(txtPrescription.getText().toString());
+                dosage.setDate_hour(tvDateHourSelectedDosage.getText().toString());
+                dosage.setDate_dosage(fechaHora);
+         //       dosage.setStarDate(txtStartDate.getText().toString());
+          //      dosage.setEndDate(txtEndDate.getText().toString());
                 dosage.setQuantity(cantidad);
                 dosage.setMedicalTreatment(tratamiendoSetear);
                 dosage.setPill(pill);
@@ -212,9 +233,10 @@ public class DosageAddFragment extends Fragment {
 
         //Si la dosis que viajo es diferente de null seteamos los campos
         if (dosageCardview!=null){
-            txtHorus.setText(dosageCardview.getHour());
-            txtStartDate.setText(dosageCardview.getStarDate());
-            txtEndDate.setText(dosageCardview.getEndDate());
+            txtPrescription.setText(dosageCardview.getPrescription());
+            tvDateHourSelectedDosage.setText(dosageCardview.getDate_hour());
+     //       txtStartDate.setText(dosageCardview.getStarDate());
+     //       txtEndDate.setText(dosageCardview.getEndDate());
             txtQuantity.setText( String.valueOf(dosageCardview.getQuantity()));
         }
 
@@ -261,6 +283,76 @@ public class DosageAddFragment extends Fragment {
         });
 
         newFragment.show(getChildFragmentManager(), "datePicker");
+    }
+
+    private void showDatePickerDialog2() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because January is zero
+                // +1 because January is zero
+                month = month +1;
+                String monthParse;
+                String dayParse;
+                String selectedDate;
+
+                if (month <10)
+                    monthParse = "0"+month;
+                else
+                    monthParse = ""+month;
+                if (day < 10)
+                    dayParse = "0"+day;
+                else
+                    dayParse = ""+day;
+                selectedDate = (year + "-" +monthParse +"-" + dayParse);
+
+                onlyDate =  selectedDate;
+
+                fecha = selectedDate;
+
+                fechaHora = fecha +hora;
+
+                tvDateHourSelectedDosage.setText(onlyDate+onlyHour);
+
+            }
+        });
+
+        newFragment.show(getChildFragmentManager(), "datePicker");
+    }
+
+
+
+    private void showTimePickerDialog() {
+        TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+
+                String hourParse="";
+                String minuteParse="";
+                String selectehour="";
+
+                if (hour<10)
+                    hourParse = "0"+hour;
+                else
+                    hourParse = ""+hour;
+
+                if (minute<10)
+                    minuteParse = "0"+minute;
+                else
+                    minuteParse = ""+minute;
+
+                selectehour = " "+hourParse +":"+minuteParse+":00";
+                onlyHour = selectehour;
+
+                hora = "-"+ hourParse +"-"+ minuteParse;
+
+                fechaHora = fecha + hora;
+                tvDateHourSelectedDosage.setText(onlyDate+onlyHour);
+                System.out.println("la hora que eligio es: " + hourParse + " y los minutos son: "+ minuteParse);
+            }
+        });
+
+        newFragment.show(getChildFragmentManager(), "timePicker");
     }
 
     public void addDosage(Dosage dosage) {

@@ -70,10 +70,10 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
 
         holder.tvDescription.setText(MoreUtils.coalesce(medicalTreatment.getDescription(), "N/D"));
         holder.tvStartDate.setText(MoreUtils.coalesce(medicalTreatment.getStart_Date(), "N/D"));
-        holder.tvEndDate.setText(MoreUtils.coalesce(medicalTreatment.getEndDate(), "N/D"));
+    //    holder.tvEndDate.setText(MoreUtils.coalesce(medicalTreatment.getEndDate(), "N/D"));
 
 
-/*        if(this.dosage != null){
+        if(this.dosage != null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -94,17 +94,17 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
                 @Override
                 public void onClick(View view) {
                     Bundle b = new Bundle();
-                    b.putSerializable("patient", new Gson().toJson(data.get(holder.getAdapterPosition())));
+                    b.putSerializable("treatmentDosageView", new Gson().toJson(data.get(holder.getAdapterPosition())));
 
                     try {
                         Thread.sleep(250);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Navigation.findNavController(view).navigate(R.id.patientMenuFragment, b);
+                    Navigation.findNavController(view).navigate(R.id.dosageListFragment, b);
                 }
             });
-        }*/
+        }
 
     }
 
