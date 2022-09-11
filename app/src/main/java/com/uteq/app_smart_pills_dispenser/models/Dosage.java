@@ -13,9 +13,9 @@ public class Dosage implements Serializable {
     private String id;
     private int quantity;
     private  String prescription;
-    private String date_hour;
-    private  String date_dosage;
-    private String registration_date;
+    private String dateHour;
+    private  String dateTake;
+    private String registrationDate;
     private Boolean state;
     private Pill pill;
     private MedicalTreatment medicalTreatment;
@@ -44,28 +44,28 @@ public class Dosage implements Serializable {
         this.prescription = prescription;
     }
 
-    public String getDate_hour() {
-        return date_hour;
+    public String getDateHour() {
+        return dateHour;
     }
 
-    public void setDate_hour(String date_hour) {
-        this.date_hour = date_hour;
+    public void setDateHour(String dateHour) {
+        this.dateHour = dateHour;
     }
 
-    public String getDate_dosage() {
-        return date_dosage;
+    public String getDateTake() {
+        return dateTake;
     }
 
-    public void setDate_dosage(String date_dosage) {
-        this.date_dosage = date_dosage;
+    public void setDateTake(String dateTake) {
+        this.dateTake = dateTake;
     }
 
-    public String getRegistration_date() {
-        return registration_date;
+    public String getRegistrationDate() {
+        return registrationDate;
     }
 
-    public void setRegistration_date(String registration_date) {
-        this.registration_date = registration_date;
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
     public Boolean getState() {

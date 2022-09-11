@@ -114,7 +114,7 @@ public class MedicalTreatmentAdd extends Fragment {
             public void onClick(View view) {
                 mt = new MedicalTreatment();
                 mt.setDescription(txtDescription.getText().toString());
-                mt.setStart_Date(txtStartDate.getText().toString());
+                mt.setStartDate(txtStartDate.getText().toString());
        //         mt.setEndDate(txtEndDate.getText().toString());
                 mt.setPatient(patient);
                 Bundle bundle = new Bundle();
@@ -129,7 +129,7 @@ public class MedicalTreatmentAdd extends Fragment {
             public void onClick(View view) {
                 mt = new MedicalTreatment();
                 mt.setDescription(txtDescription.getText().toString());
-                mt.setStart_Date(txtStartDate.getText().toString());
+                mt.setStartDate(txtStartDate.getText().toString());
          //       mt.setEndDate(txtEndDate.getText().toString());
                 mt.setPatient(mtCardview.getPatient());
                 mt.setDoctor(doctor);
@@ -148,7 +148,7 @@ public class MedicalTreatmentAdd extends Fragment {
 
         if (mtCardview!=null){
                 txtDescription.setText(mtCardview.getDescription());
-                txtStartDate.setText(mtCardview.getStart_Date());
+                txtStartDate.setText(mtCardview.getStartDate());
            //     txtEndDate.setText(mtCardview.getEndDate());
         }
 

@@ -47,7 +47,7 @@ public class MenuActivity extends AppCompatActivity {
 
         String name = carer.getName();
         String email = carer.getEmail();
-        String image = carer.getUrl_image();
+        String image = carer.getUrlImage();
 
 
 

@@ -69,7 +69,7 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
         MedicalTreatment medicalTreatment = data.get(position);
 
         holder.tvDescription.setText(MoreUtils.coalesce(medicalTreatment.getDescription(), "N/D"));
-        holder.tvStartDate.setText(MoreUtils.coalesce(medicalTreatment.getStart_Date(), "N/D"));
+        holder.tvStartDate.setText(MoreUtils.coalesce(medicalTreatment.getStartDate(), "N/D"));
     //    holder.tvEndDate.setText(MoreUtils.coalesce(medicalTreatment.getEndDate(), "N/D"));
 
 

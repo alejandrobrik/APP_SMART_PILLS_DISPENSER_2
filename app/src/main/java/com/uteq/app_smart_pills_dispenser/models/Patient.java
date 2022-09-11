@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Patient implements Serializable {
     private String id;
-    private String birth_date;
+    private String birthDate;
     private String gender;
     private String name;
     private Boolean state;
@@ -23,12 +23,12 @@ public class Patient implements Serializable {
         this.id = id;
     }
 
-    public String getBirth_date() {
-        return birth_date;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirth_date(String birth_date) {
-        this.birth_date = birth_date;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getGender() {

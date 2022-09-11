@@ -8,7 +8,7 @@ public class Pill {
     private int id;
     private String description;
     private String name;
-    private String registration_date;
+    private String registrationDate;
     private boolean state;
 
     public int getId() {
@@ -35,12 +35,12 @@ public class Pill {
         this.name = name;
     }
 
-    public String getRegistration_date() {
-        return registration_date;
+    public String getRegistrationDate() {
+        return registrationDate;
     }
 
-    public void setRegistration_date(String registration_date) {
-        this.registration_date = registration_date;
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
     public boolean isState() {

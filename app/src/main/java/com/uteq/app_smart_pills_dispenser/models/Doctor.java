@@ -12,7 +12,7 @@ public class Doctor implements Serializable {
     private String name;
     private String specialism;
     private Boolean state;
-    private String phone_number;
+    private String phoneNumber;
     private String email;
     private String direction;
     private String registration_date;
@@ -49,12 +49,12 @@ public class Doctor implements Serializable {
         this.state = state;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {

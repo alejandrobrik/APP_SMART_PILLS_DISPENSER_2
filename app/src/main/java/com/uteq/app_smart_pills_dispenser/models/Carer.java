@@ -11,10 +11,9 @@ public class Carer implements Serializable{
         private String email;
         private String name;
         private String password;
-        private String phone_number;
+        private String phoneNumber;
         private boolean state;
-        private String url_image;
-
+        private String urlImage;
 
         public int getId() {
                 return id;
@@ -48,12 +47,12 @@ public class Carer implements Serializable{
                 this.password = password;
         }
 
-        public String getPhone_number() {
-                return phone_number;
+        public String getPhoneNumber() {
+                return phoneNumber;
         }
 
-        public void setPhone_number(String phone_number) {
-                this.phone_number = phone_number;
+        public void setPhoneNumber(String phoneNumber) {
+                this.phoneNumber = phoneNumber;
         }
 
         public boolean isState() {
@@ -64,11 +63,11 @@ public class Carer implements Serializable{
                 this.state = state;
         }
 
-        public String getUrl_image() {
-                return url_image;
+        public String getUrlImage() {
+                return urlImage;
         }
 
-        public void setUrl_image(String url_image) {
-                this.url_image = url_image;
+        public void setUrlImage(String urlImage) {
+                this.urlImage = urlImage;
         }
 }

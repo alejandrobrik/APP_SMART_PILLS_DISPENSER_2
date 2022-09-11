@@ -67,7 +67,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
 
         holder.tvName.setText(MoreUtils.coalesce(doctor.getName(), "N/D"));
         holder.tvSpecialism.setText(MoreUtils.coalesce(doctor.getSpecialism(), "N/D"));
-        holder.tvPhoneNumber.setText(MoreUtils.coalesce(doctor.getPhone_number(),"N/D"));
+        holder.tvPhoneNumber.setText(MoreUtils.coalesce(doctor.getPhoneNumber(),"N/D"));
         holder.tvEmail.setText(MoreUtils.coalesce(doctor.getEmail(),"N/D"));
         holder.tvDirection.setText(MoreUtils.coalesce(doctor.getDirection(),"N/D"));
 

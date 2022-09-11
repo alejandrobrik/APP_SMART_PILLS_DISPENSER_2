@@ -143,7 +143,7 @@ public class DosageAddFragment extends Fragment {
 
                 dosage = new Dosage();
                 dosage.setPrescription(txtPrescription.getText().toString());
-               dosage.setDate_hour(tvDateHourSelectedDosage.getText().toString());
+               dosage.setDateHour(tvDateHourSelectedDosage.getText().toString());
              //   dosage.setStarDate(txtStartDate.getText().toString());
              //   dosage.setEndDate(txtEndDate.getText().toString());
                 dosage.setQuantity(cantidad);
@@ -210,8 +210,8 @@ public class DosageAddFragment extends Fragment {
 
                 dosage = new Dosage();
                 dosage.setPrescription(txtPrescription.getText().toString());
-                dosage.setDate_hour(tvDateHourSelectedDosage.getText().toString());
-                dosage.setDate_dosage(fechaHora);
+                dosage.setDateHour(tvDateHourSelectedDosage.getText().toString());
+                dosage.setDateTake(fechaHora);
          //       dosage.setStarDate(txtStartDate.getText().toString());
           //      dosage.setEndDate(txtEndDate.getText().toString());
                 dosage.setQuantity(cantidad);
@@ -234,7 +234,7 @@ public class DosageAddFragment extends Fragment {
         //Si la dosis que viajo es diferente de null seteamos los campos
         if (dosageCardview!=null){
             txtPrescription.setText(dosageCardview.getPrescription());
-            tvDateHourSelectedDosage.setText(dosageCardview.getDate_hour());
+            tvDateHourSelectedDosage.setText(dosageCardview.getDateHour());
      //       txtStartDate.setText(dosageCardview.getStarDate());
      //       txtEndDate.setText(dosageCardview.getEndDate());
             txtQuantity.setText( String.valueOf(dosageCardview.getQuantity()));
@@ -341,10 +341,11 @@ public class DosageAddFragment extends Fragment {
                 else
                     minuteParse = ""+minute;
 
-                selectehour = " "+hourParse +":"+minuteParse+":00";
+                selectehour = "T"+hourParse +":"+minuteParse;
+
                 onlyHour = selectehour;
 
-                hora = "-"+ hourParse +"-"+ minuteParse;
+                hora = "T"+ hourParse +":"+ minuteParse;
 
                 fechaHora = fecha + hora;
                 tvDateHourSelectedDosage.setText(onlyDate+onlyHour);

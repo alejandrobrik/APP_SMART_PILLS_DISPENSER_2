@@ -34,11 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DoctorAddFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class DoctorAddFragment extends Fragment {
 
     DoctorService service;
@@ -84,7 +80,7 @@ public class DoctorAddFragment extends Fragment {
                 Doctor d = new Doctor();
                 d.setName(txtname.getText().toString());
                 d.setSpecialism(txtSpecialism.getText().toString());
-                d.setPhone_number(txtPhoneNumber.getText().toString());
+                d.setPhoneNumber(txtPhoneNumber.getText().toString());
                 d.setEmail(txtEmail.getText().toString());
                 d.setDirection(txtDirection.getText().toString());
                 d.setState((true));

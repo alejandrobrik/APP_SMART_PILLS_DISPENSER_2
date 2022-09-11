@@ -103,7 +103,7 @@ public class PatientAddFragment extends Fragment {
             public void onClick(View view) {
                 Patient p = new Patient();
                 p.setName(txtname.getText().toString());
-                p.setBirth_date(txtbirthdate.getText().toString());
+                p.setBirthDate(txtbirthdate.getText().toString());
                 p.setGender(genero);
                 p.setState((true));
                 p.setCarer((carerLogin));

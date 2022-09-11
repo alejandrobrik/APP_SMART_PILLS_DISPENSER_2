@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 public class MedicalTreatment implements Serializable {
     private String id;
     private String description;
-    private String registration_date;
+    private String registrationDate;
     private String startDate;
-
     private Boolean state;
     Doctor doctor;
     Patient patient;
@@ -34,22 +33,21 @@ public class MedicalTreatment implements Serializable {
         this.description = description;
     }
 
-    public String getRegistration_date() {
-        return registration_date;
+    public String getRegistrationDate() {
+        return registrationDate;
     }
 
-    public void setRegistration_date(String registration_date) {
-        this.registration_date = registration_date;
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
-    public String getStart_Date() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStart_Date(String start_Date) {
-        this.startDate = start_Date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
-
 
     public Boolean getState() {
         return state;
