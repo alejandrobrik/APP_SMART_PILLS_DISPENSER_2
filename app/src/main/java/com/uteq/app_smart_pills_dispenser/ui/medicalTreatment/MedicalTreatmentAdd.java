@@ -131,18 +131,25 @@ public class MedicalTreatmentAdd extends Fragment {
                 mt.setDescription(txtDescription.getText().toString());
                 mt.setStartDate(txtStartDate.getText().toString());
          //       mt.setEndDate(txtEndDate.getText().toString());
-                mt.setPatient(mtCardview.getPatient());
+                mt.setPatient(patient);
                 mt.setDoctor(doctor);
-                addMedicalTreatment(mt);
 
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if (doctor == null || mt.getStartDate() == null || mt.getDescription().isEmpty() ){
+                    Toast.makeText(getContext(), "Please check the fields.", Toast.LENGTH_LONG).show();
                 }
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("treatment", mt);
-                Navigation.findNavController(view).navigate(R.id.dosageAddFragment, bundle);
+                else {
+                    addMedicalTreatment(mt);
+
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("treatment", mt);
+                    Navigation.findNavController(view).navigate(R.id.dosageAddFragment, bundle);
+                }
             }
         });
 
@@ -234,6 +241,8 @@ public class MedicalTreatmentAdd extends Fragment {
             @Override
             public void onResponse(Call<MedicalTreatment> call, Response<MedicalTreatment> response) {
                 if (response != null) {
+                    response.body();
+
                     Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
                 }
             }

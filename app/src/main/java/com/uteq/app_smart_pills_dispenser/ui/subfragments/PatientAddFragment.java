@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.uteq.app_smart_pills_dispenser.Activities.CarerAddActivity;
 import com.uteq.app_smart_pills_dispenser.MainActivity;
 import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
@@ -108,14 +109,22 @@ public class PatientAddFragment extends Fragment {
                 p.setState((true));
                 p.setCarer((carerLogin));
 
-                addPatient(p);
+                if(p.getName().isEmpty() || p.getName().isEmpty())
+                {
+                    Toast.makeText(getContext(),"Please chek the fields", Toast.LENGTH_LONG).show();
 
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
-                Navigation.findNavController(view).navigate(R.id.nav_patients);
+
+                else {
+                    addPatient(p);
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Navigation.findNavController(view).navigate(R.id.nav_patients);
+                }
 
             }
         });

@@ -17,8 +17,6 @@
         android:label="@string/menu_patients"
         tools:layout="@layout/fragment_patient_list" >
 
-
-
         <action
             android:id="@+id/action_nav_patients_to_patientAddFragment"
             app:destination="@id/patientAddFragment" />

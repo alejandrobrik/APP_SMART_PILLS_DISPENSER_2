@@ -100,6 +100,7 @@ public class DosageAddFragment extends Fragment {
                 tvNameSelectedPill.setText("The doctor selected is: " + pill.getName());
             if(medicalTreatment == null)
                 medicalTreatment = dosageCardview.getMedicalTreatment();
+
         }
 
         ultimoID = view.findViewById(R.id.tvTreamentCode);
@@ -146,6 +147,7 @@ public class DosageAddFragment extends Fragment {
                dosage.setDateHour(tvDateHourSelectedDosage.getText().toString());
              //   dosage.setStarDate(txtStartDate.getText().toString());
              //   dosage.setEndDate(txtEndDate.getText().toString());
+                dosage.setDateTake(fechaHora);
                 dosage.setQuantity(cantidad);
                 int palomita = 512;
                 System.out.println(palomita);
@@ -196,12 +198,17 @@ public class DosageAddFragment extends Fragment {
         btnAddDosages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MedicalTreatment tratamiendoSetear= dosageCardview.getMedicalTreatment();
-                getUltimoId();
-                //cadenaAdapter.getData();
 
-                System.out.println(fechaHora);
-                tratamiendoSetear.setId(ultimoID.getText().toString());
+                if (dosageCardview != null) {
+                    MedicalTreatment tratamiendoSetear = dosageCardview.getMedicalTreatment();
+                    getUltimoId();
+
+                    //cadenaAdapter.getData();
+
+                    System.out.println(fechaHora);
+                    tratamiendoSetear.setId(ultimoID.getText().toString());
+                    medicalTreatment = tratamiendoSetear;
+                }
                 int cantidad;
                 if (txtQuantity.getText().toString().isEmpty())
                     cantidad = 0;
@@ -211,23 +218,29 @@ public class DosageAddFragment extends Fragment {
                 dosage = new Dosage();
                 dosage.setPrescription(txtPrescription.getText().toString());
                 dosage.setDateHour(tvDateHourSelectedDosage.getText().toString());
-                dosage.setDateTake(fechaHora);
-         //       dosage.setStarDate(txtStartDate.getText().toString());
-          //      dosage.setEndDate(txtEndDate.getText().toString());
+                dosage.setDateTake(tvDateHourSelectedDosage.getText().toString());
+
                 dosage.setQuantity(cantidad);
-                dosage.setMedicalTreatment(tratamiendoSetear);
+                dosage.setMedicalTreatment(medicalTreatment);
                 dosage.setPill(pill);
                // dosage.getMedicalTreatment().setId(getUltimoId());
-                addDosage(dosage);
 
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if (pill == null || dosage.getPrescription().isEmpty() || dosage.getDateHour().length() != 16){
+                    Toast.makeText(getContext(), "Please checke the field ",Toast.LENGTH_LONG).show();;
                 }
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("dosage", dosage);
-                Navigation.findNavController(view).navigate(R.id.dosageListFragment, bundle);
+                else {
+
+                    addDosage(dosage);
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("dosage", dosage);
+                    Navigation.findNavController(view).navigate(R.id.dosageListFragment, bundle);
+                }
             }
         });
 
@@ -384,7 +397,9 @@ public class DosageAddFragment extends Fragment {
                 if (response.isSuccessful()){
                     String respuesta = response.body();
 
-                    ultimoID.setText(respuesta);
+                    int respuestaConvertida = Integer.parseInt(respuesta);
+                    respuestaConvertida = respuestaConvertida +32;
+                    ultimoID.setText(String.valueOf(respuestaConvertida));
 
                 }
             }

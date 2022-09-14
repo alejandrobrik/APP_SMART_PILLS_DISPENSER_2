@@ -66,14 +66,19 @@ public class DosageAdapter extends RecyclerView.Adapter<DosageAdapter.DosageView
     public void onBindViewHolder(@NonNull DosageAdapter.DosageViewHolder holder, int position) {
 
         Dosage dosage = data.get(position);
-
+        try {
        // String [] horario = dosage.getDateTake().split("T");
 
         holder.tvQuantity.setText(MoreUtils.coalesce(String.valueOf(dosage.getQuantity()), "N/D"));
  //       holder.tvhoursDate.setText(MoreUtils.coalesce(horario[0] +"\n"+ horario[1].substring(0, 8), "N/D"));
         holder.tvhoursDate.setText(MoreUtils.coalesce(dosage.getDateHour().substring(0,10) +"\n"+ dosage.getDateHour().substring(11,16), "N/D"));
         holder.tvPrescription.setText(MoreUtils.coalesce(dosage.getPrescription(),"N/D"));
-        holder.tvPill.setText(MoreUtils.coalesce(dosage.getPill().getName(),"N/D"));
+
+
+            holder.tvPill.setText(MoreUtils.coalesce(dosage.getPill().getName(), "N/D"));
+        }catch (Exception e) {
+            System.out.print("El error es:" + e);
+        }
 //        holder.tvHours.setText(MoreUtils.coalesce(dosage.getHour(),"N/D"));
 
 

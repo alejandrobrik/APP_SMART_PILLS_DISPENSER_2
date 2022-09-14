@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         txtemail = findViewById(R.id.txtEmailLogin);
         txtpassword = findViewById(R.id.txtPasswordLogin);
 
-        txtemail.setText("1");
+        txtemail.setText("cuidador0512@gmail.com");
         txtpassword.setText("1");
 
         btnlogin = findViewById(R.id.buttonLogin);
