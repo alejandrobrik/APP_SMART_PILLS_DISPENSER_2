@@ -109,7 +109,7 @@ public class PatientAddFragment extends Fragment {
                 p.setState((true));
                 p.setCarer((carerLogin));
 
-                if(p.getName().isEmpty() || p.getName().isEmpty())
+                if(p.getName().isEmpty() || p.getBirthDate().isEmpty())
                 {
                     Toast.makeText(getContext(),"Please chek the fields", Toast.LENGTH_LONG).show();
 

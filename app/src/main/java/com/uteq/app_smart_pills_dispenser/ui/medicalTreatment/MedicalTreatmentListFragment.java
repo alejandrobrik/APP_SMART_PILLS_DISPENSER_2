@@ -46,6 +46,8 @@ public class MedicalTreatmentListFragment extends Fragment implements  SearchVie
     private Carer carer;
     private Patient patient;
 
+    Button btnHomeReturnt;
+
     Carer carerLogin = new Carer();
 
     private RecyclerView recyclerView;
@@ -65,6 +67,17 @@ public class MedicalTreatmentListFragment extends Fragment implements  SearchVie
             carer = getArguments().getParcelable("c");
             patient = (Patient) getArguments().getSerializable("patient");
         }
+
+/*
+        btnHomeReturnt = view.findViewById(R.id.btn_medicalTreatmentListFragment_to_Home);
+        btnHomeReturnt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              //  Navigation.findNavController(view).navigate(R.id.nav_patients);
+                Navigation.findNavController(view).navigate(R.id.action_medicalTreatmentListFragment_to_nav_patients);
+            }
+        });
+*/
 
         recyclerView = view.findViewById(R.id.reciclerviewMedicalTreatment);
 

@@ -83,17 +83,24 @@ public class PillAddFragment extends Fragment{
                 pill.setName(txtAddPillName.getText().toString());
                 pill.setDescription(txtAddPillDescription.getText().toString());
                 pill.setState((true));
-                addPill(pill);
 
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("dosage",dosage);
 
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if(pill.getName().isEmpty() || pill.getDescription().isEmpty())
+                {
+                    Toast.makeText(getContext(),"Please chek the fields", Toast.LENGTH_LONG).show();
+                }else {
+                    addPill(pill);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("dosage", dosage);
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Navigation.findNavController(view).navigate(R.id.pillListFragment, bundle);
                 }
-                Navigation.findNavController(view).navigate(R.id.pillListFragment, bundle);
             }
         });
     }

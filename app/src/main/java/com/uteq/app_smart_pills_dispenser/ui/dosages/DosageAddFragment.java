@@ -201,12 +201,9 @@ public class DosageAddFragment extends Fragment {
 
                 if (dosageCardview != null) {
                     MedicalTreatment tratamiendoSetear = dosageCardview.getMedicalTreatment();
-                    getUltimoId();
-
-                    //cadenaAdapter.getData();
 
                     System.out.println(fechaHora);
-                    tratamiendoSetear.setId(ultimoID.getText().toString());
+                 //   tratamiendoSetear.setId(ultimoID.getText().toString());
                     medicalTreatment = tratamiendoSetear;
                 }
                 int cantidad;

@@ -26,7 +26,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="24dp"
                 app:shapeAppearanceOverlay="@style/RoundedImageView"
-                app:srcCompat="@drawable/ic_pills_dispenser"
+                app:srcCompat="@drawable/ic_smart_pill_dispenser_logo"
                 app:strokeColor="@android:color/darker_gray"
                 app:strokeWidth="5dp" />
 

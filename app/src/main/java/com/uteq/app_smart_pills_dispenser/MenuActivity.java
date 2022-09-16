@@ -1,17 +1,30 @@
 package com.uteq.app_smart_pills_dispenser;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.NavGraph;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -35,6 +48,7 @@ public class MenuActivity extends AppCompatActivity {
     private ShapeableImageView navHeaderImageView;
 
     Carer carer;
+    Button returnHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +84,10 @@ public class MenuActivity extends AppCompatActivity {
                 .error(R.drawable.ic_user)
                 .into(navHeaderImageView);
 
+        returnHome = findViewById(R.id.btnReturntHomeEver);
 
 
-
-
+  //      binding.appBarMenu.btnReturntHomeEver.setVisibility(View.GONE);
 
        // Envar datos de un activity a fragment
         PatientListFragment patientListFragment = new PatientListFragment();
@@ -93,6 +107,15 @@ public class MenuActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
+                boolean installed = isAppInstalled("com.whatsapp");
+                if (installed) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+593990407518"+"&text="+ "hola"));
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(MenuActivity.this, "Whatsapp is not installed!", Toast.LENGTH_SHORT).show();
+                }
 
 
             }
@@ -111,12 +134,74 @@ public class MenuActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller,
+                                             @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                if(destination.getId() == R.id.nav_home) {
+                    binding.appBarMenu.btnReturntHomeEver.setVisibility(View.GONE);
+                } else {
+                    binding.appBarMenu.btnReturntHomeEver.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+/*
+        if ( Navigation.findNavController== R.id.nav_home){
+            returnHome = findViewById(R.id.btnReturntHomeEver);
+            returnHome.setVisibility(View.GONE);
+        }
+*/
+
+
+
+        try {
+
+
+            returnHome.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
+                      navController.navigate(R.id.action_anypart_to_nav_home);
+                }
+            });
+        }catch (Exception e){
+            System.out.println("Pues aqui hubo un problema: " +e);
+        }
+
     }
 
 
     public Carer loadData() {
         Carer carer = this.carer;
         return carer;
+    }
+
+    public void enviarWhatsapp()
+    {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+
+        String uri  ="https://api.whatsapp.com/send/?phone=593961148453&text=Hola+necesito+Bendici%C3%B3n+Lunar+Promo";
+        sendIntent.setData(Uri.parse(uri));
+        sendIntent.setPackage("com.whatsapp");
+        startActivity(sendIntent);
+    }
+
+
+    private boolean isAppInstalled(String s) {
+        PackageManager packageManager = getPackageManager();
+        boolean is_installed;
+
+        try {
+            packageManager.getPackageInfo(s, PackageManager.GET_ACTIVITIES);
+            is_installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            is_installed = false;
+            e.printStackTrace();
+        }
+        return is_installed;
     }
 
 

@@ -241,7 +241,11 @@ public class MedicalTreatmentAdd extends Fragment {
             @Override
             public void onResponse(Call<MedicalTreatment> call, Response<MedicalTreatment> response) {
                 if (response != null) {
+                    //Aqui voy a guardar la respuesta del bodu
+                    String bodyResponse;
                     response.body();
+                    mt.setId(response.body().getId());
+                    bodyResponse = response.body().toString();
 
                     Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
                 }

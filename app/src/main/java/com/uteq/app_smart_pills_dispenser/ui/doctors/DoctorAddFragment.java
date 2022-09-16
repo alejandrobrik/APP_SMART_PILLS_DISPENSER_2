@@ -85,21 +85,33 @@ public class DoctorAddFragment extends Fragment {
                 d.setDirection(txtDirection.getText().toString());
                 d.setState((true));
 
-
-                addDoctor(d);
-
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if(d.getName().isEmpty() || d.getSpecialism().isEmpty() || d.getPhoneNumber().isEmpty() || d.getEmail().isEmpty() || d.getDirection().isEmpty())
+                {
+                    Toast.makeText(getContext(),"Please chek the fields", Toast.LENGTH_LONG).show();
                 }
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("treatment",treatment);
+                else {
+                    addDoctor(d);
 
-                Navigation.findNavController(view).navigate(R.id.doctorListSelectFragment,bundle);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("treatment", treatment);
+
+                    if (treatment != null) {
+                        Navigation.findNavController(view).navigate(R.id.doctorListSelectFragment, bundle);
+                    } else {
+                        Navigation.findNavController(view).navigate(R.id.nav_doctors, bundle);
+                    }
+
+                }
 
             }
         });
+
+
 
 
     }

@@ -2,6 +2,9 @@ package com.uteq.app_smart_pills_dispenser.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,14 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Doctor;
 import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
@@ -89,6 +96,35 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
                 }
             });
 
+        }else {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                //    Intent sendIntent = new Intent();
+                //    sendIntent.setAction(Intent.ACTION_SEND);
+                 //  String uri ="http://whatsapp://send?phone=593990407518&text=Holadoctor";
+                //    String uri  ="https://api.whatsapp.com/send/?phone=+593990407518&text=Hola+necesito+Bendici%C3%B3n+Lunar+Promo";
+               //     String uri  ="http://api.whatsapp.com/send?phone="+"+593990407518"+"&text="+ "hola";
+
+              //      sendIntent.setData(Uri.parse(uri));
+              //      sendIntent.setPackage("com.whatsapp");
+             //       context.startActivity(sendIntent);
+              //     MenuActivity menuActivity = new MenuActivity();
+              //      menuActivity.enviarWhatsapp();
+              //      sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+
+                    boolean installed = isAppInstalled("com.whatsapp");
+                    if (installed) {
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"593" + doctor.getPhoneNumber() +"&text="+ "Hola doctor " + doctor.getName() +"le escribo para" ));
+                        context.startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(view.getContext(), "Whatsapp is not installed!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
 
     }
@@ -127,6 +163,20 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
             }
         }
         notifyDataSetChanged();
+    }
+
+    private boolean isAppInstalled(String s) {
+        PackageManager packageManager = context.getPackageManager();
+        boolean is_installed;
+
+        try {
+            packageManager.getPackageInfo(s, PackageManager.GET_ACTIVITIES);
+            is_installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            is_installed = false;
+            e.printStackTrace();
+        }
+        return is_installed;
     }
 
     public class DoctorViewHolder  extends RecyclerView.ViewHolder{
