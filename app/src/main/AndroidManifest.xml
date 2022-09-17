@@ -23,7 +23,9 @@
             android:name=".MenuActivity"
             android:exported="true"
             android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.APP_SMART_PILLS_DISPENSER.NoActionBar"></activity>
+            android:theme="@style/Theme.APP_SMART_PILLS_DISPENSER.NoActionBar">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" >

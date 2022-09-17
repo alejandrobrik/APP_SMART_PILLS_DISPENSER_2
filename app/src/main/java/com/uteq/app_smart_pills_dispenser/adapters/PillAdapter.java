@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Dosage;
@@ -62,6 +63,12 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.PillViewHolder
         Pill pill = data.get(position);
         holder.txtName.setText(MoreUtils.coalesce(pill.getName(), "N/D"));
         holder.txtDescription.setText(MoreUtils.coalesce(pill.getDescription(), "N/D"));
+
+        Glide.with(context)
+                .load(pill.getUrlImage())
+                .error(R.drawable.ic_pill)
+                .into(holder.imgPill);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

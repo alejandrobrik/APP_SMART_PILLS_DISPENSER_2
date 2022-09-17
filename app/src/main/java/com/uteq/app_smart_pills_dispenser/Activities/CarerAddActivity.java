@@ -77,7 +77,7 @@ public class CarerAddActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if(pass.isEmpty() || repeatPass.isEmpty() || name.isEmpty() || phone.isEmpty() ||email.isEmpty() ){
-                    Toast.makeText(CarerAddActivity.this, "Error, check the campos. " , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarerAddActivity.this, "Error, check the fields. " , Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(CarerAddActivity.this, "Error, check the password. " , Toast.LENGTH_SHORT).show();

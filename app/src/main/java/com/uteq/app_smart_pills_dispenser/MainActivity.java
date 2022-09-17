@@ -2,7 +2,9 @@ package com.uteq.app_smart_pills_dispenser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -89,11 +91,12 @@ public class MainActivity extends AppCompatActivity {
 
                             intent.putExtra("c",  carer);
                             startActivity(intent);
-                            Toast.makeText(getApplicationContext(), "Inicio de sesión exitoso.", Toast.LENGTH_LONG).show();
+                            finish();
+                            Toast.makeText(getApplicationContext(), "Login Successful.", Toast.LENGTH_LONG).show();
                             return;
                         }
                     }
-                    Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecta.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Incorrect user or pass.", Toast.LENGTH_LONG).show();
 
                 }
             }

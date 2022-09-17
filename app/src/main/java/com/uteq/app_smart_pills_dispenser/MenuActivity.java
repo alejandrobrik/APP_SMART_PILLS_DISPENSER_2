@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
@@ -50,6 +51,9 @@ public class MenuActivity extends AppCompatActivity {
     Carer carer;
     Button returnHome;
 
+    int contador = 0;
+    int destinoActualId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +68,7 @@ public class MenuActivity extends AppCompatActivity {
         String image = carer.getUrlImage();
 
 
+       // image = "";
 
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -141,8 +146,10 @@ public class MenuActivity extends AppCompatActivity {
                                              @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 if(destination.getId() == R.id.nav_home) {
                     binding.appBarMenu.btnReturntHomeEver.setVisibility(View.GONE);
+                    destinoActualId = R.id.nav_home;
                 } else {
                     binding.appBarMenu.btnReturntHomeEver.setVisibility(View.VISIBLE);
+                    destinoActualId = 0;
                 }
             }
         });
@@ -161,8 +168,6 @@ public class MenuActivity extends AppCompatActivity {
             returnHome.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
                       navController.navigate(R.id.action_anypart_to_nav_home);
                 }
             });
@@ -189,6 +194,32 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(sendIntent);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        if (destinoActualId == R.id.nav_home) {
+            if (contador == 0) {
+                Toast.makeText(getApplicationContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
+                contador++;
+            } else {
+                super.onBackPressed();
+            }
+
+            new CountDownTimer(3000, 1000) {
+                @Override
+                public void onTick(long l) {
+                }
+
+                @Override
+                public void onFinish() {
+                    contador = 0;
+                }
+            }.start();
+        }else {
+            super.onBackPressed();
+        }
+
+    }
 
     private boolean isAppInstalled(String s) {
         PackageManager packageManager = getPackageManager();

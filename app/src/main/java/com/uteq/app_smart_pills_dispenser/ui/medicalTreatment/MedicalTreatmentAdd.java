@@ -49,7 +49,7 @@ public class MedicalTreatmentAdd extends Fragment {
     Boolean stateDate;
     EditText txtDescription;
     EditText txtStartDate;
-    EditText txtEndDate;
+    //EditText txtEndDate;
     TextView tvNameSelectedDoctor;
     Button btnSelectDoctor;
     Button btnAddDosages;
@@ -98,14 +98,8 @@ public class MedicalTreatmentAdd extends Fragment {
 
             }
         });
-        txtEndDate = view.findViewById(R.id.txtTreatmentEndDate);
-        txtEndDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stateDate = false;
-                showDatePickerDialog();
-            }
-        });
+        //txtEndDate = view.findViewById(R.id.txtTreatmentEndDate);
+
 
 
         btnSelectDoctor = view.findViewById(R.id.btnSelectDoctor);
@@ -193,8 +187,7 @@ public class MedicalTreatmentAdd extends Fragment {
 
                 if (stateDate)
                     txtStartDate.setText(selectedDate);
-                else
-                    txtEndDate.setText(selectedDate);
+
 
             }
         });
