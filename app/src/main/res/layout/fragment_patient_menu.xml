@@ -15,32 +15,33 @@
         tools:context=".ui.subfragments.PatientMenuFragment">
 
 
-        <TextView
+    <TextView
 
-            android:id="@+id/textViewPatientTitle"
+        android:id="@+id/textViewPatientTitle"
 
-            android:layout_width="wrap_content"
+        android:layout_width="350dp"
 
-            android:layout_height="wrap_content"
+        android:layout_height="wrap_content"
 
-            android:layout_marginStart="16dp"
+        android:layout_marginStart="16dp"
 
-            android:layout_marginTop="16dp"
+        android:layout_marginTop="16dp"
 
-            android:layout_marginEnd="16dp"
+        android:layout_marginEnd="16dp"
 
-            android:text="PATIENT: "
+        android:text="PATIENT:"
+        android:textAlignment="center"
+        android:textColor="@color/white"
 
-            android:textColor="@color/white"
+        android:textSize="28sp"
+        app:autoSizeTextType="uniform"
 
-            android:textSize="28dp"
+        android:textStyle="bold"
 
-            android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
 
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 

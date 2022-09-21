@@ -16,6 +16,7 @@ import com.uteq.app_smart_pills_dispenser.Activities.CarerAddActivity;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.services.CarerService;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
+import com.uteq.app_smart_pills_dispenser.utils.EncryptHelper;
 
 import java.io.Serializable;
 import java.util.List;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     EditText txtemail;
     EditText txtpassword;
     EditText txtRepeatPassword;
+
+    EncryptHelper encrypt;
+    String encryptValue;
 
     Button btnlogin;
     Button btnsingup;
@@ -50,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                encrypt = new EncryptHelper();
                 try {
+                    encryptValue = encrypt.encriptar(txtpassword.getText().toString(), encrypt.apiKey);
          //           btnlogin.setEnabled(false);
          //           btnsingup.setEnabled(false);
                     DoLogin();
@@ -89,11 +95,19 @@ public class MainActivity extends AppCompatActivity {
                                 carer.getPassword().equals(txtpassword.getText().toString()))
                         {
                             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-
                             intent.putExtra("c",  carer);
                             startActivity(intent);
                             finish();
-                            Toast.makeText(getApplicationContext(), "Login Successful.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Login Successful.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        if (carer.getEmail().equals(txtemail.getText().toString())
+                                && carer.getPassword().equals(encryptValue)){
+                            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                            intent.putExtra("c",  carer);
+                            startActivity(intent);
+                            finish();
+                            Toast.makeText(getApplicationContext(), "Login Successful.", Toast.LENGTH_SHORT).show();
                             return;
                         }
                     }

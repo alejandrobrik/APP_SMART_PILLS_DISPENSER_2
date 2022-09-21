@@ -3,12 +3,14 @@ package com.uteq.app_smart_pills_dispenser.ui.doctors;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
+import android.view.InputQueue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -123,6 +125,7 @@ public class DoctorAddFragment extends Fragment {
 
 
 
+
     }
 
     private void showDatePickerDialog() {
@@ -172,5 +175,7 @@ public class DoctorAddFragment extends Fragment {
             }
         });
     }
+
+
 
 }

@@ -130,7 +130,7 @@ public class MenuActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_patients, R.id.nav_alerts, R.id.nav_doctors, R.id.nav_setings)
+                R.id.nav_home, R.id.nav_patients, R.id.nav_alerts, R.id.nav_doctors, R.id.nav_setings, R.id.nav_logout)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -144,7 +144,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onDestinationChanged(@NonNull NavController controller,
                                              @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                if(destination.getId() == R.id.nav_home) {
+                if(destination.getId() == R.id.nav_home || destination.getId() == R.id.nav_logout) {
                     binding.appBarMenu.btnReturntHomeEver.setVisibility(View.GONE);
                     destinoActualId = R.id.nav_home;
                 } else {

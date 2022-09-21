@@ -95,6 +95,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
             }
         });
 
+        if (patient.getGender() != null)
         if (patient.getGender().equals("Female")) {
             Glide.with(context)
                     .load(R.drawable.ic_female)

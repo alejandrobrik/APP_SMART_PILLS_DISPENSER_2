@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -153,6 +154,17 @@ public class MedicalTreatmentAdd extends Fragment {
            //     txtEndDate.setText(mtCardview.getEndDate());
         }
 
+//        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+//            @Override
+//            public void handleOnBackPressed() {
+//                // Handle the back button event
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("patient", patient);
+//                Navigation.findNavController(view).navigate(R.id.medicalTreatmentListFragment, bundle);
+//            }
+//        };
+//        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
+
 
     }
 
@@ -251,4 +263,6 @@ public class MedicalTreatmentAdd extends Fragment {
             }
         });
     }
+
+
 }

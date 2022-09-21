@@ -9,7 +9,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class EncryptHelper {
 
-    private String desencriptar(String datos, String password) throws Exception{
+    public String apiKey = "0SPrEK0JntQ2qCm9cPEabw==";
+    public String desencriptar(String datos, String password) throws Exception{
         SecretKeySpec secretKey = generateKey(password);
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
@@ -19,7 +20,7 @@ public class EncryptHelper {
         return datosDesencriptadosString;
     }
 
-    private String encriptar(String datos, String password) throws Exception{
+    public String encriptar(String datos, String password) throws Exception{
         SecretKeySpec secretKey = generateKey(password);
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
@@ -28,7 +29,7 @@ public class EncryptHelper {
         return datosEncriptadosString;
     }
 
-    private SecretKeySpec generateKey(String password) throws Exception{
+    public SecretKeySpec generateKey(String password) throws Exception{
         MessageDigest sha = MessageDigest.getInstance("SHA-256");
         byte[] key = password.getBytes("UTF-8");
         key = sha.digest(key);

@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.Gravity;
@@ -40,6 +41,7 @@ import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Doctor;
 import com.uteq.app_smart_pills_dispenser.services.CarerService;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
+import com.uteq.app_smart_pills_dispenser.utils.EncryptHelper;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
@@ -61,6 +63,9 @@ public class CarerAddActivity extends AppCompatActivity {
     EditText txtpassword;
     EditText txtRepeatPassword;
     Boolean validaEmail = false;
+
+    EncryptHelper encrypt;
+    String encryptValue;
 
     Button save;
     Button btnClean;
@@ -150,7 +155,6 @@ public class CarerAddActivity extends AppCompatActivity {
         });
 
         save = findViewById(R.id.btnSave);
-
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,6 +177,13 @@ public class CarerAddActivity extends AppCompatActivity {
 
 
                 if(pass.equals(repeatPass) && !(pass.isEmpty() || repeatPass.isEmpty() || name.isEmpty() || phone.isEmpty() ||email.isEmpty() ) && validaEmail ) {
+                    encrypt = new EncryptHelper();
+                    try {
+                        encryptValue = encrypt.encriptar(c.getPassword(),encrypt.apiKey);
+                        c.setPassword(encryptValue);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     addCarer(c);
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class );
                     startActivity(intent);
@@ -423,7 +434,6 @@ public class CarerAddActivity extends AppCompatActivity {
             public void onResponse(Call<List<Carer>> call, Response<List<Carer>> response) {
                 if(response.isSuccessful()){
                     List <Carer>  carers = response.body();
-
                         int lastIdx = carers.size() - 1;
                         Carer lastElment = carers.get(lastIdx);
                         idd = "" +lastElment.getId()+1;
@@ -479,6 +489,15 @@ public class CarerAddActivity extends AppCompatActivity {
                         Log.e(TAG, "signInAnonymously:FAILURE", exception);
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+        startActivity(intent);
+        super.onBackPressed();
+
     }
 
 }

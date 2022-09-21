@@ -70,7 +70,7 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
 
         holder.tvDescription.setText(MoreUtils.coalesce(medicalTreatment.getDescription(), "N/D"));
         holder.tvStartDate.setText(MoreUtils.coalesce(medicalTreatment.getStartDate(), "N/D"));
-    //    holder.tvEndDate.setText(MoreUtils.coalesce(medicalTreatment.getEndDate(), "N/D"));
+        holder.tvDoctorName.setText(MoreUtils.coalesce(medicalTreatment.getDoctor().getName(), "N/D"));
 
 
         if(this.dosage != null){
@@ -146,7 +146,7 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
 
         TextView tvDescription;
         TextView tvStartDate;
-        TextView tvEndDate;
+        TextView tvDoctorName;
         ImageView imgEvaluador;
         CardView cardView;
 
@@ -156,7 +156,7 @@ public class MedicalTreatmentAdapter extends RecyclerView.Adapter<MedicalTreatme
 
             tvDescription = itemView.findViewById(R.id.tvTreatmentDescription);
             tvStartDate = itemView.findViewById(R.id.tvTreatmentStarDate);
-            tvEndDate = itemView.findViewById(R.id.tvTreatmentEndDate);
+            tvDoctorName = itemView.findViewById(R.id.tvTreatmentDoctorName);
             imgEvaluador = itemView.findViewById(R.id.imgEvaluador);
             cardView = itemView.findViewById(R.id.cardViewMainMedicalTreatment);
         }

@@ -74,6 +74,18 @@
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.logout.LogoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_logout" >
+    <action
+        android:id="@+id/action_anypart_to_nav_home"
+        app:destination="@id/nav_home"
+        app:popUpTo="@id/nav_home"
+        app:popUpToInclusive="true" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/patientAddFragment"
@@ -137,6 +149,9 @@
         <action
             android:id="@+id/action_medicalTreatmentListFragment_to_medicalTreatmentAdd"
             app:destination="@id/medicalTreatmentAdd" />
+        <action
+            android:id="@+id/action_medicalTreatmentAdd_to_medicalTreatmentListFragment"
+            app:destination="@id/medicalTreatmentListFragment" />
         <action
             android:id="@+id/action_medicalTreatmentListFragment_to_nav_patients"
             app:destination="@id/nav_patients"
@@ -218,5 +233,11 @@
     <fragment
         android:id="@+id/doctorAddFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.doctors.DoctorAddFragment"
-        android:label="DoctorAddFragment" />
+        android:label="Doctor Registration" >
+        <action
+            android:id="@+id/action_anypart_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
