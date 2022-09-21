@@ -122,9 +122,6 @@ public class PatientListFragment extends Fragment implements  SearchView.OnQuery
 
         initListener();
 
-
-
-
     }
 
     public void getpatient() throws Exception {

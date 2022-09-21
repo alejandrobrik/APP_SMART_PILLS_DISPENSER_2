@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.hbb20.CountryCodePicker;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Doctor;
@@ -46,6 +47,9 @@ public class DoctorAddFragment extends Fragment {
     EditText txtDirection;
     String genero;
 
+    CountryCodePicker codePicker;
+    String phoneCode;
+
     MedicalTreatment treatment;
 
 
@@ -67,7 +71,9 @@ public class DoctorAddFragment extends Fragment {
 
         txtname = view.findViewById(R.id.txtDoctorName);
         txtSpecialism = view.findViewById(R.id.txtDoctorSpecialism);
+        codePicker = view.findViewById(R.id.countryCodeDoctor);
         txtPhoneNumber = view.findViewById(R.id.txtDoctorPhoneNumber);
+
         txtEmail = view.findViewById(R.id.txtDoctorEmail);
         txtDirection = view.findViewById(R.id.txtDoctoDirection);
 
@@ -77,10 +83,13 @@ public class DoctorAddFragment extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                phoneCode = codePicker.getSelectedCountryCode();
+
                 Doctor d = new Doctor();
                 d.setName(txtname.getText().toString());
                 d.setSpecialism(txtSpecialism.getText().toString());
-                d.setPhoneNumber(txtPhoneNumber.getText().toString());
+                d.setPhoneNumber(phoneCode+txtPhoneNumber.getText().toString());
                 d.setEmail(txtEmail.getText().toString());
                 d.setDirection(txtDirection.getText().toString());
                 d.setState((true));

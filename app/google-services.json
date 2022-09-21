@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "965960805460",
+    "project_id": "app-smart-pills-dispenser",
+    "storage_bucket": "app-smart-pills-dispenser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965960805460:android:e903daf4e133199682d1c1",
+        "android_client_info": {
+          "package_name": "com.uteq.app_smart_pills_dispenser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965960805460-u546i5vtsgtp5qk1hag0o96j55vprsqm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBilJ7A3R7_UURuZZCtMjtxccJMa9FstcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965960805460-u546i5vtsgtp5qk1hag0o96j55vprsqm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

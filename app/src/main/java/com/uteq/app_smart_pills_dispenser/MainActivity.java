@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), CarerAddActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

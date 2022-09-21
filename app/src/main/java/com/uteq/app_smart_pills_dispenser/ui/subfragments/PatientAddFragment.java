@@ -76,7 +76,7 @@ public class PatientAddFragment extends Fragment {
 
         spinerGenderPatient = (Spinner) view.findViewById(R.id.spinerGenderPatient);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.combo_gender, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.combo_gender, R.layout.spiner_item_patient);
 
         spinerGenderPatient.setAdapter(adapter);
         spinerGenderPatient.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

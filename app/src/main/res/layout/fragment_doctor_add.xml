@@ -8,27 +8,28 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="100px">
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Name"/>
+            android:text="Name"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtDoctorName"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Specialism"/>
+            android:text="Specialism"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtDoctorSpecialism"
@@ -38,27 +39,48 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Phone number"/>
+            android:text="Phone number"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/txtDoctorPhoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/countryCodeDoctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                app:ccp_defaultNameCode="EC"
+                app:ccp_showPhoneCode="true"
+                app:ccp_showNameCode="false"
+                />
+
+            <EditText
+                android:id="@+id/txtDoctorPhoneNumber"
+                android:layout_width="197dp"
+                android:layout_height="69dp" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Email"/>
+            android:text="Email"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/txtDoctorEmail"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Address"/>
+            android:text="Address"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtDoctoDirection"
