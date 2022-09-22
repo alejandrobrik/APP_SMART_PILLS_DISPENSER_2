@@ -1,6 +1,7 @@
 package com.uteq.app_smart_pills_dispenser.ui.doctors;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -96,12 +97,20 @@ public class DoctorAddFragment extends Fragment {
                 d.setDirection(txtDirection.getText().toString());
                 d.setState((true));
 
+                if (d.getSpecialism().length()>24){
+                    String specialistCut;
+                    specialistCut = d.getSpecialism().substring(0,23);
+                    d.setSpecialism(specialistCut);
+                }
+
                 if(d.getName().isEmpty() || d.getSpecialism().isEmpty() || d.getPhoneNumber().isEmpty() || d.getEmail().isEmpty() || d.getDirection().isEmpty())
                 {
                     Toast.makeText(getContext(),"Please chek the fields", Toast.LENGTH_LONG).show();
                 }
                 else {
+                    Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
                     addDoctor(d);
+
 
                     try {
                         Thread.sleep(500);
@@ -112,9 +121,9 @@ public class DoctorAddFragment extends Fragment {
                     bundle.putSerializable("treatment", treatment);
 
                     if (treatment != null) {
-                        Navigation.findNavController(view).navigate(R.id.doctorListSelectFragment, bundle);
+                        Navigation.findNavController(view).navigate(R.id.action_doctorAddFragment_to_doctorListSelectFragment, bundle);
                     } else {
-                        Navigation.findNavController(view).navigate(R.id.nav_doctors, bundle);
+                        Navigation.findNavController(view).navigate(R.id.action_doctorAddFragment_to_nav_doctors, bundle);
                     }
 
                 }
@@ -164,7 +173,8 @@ public class DoctorAddFragment extends Fragment {
             @Override
             public void onResponse(Call<Doctor> call, Response<Doctor> response) {
                 if (response != null) {
-                    Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(context, "Successful registration.", Toast.LENGTH_LONG).show();
+                    System.out.println("Se registro correctamente");
                 }
             }
 

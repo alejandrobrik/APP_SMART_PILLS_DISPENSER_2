@@ -54,7 +54,8 @@ public class PillAddFragment extends Fragment{
             @Override
             public void onResponse(Call<Pill> call, Response<Pill> response) {
                 if(response!=null) {
-                    Toast.makeText(getContext(), "Successful registration.",Toast.LENGTH_LONG).show();
+                    //Se pierde el contexto por lo queel objeto es nulo asi que no se puede mostrar el dialogo
+                    //Toast.makeText(getContext(), "Successful registration.",Toast.LENGTH_LONG).show();
                 }
             }
             @Override
@@ -89,6 +90,7 @@ public class PillAddFragment extends Fragment{
                 {
                     Toast.makeText(getContext(),"Please chek the fields", Toast.LENGTH_LONG).show();
                 }else {
+                    Toast.makeText(getContext(), "Successful registration.",Toast.LENGTH_LONG).show();
                     addPill(pill);
 
                     Bundle bundle = new Bundle();
@@ -99,7 +101,7 @@ public class PillAddFragment extends Fragment{
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Navigation.findNavController(view).navigate(R.id.pillListFragment, bundle);
+                    Navigation.findNavController(view).navigate(R.id.action_pillAddFragment_to_pillListFragment, bundle);
                 }
             }
         });

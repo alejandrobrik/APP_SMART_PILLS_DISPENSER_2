@@ -92,7 +92,8 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Navigation.findNavController(view).navigate(R.id.medicalTreatmentAdd, b);
+
+                    Navigation.findNavController(view).navigate(R.id.action_doctorListSelectFragment_to_medicalTreatmentAdd, b);
                 }
             });
 

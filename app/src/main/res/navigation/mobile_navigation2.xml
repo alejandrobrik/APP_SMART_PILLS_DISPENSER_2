@@ -128,6 +128,12 @@
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_pillListFragment_to_dosageAddFragment"
+            app:destination="@id/dosageAddFragment"
+            app:popUpTo="@id/dosageAddFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
     <fragment
         android:id="@+id/pillAddFragment"
@@ -138,6 +144,11 @@
             android:id="@+id/action_anypart_to_nav_home"
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_pillAddFragment_to_pillListFragment"
+            app:destination="@id/pillListFragment"
+            app:popUpTo="@id/pillListFragment"
             app:popUpToInclusive="true" />
     </fragment>
 
@@ -193,6 +204,12 @@
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_doctorListSelectFragment_to_medicalTreatmentAdd"
+            app:destination="@id/medicalTreatmentAdd"
+            app:popUpTo="@id/medicalTreatmentAdd"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/dosageListFragment"
@@ -224,6 +241,7 @@
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="true" />
+
     </fragment>
     <fragment
         android:id="@+id/medicalTreatmentListSelectFragment"
@@ -238,6 +256,17 @@
             android:id="@+id/action_anypart_to_nav_home"
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_doctorAddFragment_to_doctorListSelectFragment"
+            app:destination="@id/doctorListSelectFragment"
+            app:popUpTo="@id/doctorListSelectFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_doctorAddFragment_to_nav_doctors"
+            app:destination="@id/nav_doctors"
+            app:popUpTo="@id/nav_doctors"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

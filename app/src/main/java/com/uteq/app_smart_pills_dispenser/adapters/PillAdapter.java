@@ -80,7 +80,7 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.PillViewHolder
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Navigation.findNavController(view).navigate(R.id.dosageAddFragment, bundle);
+                Navigation.findNavController(view).navigate(R.id.action_pillListFragment_to_dosageAddFragment, bundle);
             }
         });
     }
