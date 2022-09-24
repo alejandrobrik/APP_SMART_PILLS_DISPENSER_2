@@ -133,8 +133,12 @@ public class MedicalTreatmentAdd extends Fragment {
                     Toast.makeText(getContext(), "Please check the fields.", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    addMedicalTreatment(mt);
+                    txtDescription.setText("");
+                    txtStartDate.setText("");
+                    getArguments().clear();
 
+
+                    addMedicalTreatment(mt);
 
                     try {
                         Thread.sleep(500);
@@ -143,7 +147,10 @@ public class MedicalTreatmentAdd extends Fragment {
                     }
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("treatment", mt);
+                    bundle.putSerializable("patient", mt.getPatient());
+                    setArguments(bundle);
                     Navigation.findNavController(view).navigate(R.id.dosageAddFragment, bundle);
+
                 }
             }
         });

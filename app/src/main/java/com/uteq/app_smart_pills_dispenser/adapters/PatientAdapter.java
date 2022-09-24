@@ -95,19 +95,21 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
             }
         });
 
-        if (patient.getGender() != null)
+        if (patient.getGender() != null){
         if (patient.getGender().equals("Female")) {
             Glide.with(context)
-                    .load(R.drawable.ic_female)
-                    .error(R.drawable.ic_user)
+                    .load(patient.getUrlImage())
+                    .error(R.drawable.ic_female)
                     .into(holder.imgPatient);
         }
         if (patient.getGender().equals("Male")){
             Glide.with(context)
-                    .load(R.drawable.ic_male)
-                    .error(R.drawable.ic_user)
+                    .load(patient.getUrlImage())
+                    .error(R.drawable.ic_male)
                     .into(holder.imgPatient);
         }
+        }
+
 
     }
 

@@ -116,7 +116,6 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
 
                     boolean installed = isAppInstalled("com.whatsapp");
                     if (installed) {
-
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + doctor.getPhoneNumber() +"&text="+ "Hi doctor " + doctor.getName() +" I write to you by" ));
                         context.startActivity(intent);

@@ -1,11 +1,13 @@
 package com.uteq.app_smart_pills_dispenser;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
@@ -21,6 +23,10 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -51,6 +57,7 @@ public class MenuActivity extends AppCompatActivity {
     Carer carer;
     Button returnHome;
 
+    private static final int REQUEST_PHONE_CALL = 1;
     int contador = 0;
     int destinoActualId = 0;
 
@@ -125,6 +132,7 @@ public class MenuActivity extends AppCompatActivity {
 
             }
         });
+
         DrawerLayout drawer = binding.drawerLayout;
         navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -138,6 +146,50 @@ public class MenuActivity extends AppCompatActivity {
 
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        binding.appBarMenu.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.action_logout) {
+                    navController.navigate(R.id.nav_logout);
+                    // do something for item1
+                    return true;
+                } else if (itemId == R.id.action_about) {
+                    // do something for item2
+                    return true;
+                } else {
+                    // if you do nothing, returning false should be appropriate.
+                    return false;
+                }
+
+            }
+        });
+
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                int id = menuItem.getItemId();
+                if (id == R.id.nav_home) {
+                    navController.navigate(R.id.action_anypart_to_nav_home);
+                }
+                else
+                {
+                    // Make your navController object final above
+                    // or call Navigation.findNavController() again here
+                    NavigationUI.onNavDestinationSelected(menuItem, navController);
+                }
+                drawer.closeDrawer(GravityCompat.START);
+                if (id == R.id.action_logout){
+                    Toast.makeText(getApplicationContext(), "Cerrando la sesion", Toast.LENGTH_SHORT).show();
+                    System.out.println("Aver cerrando sesion");
+                }
+                return true;
+            }
+        });
 
 
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
@@ -176,6 +228,9 @@ public class MenuActivity extends AppCompatActivity {
         }
 
     }
+
+
+
 
 
     public Carer loadData() {

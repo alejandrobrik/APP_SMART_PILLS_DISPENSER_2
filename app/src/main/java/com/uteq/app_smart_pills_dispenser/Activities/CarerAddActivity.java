@@ -5,7 +5,9 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,9 +19,13 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -39,7 +45,11 @@ import com.uteq.app_smart_pills_dispenser.MainActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Doctor;
+import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.services.CarerService;
+import com.uteq.app_smart_pills_dispenser.services.PatientService;
+import com.uteq.app_smart_pills_dispenser.ui.dialogs.DatePickerFragment;
+import com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientAddFragment;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 import com.uteq.app_smart_pills_dispenser.utils.EncryptHelper;
 import com.yalantis.ucrop.UCrop;
@@ -56,6 +66,7 @@ import retrofit2.Response;
 public class CarerAddActivity extends AppCompatActivity {
 
     CarerService service;
+    PatientService patientService;
 
     EditText txtname;
     EditText txtphoneNumber;
@@ -63,6 +74,12 @@ public class CarerAddActivity extends AppCompatActivity {
     EditText txtpassword;
     EditText txtRepeatPassword;
     Boolean validaEmail = false;
+
+    Spinner spinerGenderCarer;
+    Spinner spinnerRegisterAs;
+    String genero;
+    String registerAs;
+    EditText txtbirthdateCarer;
 
     EncryptHelper encrypt;
     String encryptValue;
@@ -122,7 +139,53 @@ public class CarerAddActivity extends AppCompatActivity {
 
 
         txtname = findViewById(R.id.txtname);
-        txtphoneNumber = findViewById(R.id.txtphonenumber);
+
+        txtbirthdateCarer = findViewById(R.id.txtBirthDateCarer);
+        txtbirthdateCarer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
+            }
+        });
+
+
+        spinerGenderCarer = findViewById(R.id.spinerGenderCarer);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.combo_gender, R.layout.spiner_item_patient);
+
+        spinerGenderCarer.setAdapter(adapter);
+        spinerGenderCarer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                genero = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spinnerRegisterAs  =  findViewById(R.id.spinerRegisterAs);
+
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.combo_register_as, R.layout.spiner_item_patient);
+
+        spinnerRegisterAs.setAdapter(adapter2);
+        spinnerRegisterAs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                registerAs = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        txtphoneNumber = findViewById(R.id.txtphonenumberCarer);
         txtemail = findViewById(R.id.txtemail);
         txtemail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -164,6 +227,9 @@ public class CarerAddActivity extends AppCompatActivity {
                 c.setEmail(txtemail.getText().toString());
                 c.setPassword(txtpassword.getText().toString());
                 c.setPhoneNumber(txtphoneNumber.getText().toString());
+                c.setGender(genero);
+                c.setBirthDate(txtbirthdateCarer.getText().toString());
+                //Inserta imagen en el carer
                 if (imageCarerDatabase!=null)
                     c.setUrlImage(imageCarerDatabase);
 
@@ -174,9 +240,10 @@ public class CarerAddActivity extends AppCompatActivity {
                 String name =  txtname.getText().toString();
                 String phone = txtphoneNumber.getText().toString();
                 String email =txtemail.getText().toString();
+                String birthDate = txtbirthdateCarer.getText().toString();
 
 
-                if(pass.equals(repeatPass) && !(pass.isEmpty() || repeatPass.isEmpty() || name.isEmpty() || phone.isEmpty() ||email.isEmpty() ) && validaEmail ) {
+                if(pass.equals(repeatPass) && !(pass.isEmpty() || repeatPass.isEmpty() || name.isEmpty() || phone.isEmpty() ||email.isEmpty() || birthDate.isEmpty()) && validaEmail ) {
                     encrypt = new EncryptHelper();
                     try {
                         encryptValue = encrypt.encriptar(c.getPassword(),encrypt.apiKey);
@@ -233,14 +300,45 @@ public class CarerAddActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Carer> call, Response<Carer> response) {
                 if(response!=null) {
-                    finish();
-                    Toast.makeText(CarerAddActivity.this, "Successful registration.",Toast.LENGTH_LONG).show();
+
+                    if (!registerAs.equals("Only Carer")) {
+                        Patient patient = new Patient();
+                        patient.setName(response.body().getName());
+                        patient.setBirthDate(response.body().getBirthDate());
+                        patient.setGender(response.body().getGender());
+                        patient.setCarer(response.body());
+                        patient.setUrlImage(response.body().getUrlImage());
+
+                        addPatient(patient);
+                    }
+                    else {
+                        finish();
+                        Toast.makeText(CarerAddActivity.this, "Successful registration.", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<Carer> call, Throwable t) {
                 Log.e("Error:",t.getMessage());
+
+            }
+        });
+    }
+    public void addPatient(Patient p) {
+        patientService = Apis.getPatientService();
+        Call<Patient> call = patientService.addPatient(p);
+        call.enqueue(new Callback<Patient>() {
+            @Override
+            public void onResponse(Call<Patient> call, Response<Patient> response) {
+                if (response != null) {
+                    finish();
+                     Toast.makeText(getApplicationContext(), "Successful registration.", Toast.LENGTH_LONG).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<Patient> call, Throwable t) {
+                Log.e("Error:", t.getMessage());
 
             }
         });
@@ -252,6 +350,35 @@ public class CarerAddActivity extends AppCompatActivity {
 
         startActivityForResult(i, COD_SEL_IMAGE);
 
+    }
+
+    private void showDatePickerDialog() {
+        // Metodo para mostrar el dialogo de fecha
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because January is zero
+                month = month +1;
+                String monthParse;
+                String dayParse;
+                String selectedDate;
+
+                if (month <10)
+                    monthParse = "0"+month;
+                else
+                    monthParse = ""+month;
+                if (day < 10)
+                    dayParse = "0"+day;
+                else
+                    dayParse = ""+day;
+                selectedDate = (year + "-" +monthParse +"-" + dayParse);
+
+                txtbirthdateCarer.setText(selectedDate);
+
+            }
+        });
+
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
     @Override

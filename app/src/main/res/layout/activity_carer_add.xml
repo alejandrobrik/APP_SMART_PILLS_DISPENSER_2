@@ -35,14 +35,61 @@
             android:layout_width="match_parent"
             android:layout_height="60dp" />
         <TextView
-            android:id="@+id/phonenumber"
+            android:id="@+id/birthdateCarer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Carer Birthday"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtBirthDateCarer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="date"
+            android:maxLines="1" />
+
+  <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvGenderPatient"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textStyle="bold" />
+      <TextView
+          android:id="@+id/tvRegisterAs"
+          android:layout_width="166dp"
+          android:layout_height="wrap_content"
+          android:text="Register As"
+          android:textStyle="bold" />
+  </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/spinerGenderCarer"
+            android:layout_width="170dp"
+            android:layout_height="50dp" />
+
+        <Spinner
+            android:id="@+id/spinerRegisterAs"
+            android:layout_width="166dp"
+            android:layout_height="50dp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvphonenumberCarer"
             android:layout_width="match_parent"
             android:layout_height="50px"
             android:textStyle="bold"
             android:text="Phone number"/>
 
         <EditText
-            android:id="@+id/txtphonenumber"
+            android:id="@+id/txtphonenumberCarer"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
 

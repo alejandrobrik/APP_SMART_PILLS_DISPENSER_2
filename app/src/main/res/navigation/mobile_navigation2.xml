@@ -9,13 +9,15 @@
         android:id="@+id/nav_home"
         android:name="com.uteq.app_smart_pills_dispenser.ui.home.HomeFragment"
         android:label="@string/menu_home"
+        app:destination="@id/nav_home"
+        app:popUpTo="@id/nav_home"
+        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_anypart_to_nav_home"
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="true" />
-
         </fragment>
 
     <fragment
@@ -94,7 +96,9 @@
         tools:layout="@layout/fragment_patient_add">
         <action
             android:id="@+id/action_patientAddFragment_to_nav_patients"
-            app:destination="@id/nav_patients" />
+            app:popUpTo="@id/nav_patients"
+            app:destination="@id/nav_patients"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_anypart_to_nav_home"
             app:destination="@id/nav_home"

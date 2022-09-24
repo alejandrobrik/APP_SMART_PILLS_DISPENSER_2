@@ -52,7 +52,7 @@
                     android:maxLines="1" />
 
                 <TextView
-                    android:id="@+id/email"
+                    android:id="@+id/tvGenderPatient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Gender"

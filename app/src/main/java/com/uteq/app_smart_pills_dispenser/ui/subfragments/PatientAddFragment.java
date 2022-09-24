@@ -69,7 +69,6 @@ public class PatientAddFragment extends Fragment {
             public void onClick(View view) {
 
                 showDatePickerDialog();
-
             }
         });
 
@@ -82,7 +81,6 @@ public class PatientAddFragment extends Fragment {
         spinerGenderPatient.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
 
                 genero = adapterView.getItemAtPosition(i).toString();
             }
@@ -123,7 +121,7 @@ public class PatientAddFragment extends Fragment {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Navigation.findNavController(view).navigate(R.id.nav_patients);
+                   // Navigation.findNavController(view).navigate(R.id.action_patientAddFragment_to_nav_patients);
                 }
 
             }
@@ -172,7 +170,8 @@ public class PatientAddFragment extends Fragment {
             @Override
             public void onResponse(Call<Patient> call, Response<Patient> response) {
                 if (response != null) {
-                    Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
+                   Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
+                    Navigation.findNavController(getView()).navigate(R.id.action_patientAddFragment_to_nav_patients);
                 }
             }
 

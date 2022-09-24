@@ -4,7 +4,11 @@
         <item>Male</item>
         <item>Female</item>
         <item>No binary</item>
+    </string-array>
 
+    <string-array name="combo_register_as">
+        <item>Only Carer</item>
+        <item>Carer and patient</item>
     </string-array>
 
 </resources>
