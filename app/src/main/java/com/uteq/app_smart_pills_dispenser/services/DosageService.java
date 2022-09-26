@@ -15,6 +15,9 @@ public interface DosageService {
     @GET("api/medical-treatment/dosages/{id}")
     Call<List<Dosage>> getDosage(@Path("id") String id);
 
+    @GET("api/dosage")
+    Call<List<Dosage>> getAllDosage();
+
     @POST("api/dosage")
     Call<Dosage> addDosage(@Body Dosage dosage);
 }

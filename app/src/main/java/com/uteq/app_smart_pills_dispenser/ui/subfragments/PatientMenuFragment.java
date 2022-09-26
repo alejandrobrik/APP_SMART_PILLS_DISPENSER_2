@@ -1,19 +1,29 @@
 package com.uteq.app_smart_pills_dispenser.ui.subfragments;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
+import android.content.pm.PackageManager;
+import android.graphics.fonts.Font;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.os.Environment;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.uteq.app_smart_pills_dispenser.R;
@@ -21,6 +31,17 @@ import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.ui.medicalTreatment.MedicalTreatmentListFragment;
 import com.uteq.app_smart_pills_dispenser.ui.patients.PatientListFragment;
+import com.uteq.app_smart_pills_dispenser.utils.Apis;
+
+import org.w3c.dom.Document;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +62,8 @@ public class PatientMenuFragment extends Fragment {
     Patient patient;
     TextView patientTitle;
     CardView cardViewMedicalTreatment;
+    CardView cardViewReports;
+    List <MedicalTreatment>  medicalTreatmentListReport;
     LinearLayout linearLayout;
 
 
@@ -100,11 +123,58 @@ public class PatientMenuFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.medicalTreatmentListFragment,bundle);
             }
         });
+
+        try {
+            getMedicalTreatment();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        cardViewReports = view.findViewById(R.id.cardView2);
+        cardViewReports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("patient", patient);
+                Navigation.findNavController(view).navigate(R.id.reportPatientFragment, bundle);
+
+            }
+        });
+    }
+
+    public void getMedicalTreatment() throws Exception {
+
+        String id = ""+patient.getId();
+        Call<List<MedicalTreatment>> medicalTreatmentList = Apis.getMedicalTreatmentService().getMedicalTreatment(id);
+
+        medicalTreatmentList.enqueue(new Callback<List<MedicalTreatment>>() {
+            @Override
+            public void onResponse(Call<List<MedicalTreatment>> call, Response<List<MedicalTreatment>> response) {
+                if(response.isSuccessful()){
+                     medicalTreatmentListReport = response.body();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<MedicalTreatment>> call, Throwable t) {
+                Log.e("faliure", t.getLocalizedMessage());
+            }
+        });
+    }
+
+    private boolean checkPermission() {
+        int permission1 = ContextCompat.checkSelfPermission(getContext(), WRITE_EXTERNAL_STORAGE);
+        int permission2 = ContextCompat.checkSelfPermission(getContext(), READ_EXTERNAL_STORAGE);
+        return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermissions() {
+        ActivityCompat.requestPermissions(getActivity(), new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, 200);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_patient_menu, container, false);
     }

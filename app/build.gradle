@@ -86,5 +86,8 @@ dependencies {
     //Select phone country
      implementation 'com.hbb20:ccp:2.5.0'
 
+    // ITextPDF5
+    implementation 'com.itextpdf:itextg:5.5.10'
+
 
 }
