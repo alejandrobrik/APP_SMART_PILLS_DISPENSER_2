@@ -121,6 +121,9 @@
         <action
             android:id="@+id/action_patientMenuFragment_to_reportPatientFragment"
             app:destination="@id/reportPatientFragment" />
+        <action
+            android:id="@+id/action_patientMenuFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
     </fragment>
     <fragment
         android:id="@+id/pillListFragment"
@@ -286,6 +289,19 @@
         app:destination="@id/nav_home"
         app:popUpTo="@id/nav_home"
         app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.ScheduleFragment"
+        android:label="Schedule of patient"
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/action_anypart_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+
 
     </fragment>
 </navigation>

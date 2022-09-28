@@ -43,6 +43,7 @@ import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.ui.patients.PatientListFragment;
 import com.uteq.app_smart_pills_dispenser.utils.MoreUtils;
 
+import java.io.File;
 import java.util.Locale;
 
 public class MenuActivity extends AppCompatActivity {
@@ -273,7 +274,31 @@ public class MenuActivity extends AppCompatActivity {
         }else {
             super.onBackPressed();
         }
+        deleteCache(getApplicationContext());
 
+    }
+
+    public static void deleteCache(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            deleteDir(dir);
+        } catch (Exception e) { e.printStackTrace();}
+    }
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if(dir!= null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
+        }
     }
 
     private boolean isAppInstalled(String s) {

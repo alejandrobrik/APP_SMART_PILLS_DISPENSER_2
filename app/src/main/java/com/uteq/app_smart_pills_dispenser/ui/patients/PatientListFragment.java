@@ -1,5 +1,6 @@
 package com.uteq.app_smart_pills_dispenser.ui.patients;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 
+import java.io.File;
 import java.util.List;
 
 import retrofit2.Call;
@@ -60,6 +62,8 @@ public class PatientListFragment extends Fragment implements  SearchView.OnQuery
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        deleteCache(getContext());
         if (getArguments() != null) {
             id_carer = getArguments().getInt("id_carer", 0);
             carer = getArguments().getParcelable("c");
@@ -162,6 +166,29 @@ public class PatientListFragment extends Fragment implements  SearchView.OnQuery
             }
         });
         return "hola";
+    }
+
+    public static void deleteCache(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            deleteDir(dir);
+        } catch (Exception e) { e.printStackTrace();}
+    }
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if(dir!= null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
+        }
     }
 
 

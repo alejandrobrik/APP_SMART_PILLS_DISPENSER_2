@@ -64,6 +64,27 @@
                     android:layout_height="50dp" />
 
 
+                <Button
+                    android:id="@+id/btnSelectPatientPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="23dp"
+                    android:text="Select Photo" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgPatientPhoto"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/nav_header_desc"
+                    android:paddingTop="@dimen/nav_header_vertical_spacing"
+                    app:strokeWidth="3dp"
+                    android:padding="5dp"
+                    app:strokeColor="@android:color/darker_gray"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView"
+
+                    app:srcCompat="@drawable/ic_user" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -76,6 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="90dp"
                         android:text="SAVE" />
+
                 </LinearLayout>
 
             </LinearLayout>

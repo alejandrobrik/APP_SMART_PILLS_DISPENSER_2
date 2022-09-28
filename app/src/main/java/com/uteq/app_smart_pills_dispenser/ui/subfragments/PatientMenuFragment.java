@@ -63,6 +63,7 @@ public class PatientMenuFragment extends Fragment {
     TextView patientTitle;
     CardView cardViewMedicalTreatment;
     CardView cardViewReports;
+    CardView cardViewScheduleMenu;
     List <MedicalTreatment>  medicalTreatmentListReport;
     LinearLayout linearLayout;
 
@@ -137,6 +138,15 @@ public class PatientMenuFragment extends Fragment {
                 bundle.putSerializable("patient", patient);
                 Navigation.findNavController(view).navigate(R.id.reportPatientFragment, bundle);
 
+            }
+        });
+        cardViewScheduleMenu = view.findViewById(R.id.cardView3);
+        cardViewScheduleMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("patient", patient);
+                Navigation.findNavController(view).navigate(R.id.scheduleFragment, bundle);
             }
         });
     }
