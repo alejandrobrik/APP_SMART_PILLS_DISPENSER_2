@@ -227,7 +227,7 @@ public class DosageAddFragment extends Fragment {
                     Toast.makeText(getContext(), "Please checke the field ",Toast.LENGTH_LONG).show();;
                 }
                 else {
-
+                    Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
                     addDosage(dosage);
 
                     try {
@@ -237,7 +237,7 @@ public class DosageAddFragment extends Fragment {
                     }
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("dosage", dosage);
-                    Navigation.findNavController(view).navigate(R.id.dosageListFragment, bundle);
+                    Navigation.findNavController(view).navigate(R.id.action_dosageAddFragment_to_dosageListFragment, bundle);
                 }
             }
         });
@@ -376,7 +376,7 @@ public class DosageAddFragment extends Fragment {
             @Override
             public void onResponse(Call<Dosage> call, Response<Dosage> response) {
                 if (response != null) {
-                    Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getContext(), "Successful registration.", Toast.LENGTH_LONG).show();
                 }
             }
 

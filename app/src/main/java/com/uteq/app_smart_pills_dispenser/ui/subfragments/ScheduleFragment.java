@@ -1,5 +1,6 @@
 package com.uteq.app_smart_pills_dispenser.ui.subfragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,10 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
+import com.uteq.app_smart_pills_dispenser.MainActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.adapters.DosageAdapter;
 import com.uteq.app_smart_pills_dispenser.adapters.ScheduleAdapter;
@@ -36,7 +39,10 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,6 +68,9 @@ public class ScheduleFragment extends Fragment {
     private SearchView svSearchDosage;
     private ScheduleAdapter scheduleAdapter;
     private Dosage dosage;
+
+    private ProgressBar progressBar;
+    int counter = 0;
 
 
     public ScheduleFragment() {
@@ -96,6 +105,26 @@ public class ScheduleFragment extends Fragment {
 
 
         }
+
+        progressBar = view.findViewById(R.id.progressBarSchedule);
+        progressBar.setVisibility(View.VISIBLE);
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @SneakyThrows
+            @Override
+            public void run() {
+                counter++;
+
+                progressBar.setProgress(counter);
+
+                if (counter == 100){
+                    timer.cancel();
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+
+            }
+        };
+        timer.schedule(timerTask, 100, 5);
 
         recyclerView = view.findViewById(R.id.reciclerviewSchedule);
 

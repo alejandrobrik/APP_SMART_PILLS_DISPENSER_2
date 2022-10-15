@@ -7,24 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".ui.patients.PatientListFragment">
 
-    <LinearLayout
+
+
+    <SearchView
+        android:id="@+id/svSearchPatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <FrameLayout
+        android:layout_marginTop="50dp"
         android:id="@+id/layoutReemplazar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <SearchView
-            android:id="@+id/svSearchPatient"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/shiper_view">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <include layout="@layout/cardview_patient_load"></include>
+                <include layout="@layout/cardview_patient_load"></include>
+                <include layout="@layout/cardview_patient_load"></include>
+                <include layout="@layout/cardview_patient_load"></include>
+                <include layout="@layout/cardview_patient_load"></include>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.facebook.shimmer.ShimmerFrameLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/reciclerviewPatient"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-
-    </LinearLayout>
+    </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/favNewPatient"

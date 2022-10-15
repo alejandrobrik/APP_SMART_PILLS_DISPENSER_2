@@ -1,10 +1,13 @@
 package com.uteq.app_smart_pills_dispenser.ui.patients;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
@@ -17,7 +20,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.uteq.app_smart_pills_dispenser.MainActivity;
 import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.adapters.PatientAdapter;
@@ -28,7 +33,10 @@ import com.uteq.app_smart_pills_dispenser.utils.Apis;
 
 import java.io.File;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,6 +61,11 @@ public class PatientListFragment extends Fragment implements  SearchView.OnQuery
     private RecyclerView recyclerView;
     private SearchView svSearchPatient;
     private PatientAdapter patientAdapter;
+
+    private ProgressBar progressBar;
+    private int counter = 0;
+
+    ShimmerFrameLayout shimmerFrameLayout;
 
     public PatientListFragment() {
         super(R.layout.fragment_patient_list);
@@ -110,6 +123,36 @@ public class PatientListFragment extends Fragment implements  SearchView.OnQuery
 
             }
         });
+
+
+//        progressBar = view.findViewById(R.id.progressBarLoadingPatient);
+//        progressBar.setVisibility(View.VISIBLE);
+//
+//        Timer timer = new Timer();
+//        TimerTask timerTask = new TimerTask() {
+//            @SneakyThrows
+//            @Override
+//            public void run() {
+//                counter++;
+//
+//                progressBar.setProgress(counter);
+//
+//                if (counter == 100){
+//                    timer.cancel();
+//                }
+//
+//            }
+//        };
+//        timer.schedule(timerTask, 100, 5);
+
+        shimmerFrameLayout = view.findViewById(R.id.shiper_view);
+        shimmerFrameLayout.startShimmerAnimation();
+
+        Handler handler = new Handler();
+        handler.postDelayed(()->{
+            shimmerFrameLayout.stopShimmerAnimation();
+            shimmerFrameLayout.setVisibility(View.GONE);
+        }, 5000);
 
 
 

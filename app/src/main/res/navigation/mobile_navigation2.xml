@@ -252,6 +252,12 @@
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="true" />
 
+        <action
+            android:id="@+id/action_dosageAddFragment_to_dosageListFragment"
+            app:destination="@id/dosageListFragment"
+            app:popUpTo="@id/dosageListFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
     <fragment
         android:id="@+id/medicalTreatmentListSelectFragment"

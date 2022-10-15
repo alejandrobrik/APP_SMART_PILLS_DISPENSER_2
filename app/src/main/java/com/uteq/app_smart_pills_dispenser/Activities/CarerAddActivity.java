@@ -55,6 +55,8 @@ import com.uteq.app_smart_pills_dispenser.utils.EncryptHelper;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -447,7 +449,8 @@ public class CarerAddActivity extends AppCompatActivity {
 
     private  void starCrop(@NonNull Uri uri) {
 
-        String destinationFileName = SAMPLE_CROPPED_IMG_NAME +contador;
+        Date date = (Calendar.getInstance().getTime());
+        String destinationFileName = SAMPLE_CROPPED_IMG_NAME+ date +contador;
         contador++;
         destinationFileName +=".jpg";
         UCrop uCrop = UCrop.of(uri, Uri.fromFile(new File(getCacheDir(), destinationFileName)));

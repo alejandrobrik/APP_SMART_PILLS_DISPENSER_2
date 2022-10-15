@@ -116,6 +116,13 @@
                 android:id="@+id/reciclerviewSchedule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
         </LinearLayout>
 
-    </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressBarSchedule"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

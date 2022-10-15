@@ -89,5 +89,8 @@ dependencies {
     // ITextPDF5
     implementation 'com.itextpdf:itextg:5.5.10'
 
+    //Shimer de facebook para carga
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
 
 }

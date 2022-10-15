@@ -29,6 +29,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.uteq.app_smart_pills_dispenser.R;
+import com.uteq.app_smart_pills_dispenser.models.ComparatorDosage;
 import com.uteq.app_smart_pills_dispenser.models.Dosage;
 import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
@@ -43,6 +44,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -80,7 +82,7 @@ public class ReportPatientFragment extends Fragment {
         }
 
         if(checkPermission()) {
-            Toast.makeText(getContext(), "Permission Accept", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Permission Accept", Toast.LENGTH_SHORT).show();
         } else {
             requestPermissions();
         }
@@ -180,6 +182,7 @@ public class ReportPatientFragment extends Fragment {
             tabla.addCell("Doctor");
             tabla.addCell("Status");
 
+            Collections.sort(dosageByPatientList, new ComparatorDosage());
 
 
             for (int i = 0 ; i < dosageByPatientList.size() ; i++) {

@@ -2,7 +2,6 @@ package com.uteq.app_smart_pills_dispenser.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,14 +18,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-import com.uteq.app_smart_pills_dispenser.MenuActivity;
 import com.uteq.app_smart_pills_dispenser.R;
 import com.uteq.app_smart_pills_dispenser.models.Patient;
 import com.uteq.app_smart_pills_dispenser.utils.MoreUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientViewHolder>  {
@@ -50,7 +47,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
     @Override
     public PatientViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
-        return new PatientViewHolder(LayoutInflater.from(context).inflate(R.layout.carview_patient, parent, false));
+        return new PatientViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview_patient, parent, false));
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
