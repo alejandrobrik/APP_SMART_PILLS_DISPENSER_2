@@ -446,7 +446,7 @@ public class CarerAddActivity extends AppCompatActivity {
             return false;
         }
     }
-
+//Metodo para recortar la foto precisamente
     private  void starCrop(@NonNull Uri uri) {
 
         Date date = (Calendar.getInstance().getTime());
