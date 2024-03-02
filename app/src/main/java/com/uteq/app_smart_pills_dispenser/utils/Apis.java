@@ -2,6 +2,7 @@ package com.uteq.app_smart_pills_dispenser.utils;
 
 import com.uteq.app_smart_pills_dispenser.models.MedicalTreatment;
 import com.uteq.app_smart_pills_dispenser.services.CarerService;
+import com.uteq.app_smart_pills_dispenser.services.DeviceService;
 import com.uteq.app_smart_pills_dispenser.services.DoctorService;
 import com.uteq.app_smart_pills_dispenser.services.DosageService;
 import com.uteq.app_smart_pills_dispenser.services.MedicalTreatmentService;
@@ -38,4 +39,8 @@ public class Apis {
     public static DosageService getDosageService(){
         return ClientRetrofit.getClient(URL_001).create(DosageService.class);
     }
+    public static DeviceService getDeviceService(){
+        return ClientRetrofit.getClient(URL_001).create(DeviceService.class);
+    }
+
 }

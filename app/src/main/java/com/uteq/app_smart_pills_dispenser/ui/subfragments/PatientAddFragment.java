@@ -37,6 +37,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.hbb20.CountryCodePicker;
 import com.uteq.app_smart_pills_dispenser.Activities.CarerAddActivity;
 import com.uteq.app_smart_pills_dispenser.MainActivity;
 import com.uteq.app_smart_pills_dispenser.MenuActivity;
@@ -71,6 +72,11 @@ public class PatientAddFragment extends Fragment {
     EditText txtpassword;
     EditText txtRepeatPassword;
     String genero;
+
+    CountryCodePicker codePicker;
+
+    EditText txtPhoneNumber;
+    String phoneCode;
 
     Button save;
 
@@ -131,7 +137,8 @@ public class PatientAddFragment extends Fragment {
             }
         });
 
-
+        codePicker = view.findViewById(R.id.countryCodePatient);
+        txtPhoneNumber = view.findViewById(R.id.txtPatientPhoneNumber);
         spinerGenderPatient = (Spinner) view.findViewById(R.id.spinerGenderPatient);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.combo_gender, R.layout.spiner_item_patient);
@@ -159,12 +166,17 @@ public class PatientAddFragment extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                phoneCode = codePicker.getSelectedCountryCode();
+
                 Patient p = new Patient();
                 p.setName(txtname.getText().toString());
                 p.setBirthDate(txtbirthdate.getText().toString());
                 p.setGender(genero);
                 p.setState((true));
                 p.setCarer((carerLogin));
+                p.setPhoneNumber(phoneCode + txtPhoneNumber.getText().toString());
+
+
 
                 if (imagePatientDatabase!=null)
                     p.setUrlImage(imagePatientDatabase);
