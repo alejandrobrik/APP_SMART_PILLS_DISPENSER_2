@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         txtemail = findViewById(R.id.txtEmailLogin);
         txtpassword = findViewById(R.id.txtPasswordLogin);
 
-        txtemail.setText("cuidador0512@gmail.com");
-        txtpassword.setText("1");
+        txtemail.setText("juan@example.com");
+        txtpassword.setText("secreto123");
 
         btnlogin = findViewById(R.id.buttonLogin);
 
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
                         if (carer.getEmail().equals(txtemail.getText().toString())
-                                && carer.getPassword().equals(encryptValue)){
+                                && carer.getPassword().equals(txtpassword.getText().toString())){
                             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                             intent.putExtra("c",  carer);
                             startActivity(intent);

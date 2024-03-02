@@ -217,7 +217,8 @@ public class DosageAddFragment extends Fragment {
                 dosage.setPrescription(txtPrescription.getText().toString());
                 dosage.setDateHour(tvDateHourSelectedDosage.getText().toString());
                 dosage.setDateTake(tvDateHourSelectedDosage.getText().toString());
-
+                if (dosage.getDateHour() != null && dosage.getDateTake()!= null)
+                    dosage.setDosageDate(dosage.getDateHour());
                 dosage.setQuantity(cantidad);
                 dosage.setMedicalTreatment(medicalTreatment);
                 dosage.setPill(pill);

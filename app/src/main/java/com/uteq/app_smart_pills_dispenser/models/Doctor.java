@@ -18,4 +18,5 @@ public class Doctor implements Serializable {
     private String registration_date;
 
 
+
 }

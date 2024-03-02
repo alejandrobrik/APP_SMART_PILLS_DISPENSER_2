@@ -382,9 +382,14 @@ public class PatientAddFragment extends Fragment {
             public void onResponse(Call<List<Patient>> call, Response<List<Patient>> response) {
                 if(response.isSuccessful()){
                     List <Patient>  patients = response.body();
-                    int lastIdx = patients.size() - 1;
+                    int lastIdx = patients.size() -1;
+                    if (patients.isEmpty()){
+                        lastIdx = 0;
+                        idd = "0";
+                    } else {
                     Patient lastElment = patients.get(lastIdx);
                     idd = "" +lastElment.getId()+1;
+                    }
                     String rute_storage_photo = storage_path + "" + photo + "" + mAuth.getUid() +""+ idd;
                     StorageReference reference = storageReference.child(rute_storage_photo);
                     reference.putFile(image_url).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

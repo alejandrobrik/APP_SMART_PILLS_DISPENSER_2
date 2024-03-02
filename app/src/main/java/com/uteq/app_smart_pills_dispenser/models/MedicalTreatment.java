@@ -17,4 +17,6 @@ public class MedicalTreatment implements Serializable {
     Doctor doctor;
     Patient patient;
 
+
+
 }

@@ -48,6 +48,7 @@ public class PillAdapter extends RecyclerView.Adapter<PillAdapter.PillViewHolder
         this.originalData.addAll(data);
         this.dosage = dosage;
         notifyDataSetChanged();
+
     }
 
     @NonNull

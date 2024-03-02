@@ -246,10 +246,12 @@ public class CarerAddActivity extends AppCompatActivity {
 
 
                 if(pass.equals(repeatPass) && !(pass.isEmpty() || repeatPass.isEmpty() || name.isEmpty() || phone.isEmpty() ||email.isEmpty() || birthDate.isEmpty()) && validaEmail ) {
-                    encrypt = new EncryptHelper();
+                   //Encriptar
+//                    encrypt = new EncryptHelper();
                     try {
-                        encryptValue = encrypt.encriptar(c.getPassword(),encrypt.apiKey);
-                        c.setPassword(encryptValue);
+//                        encryptValue = encrypt.encriptar(c.getPassword(),encrypt.apiKey);
+//                        c.setPassword(encryptValue);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
