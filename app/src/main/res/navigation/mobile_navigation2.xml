@@ -124,6 +124,9 @@
         <action
             android:id="@+id/action_patientMenuFragment_to_scheduleFragment"
             app:destination="@id/scheduleFragment" />
+        <action
+            android:id="@+id/action_patientMenuFragment_to_patientSettingsFragment2"
+            app:destination="@id/patientSettingsFragment2" />
     </fragment>
     <fragment
         android:id="@+id/pillListFragment"
@@ -309,5 +312,18 @@
             app:popUpToInclusive="true" />
 
 
+    </fragment>
+    <fragment
+        android:id="@+id/diviceAddFragment"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.device.DiviceAddFragment"
+        android:label="fragment_divice_add"
+        tools:layout="@layout/fragment_divice_add" />
+    <fragment
+        android:id="@+id/patientSettingsFragment2"
+        android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientSettingsFragment"
+        android:label="PatientSettingsFragment" >
+        <action
+            android:id="@+id/action_patientSettingsFragment2_to_diviceAddFragment"
+            app:destination="@id/diviceAddFragment" />
     </fragment>
 </navigation>

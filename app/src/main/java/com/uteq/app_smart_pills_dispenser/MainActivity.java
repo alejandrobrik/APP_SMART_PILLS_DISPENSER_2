@@ -17,6 +17,7 @@ import com.uteq.app_smart_pills_dispenser.models.Carer;
 import com.uteq.app_smart_pills_dispenser.services.CarerService;
 import com.uteq.app_smart_pills_dispenser.utils.Apis;
 import com.uteq.app_smart_pills_dispenser.utils.EncryptHelper;
+import com.uteq.app_smart_pills_dispenser.utils.MQTTManager;
 
 import java.io.Serializable;
 import java.util.List;
@@ -38,10 +39,27 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnlogin;
     Button btnsingup;
+
+    private MQTTManager mqttManager;
+
+    private MQTTManager mqttClient;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+// Conectar y suscribirse al topic
+        mqttManager.connectAndSubscribe();
+
+        // Enviar el mensaje automáticamente al iniciar la aplicación
+
+        /*mqttManager.publishMessage("Enrole");*/
+
+
+        System.out.println("Hola mundo");
+
+
 
         txtemail = findViewById(R.id.txtEmailLogin);
         txtpassword = findViewById(R.id.txtPasswordLogin);
