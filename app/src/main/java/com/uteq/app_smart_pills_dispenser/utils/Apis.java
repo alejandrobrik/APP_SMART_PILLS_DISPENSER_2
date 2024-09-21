@@ -10,7 +10,9 @@ import com.uteq.app_smart_pills_dispenser.services.PatientService;
 import com.uteq.app_smart_pills_dispenser.services.PillService;
 
 public class Apis {
-    public static final String URL_001="http://3.137.148.95:8080/";
+    /*public static final String URL_001="http://3.137.148.95:8080/";*/
+
+    public static final String URL_001="https://server-dispenser-6fdc994391b7.herokuapp.com/";
 
     public static DoctorService getDoctorService()
     {

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 public class Device {
     String id;
     String code;
-
     String description;
     String mac;
 

@@ -50,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 // Conectar y suscribirse al topic
+        mqttManager = new MQTTManager(getApplicationContext());
+
         mqttManager.connectAndSubscribe();
 
         // Enviar el mensaje automáticamente al iniciar la aplicación
 
-        /*mqttManager.publishMessage("Enrole");*/
+        mqttManager.publishMessage("Enrole:");
 
 
         System.out.println("Hola mundo");
@@ -64,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
         txtemail = findViewById(R.id.txtEmailLogin);
         txtpassword = findViewById(R.id.txtPasswordLogin);
 
-        txtemail.setText("juan@example.com");
-        txtpassword.setText("secreto123");
+        txtemail.setText("alejandrofullpremium8@gmail.com");
+        txtpassword.setText("12345");
 
         btnlogin = findViewById(R.id.buttonLogin);
 

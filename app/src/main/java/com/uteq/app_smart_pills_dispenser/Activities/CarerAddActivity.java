@@ -199,7 +199,7 @@ public class CarerAddActivity extends AppCompatActivity {
 
 
                     }else {
-                        txtemail.setError("Email not valid");
+                        txtemail.setError(getString(R.string.email_not_valid));
                     }
               //      Toast.makeText(getApplicationContext(), txtemail.getText().toString(), Toast.LENGTH_SHORT).show();
                 }
@@ -260,14 +260,14 @@ public class CarerAddActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if(pass.isEmpty() || repeatPass.isEmpty() || name.isEmpty() || phone.isEmpty() ||email.isEmpty() ){
-                    Toast.makeText(CarerAddActivity.this, "Error, check the fields. " , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarerAddActivity.this, R.string.error_check_the_fields , Toast.LENGTH_SHORT).show();
                 }
                 else if (!validaEmail){
-                    Toast.makeText(CarerAddActivity.this, "Error, check the email entered. " , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarerAddActivity.this, R.string.error_check_the_email_entered , Toast.LENGTH_SHORT).show();
                 }
 
                 else{
-                    Toast.makeText(CarerAddActivity.this, "Error, check the password. " , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarerAddActivity.this, R.string.error_check_the_password , Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -305,7 +305,7 @@ public class CarerAddActivity extends AppCompatActivity {
             public void onResponse(Call<Carer> call, Response<Carer> response) {
                 if(response!=null) {
 
-                    if (!registerAs.equals("Only Carer")) {
+                    if (!registerAs.equals(getString(R.string.only_carer))) {
                         Patient patient = new Patient();
                         patient.setName(response.body().getName());
                         patient.setBirthDate(response.body().getBirthDate());
@@ -317,7 +317,7 @@ public class CarerAddActivity extends AppCompatActivity {
                     }
                     else {
                         finish();
-                        Toast.makeText(CarerAddActivity.this, "Successful registration.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(CarerAddActivity.this, R.string.successful_registration, Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -337,7 +337,7 @@ public class CarerAddActivity extends AppCompatActivity {
             public void onResponse(Call<Patient> call, Response<Patient> response) {
                 if (response != null) {
                     finish();
-                     Toast.makeText(getApplicationContext(), "Successful registration.", Toast.LENGTH_LONG).show();
+                     Toast.makeText(getApplicationContext(), R.string.successful_registration, Toast.LENGTH_LONG).show();
                 }
             }
             @Override
@@ -504,7 +504,7 @@ public class CarerAddActivity extends AppCompatActivity {
         getCarer(image_url);
         try {
 
-            Toast toast = Toast.makeText(getApplicationContext(), "Cargando foto", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.loading_photo, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.TOP,0,200);
             toast.show();
             Glide.with(CarerAddActivity.this)
@@ -594,7 +594,7 @@ public class CarerAddActivity extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(CarerAddActivity.this, "Error al cargar foto", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CarerAddActivity.this, R.string.error_loading_photo, Toast.LENGTH_SHORT).show();
                         }
                     });
 

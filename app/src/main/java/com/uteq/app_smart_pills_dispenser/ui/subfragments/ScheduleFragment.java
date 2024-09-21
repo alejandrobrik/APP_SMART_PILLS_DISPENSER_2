@@ -171,8 +171,17 @@ public class ScheduleFragment extends Fragment {
                     List<Dosage> dosageByPatientList = new ArrayList<>();
                     for (Dosage dosage: dosages){
                         if (dosage.getMedicalTreatment().getPatient().equals(patient)){
-                            String [] fechapartida = dosage.getDateTake().split("T");
-                            String fechaHora = fechapartida[0] +" "+ fechapartida[1];
+                            String[] fechapartida = dosage.getDateTake().split("T");
+                            String fechaHora = "";
+
+                            if (fechapartida.length >= 2) {
+                                fechaHora = fechapartida[0] + " " + fechapartida[1];
+                            } else {
+                                // Si no se puede separar la fecha, se mantiene vacía o se asigna un valor por defecto
+                                fechaHora = ""; // O cualquier otro valor por defecto que necesites
+                            }
+
+
                             try {
                                 Date dateDatabase = simpleDateFormat.parse(fechaHora);
                                 Date date = (Calendar.getInstance().getTime());

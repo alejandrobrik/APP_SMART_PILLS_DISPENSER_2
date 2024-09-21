@@ -1,6 +1,5 @@
 package com.uteq.app_smart_pills_dispenser.utils;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
@@ -40,10 +39,11 @@ public class MQTTManager {
                 public void messageArrived(String topic, MqttMessage message) throws Exception {
                     // Manejar los mensajes recibidos
                     String payload = new String(message.getPayload());
-                    if (payload.equals("huellaOk")) {
+                    if (payload.startsWith("huellaok")) {
                         // Mostrar mensaje de huella registrada
                         showToast("¡Huella registrada!");
                         huellaOkReceived = true; // Establecer la variable en true cuando se recibe el mensaje
+                        System.out.println("Huella verificada"); // Imprimir en la consola
                     }
                 }
 
@@ -57,6 +57,7 @@ public class MQTTManager {
             options.setCleanSession(true);
 
             mqttClient.connect();
+            subscribeToTopic(); // Suscribirse al tema después de la conexión
         } catch (MqttException e) {
             e.printStackTrace();
         }
@@ -89,5 +90,15 @@ public class MQTTManager {
         }
     }
 
+    public boolean isHuellaOkReceived() {
+        return huellaOkReceived; // Devolver el estado de la variable
+    }
 
+    public void subscribeToTopic() {
+        try {
+            mqttClient.subscribe(MQTT_TOPIC);
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -20,26 +20,34 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40px"
-            android:text="Back"
+            android:layout_marginTop="5px"
+            android:text="@string/back"
             app:icon="?attr/actionModeCloseDrawable" />
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Name"/>
 
-        <EditText
-            android:id="@+id/txtname"
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp" />
+            android:layout_height="wrap_content"
+
+            app:startIconDrawable="@drawable/baseline_assignment_ind_24"
+            app:endIconMode="clear_text">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="@string/name"
+
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:id="@+id/birthdateCarer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Carer Birthday"
+            android:text="@string/carer_birthday"
             android:textStyle="bold" />
+
+
 
         <EditText
             android:id="@+id/txtBirthDateCarer"
@@ -58,13 +66,13 @@
             android:id="@+id/tvGenderPatient"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:text="Gender"
+            android:text="@string/gender"
             android:textStyle="bold" />
       <TextView
           android:id="@+id/tvRegisterAs"
           android:layout_width="166dp"
           android:layout_height="wrap_content"
-          android:text="Register As"
+          android:text="@string/register_as"
           android:textStyle="bold" />
   </LinearLayout>
         <LinearLayout
@@ -81,68 +89,77 @@
             android:layout_width="166dp"
             android:layout_height="50dp" />
         </LinearLayout>
-        <TextView
-            android:id="@+id/tvphonenumberCarer"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Phone number"/>
 
-        <EditText
-            android:id="@+id/txtphonenumberCarer"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
-
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Email"/>
-
-        <EditText
-            android:id="@+id/txtemail"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
-
-        <TextView
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Password"/>
-
-        <EditText
-            android:id="@+id/txtpassword"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:textStyle="bold"
-            android:inputType="textPassword" />
 
+            app:startIconDrawable="@drawable/baseline_call_24"
+            app:endIconMode="clear_text">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtphonenumberCarer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="@string/phone"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/repeatpassword"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textStyle="bold"
-            android:text="Repeat password"/>
-
-
-
-        <EditText
-            android:id="@+id/txtrepeatPassword"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword" />
+            app:startIconDrawable="@drawable/baseline_alternate_email_24"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="@string/email"
+
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:startIconDrawable="@drawable/lock"
+            app:endIconMode="clear_text">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="@string/password"
+
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:startIconDrawable="@drawable/lock"
+            app:endIconMode="clear_text">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtrepeatPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="@string/repeat_password"
+
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
         <Button
             android:id="@+id/btnSelectCarerPhoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="23dp"
-            android:text="Select photo"/>
+            android:text="@string/select_photo"/>
 
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -163,13 +180,13 @@
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="SAVE" />
+            android:text="@string/save" />
 
         <Button
             android:id="@+id/btnClean"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Clean" />
+            android:text="@string/clean" />
 
 
     </LinearLayout>

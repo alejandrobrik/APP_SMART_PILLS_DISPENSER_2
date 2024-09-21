@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplicación del dispensador</string>
+    <string name="title_activity_menu">Actividad del Menú</string>
+    <string name="navigation_drawer_open">Abrir el menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar el menú de navegación</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Encabezado de navegación</string>
+    <string name="action_settings">Configuración de la app</string>
+    <string name="action_about">Acerca de</string>
+    <string name="action_logout">Cerrar sesión</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_patients">Pacientes</string>
+    <string name="menu_alerts">Alertas</string>
+    <string name="menu_doctors">Doctores</string>
+    <string name="menu_setings">Configuración</string>
+    <string name="schedule">Horario</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Mensajes</string>
+    <string name="sync_header">Sincronización</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Tu firma</string>
+    <string name="reply_title">Acción de respuesta predeterminada</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sincronizar el correo periódicamente</string>
+    <string name="attachment_title">Descargar archivos adjuntos entrantes</string>
+    <string name="attachment_summary_on">Descargar automáticamente archivos adjuntos para correos entrantes</string>
+    <string name="attachment_summary_off">Descargar archivos adjuntos solo cuando se solicite manualmente</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+
+
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="sing_up">Registrarse</string>
+    <string name="back">Atrás</string>
+    <string name="name">Nombre</string>
+    <string name="carer_birthday">Fecha de nacimiento del cuidador</string>
+    <string name="gender">Género</string>
+    <string name="register_as">Registrarse como</string>
+    <string name="phone">Teléfono</string>
+    <string name="repeat_password">Repetir contraseña</string>
+    <string name="select_photo">Seleccionar foto</string>
+    <string name="save">GUARDAR</string>
+    <string name="clean">Limpiar</string>
+    <string name="email_not_valid">Email not valid</string>
+    <string name="error_check_the_fields">"Error, check the fields. "</string>
+    <string name="error_check_the_email_entered">"Error, check the email entered. "</string>
+    <string name="error_check_the_password">"Error, check the password. "</string>
+    <string name="only_carer">Only Carer</string>
+    <string name="successful_registration">Successful registration.</string>
+    <string name="loading_photo">Loading Photo</string>
+    <string name="error_loading_photo">Error loading photo</string>
+    <string name="press_again_to_exit">Press again to exit</string>
+    <string name="name_label">Nombres:</string>
+    <string name="specialisms">Specialisms:</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="email_label">Email:</string>
+    <string name="address_label">Address:</string>
+
+</resources>

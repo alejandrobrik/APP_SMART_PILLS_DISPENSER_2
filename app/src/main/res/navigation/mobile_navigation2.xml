@@ -316,12 +316,12 @@
     <fragment
         android:id="@+id/diviceAddFragment"
         android:name="com.uteq.app_smart_pills_dispenser.ui.device.DiviceAddFragment"
-        android:label="fragment_divice_add"
+        android:label="Link Device"
         tools:layout="@layout/fragment_divice_add" />
     <fragment
         android:id="@+id/patientSettingsFragment2"
         android:name="com.uteq.app_smart_pills_dispenser.ui.subfragments.PatientSettingsFragment"
-        android:label="PatientSettingsFragment" >
+        android:label="Patient Setings" >
         <action
             android:id="@+id/action_patientSettingsFragment2_to_diviceAddFragment"
             app:destination="@id/diviceAddFragment" />

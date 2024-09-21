@@ -50,7 +50,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Names:" />
+                    android:text="@string/name_label" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -70,7 +70,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Specialisms:" />
+                    android:text="@string/specialisms" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -90,7 +90,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Phone Number:" />
+                    android:text="@string/phone_number" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -109,7 +109,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Email:" />
+                    android:text="@string/email_label" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -129,7 +129,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Address:" />
+                    android:text="@string/address_label" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"

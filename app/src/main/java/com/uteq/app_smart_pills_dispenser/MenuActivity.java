@@ -255,7 +255,7 @@ public class MenuActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (destinoActualId == R.id.nav_home) {
             if (contador == 0) {
-                Toast.makeText(getApplicationContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.press_again_to_exit, Toast.LENGTH_SHORT).show();
                 contador++;
             } else {
                 super.onBackPressed();

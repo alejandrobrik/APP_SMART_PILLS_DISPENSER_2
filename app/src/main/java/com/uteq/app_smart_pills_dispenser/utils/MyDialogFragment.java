@@ -13,9 +13,9 @@ public class MyDialogFragment extends DialogFragment  implements MQTTListener {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Registro de Huella")
-                .setMessage("Ingrese la huella del paciente en el dispensador")
-                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+        builder.setTitle("Fingerprint Registration")
+                .setMessage("Please place the patient's fingerprint on the dispenser")
+                .setPositiveButton("Accept", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // Aquí puedes agregar acciones si el usuario hace clic en Aceptar
                         dialog.dismiss();
@@ -28,8 +28,8 @@ public class MyDialogFragment extends DialogFragment  implements MQTTListener {
     public void onHuellaOkReceived() {
         if (isAdded()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-            builder.setMessage("Huella verificada");
-            builder.setPositiveButton("Aceptar", null);
+            builder.setMessage("Fingerprint verified");
+            builder.setPositiveButton("Accept", null);
             builder.show();
         }
 

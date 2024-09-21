@@ -23,17 +23,23 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/name"
+
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Name"
-                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/txtNamePatient"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    app:startIconDrawable="@drawable/baseline_assignment_ind_24"
+                    app:endIconMode="clear_text">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtNamePatient"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:hint="Name"
+
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/birthdatePatient"
@@ -50,6 +56,7 @@
                     android:focusable="false"
                     android:inputType="date"
                     android:maxLines="1" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,6 +79,8 @@
                         android:layout_width="197dp"
                         android:layout_height="69dp" />
                 </LinearLayout>
+
+
 
                 <TextView
                     android:id="@+id/tvGenderPatient"
