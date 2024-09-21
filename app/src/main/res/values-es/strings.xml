@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Aplicación del dispensador</string>
+    <string name="app_name">Smart dispenser</string>
     <string name="title_activity_menu">Actividad del Menú</string>
     <string name="navigation_drawer_open">Abrir el menú de navegación</string>
     <string name="navigation_drawer_close">Cerrar el menú de navegación</string>
@@ -18,51 +18,126 @@
     <string name="menu_setings">Configuración</string>
     <string name="schedule">Horario</string>
 
-    <!-- Preference Titles -->
+    <!-- Títulos de Preferencias -->
     <string name="messages_header">Mensajes</string>
     <string name="sync_header">Sincronización</string>
 
-    <!-- Messages Preferences -->
+    <!-- Preferencias de Mensajes -->
     <string name="signature_title">Tu firma</string>
     <string name="reply_title">Acción de respuesta predeterminada</string>
 
-    <!-- Sync Preferences -->
+    <!-- Preferencias de Sincronización -->
     <string name="sync_title">Sincronizar el correo periódicamente</string>
     <string name="attachment_title">Descargar archivos adjuntos entrantes</string>
     <string name="attachment_summary_on">Descargar automáticamente archivos adjuntos para correos entrantes</string>
     <string name="attachment_summary_off">Descargar archivos adjuntos solo cuando se solicite manualmente</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Eliminar o cambiar este texto -->
     <string name="hello_blank_fragment">Hola fragmento en blanco</string>
-
 
     <string name="email">Correo electrónico</string>
     <string name="password">Contraseña</string>
     <string name="login">Iniciar sesión</string>
     <string name="sing_up">Registrarse</string>
     <string name="back">Atrás</string>
-    <string name="name">Nombre</string>
-    <string name="carer_birthday">Fecha de nacimiento del cuidador</string>
+    <string name="names_txt">Nombres</string>
+    <string name="birthday_txt">Fecha de nacimiento</string>
     <string name="gender">Género</string>
     <string name="register_as">Registrarse como</string>
     <string name="phone">Teléfono</string>
     <string name="repeat_password">Repetir contraseña</string>
     <string name="select_photo">Seleccionar foto</string>
-    <string name="save">GUARDAR</string>
+    <string name="save">Guardar</string>
     <string name="clean">Limpiar</string>
-    <string name="email_not_valid">Email not valid</string>
-    <string name="error_check_the_fields">"Error, check the fields. "</string>
-    <string name="error_check_the_email_entered">"Error, check the email entered. "</string>
-    <string name="error_check_the_password">"Error, check the password. "</string>
-    <string name="only_carer">Only Carer</string>
-    <string name="successful_registration">Successful registration.</string>
-    <string name="loading_photo">Loading Photo</string>
-    <string name="error_loading_photo">Error loading photo</string>
-    <string name="press_again_to_exit">Press again to exit</string>
+    <string name="email_not_valid">Correo electrónico no válido</string>
+    <string name="error_check_the_fields">Error, revisa los campos.</string>
+    <string name="error_check_the_email_entered">Error, revisa el correo ingresado.</string>
+    <string name="error_check_the_password">Error, revisa la contraseña.</string>
+    <string name="only_carer">Solo Cuidador</string>
+    <string name="successful_registration">Registro exitoso.</string>
+    <string name="loading_photo">Cargando foto</string>
+    <string name="error_loading_photo">Error al cargar la foto</string>
+    <string name="press_again_to_exit">Presiona de nuevo para salir</string>
     <string name="name_label">Nombres:</string>
-    <string name="specialisms">Specialisms:</string>
-    <string name="phone_number">Phone Number:</string>
-    <string name="email_label">Email:</string>
-    <string name="address_label">Address:</string>
+    <string name="specialisms">Especialidades:</string>
+    <string name="phone_number">Número de teléfono:</string>
+    <string name="email_label">Correo:</string>
+    <string name="address_label">Dirección:</string>
+    <string name="medicine_label">Medicamento:</string>
+    <string name="hour">Hora:</string>
+    <string name="quantity">Cantidad:</string>
+    <string name="prescription_label">Prescripción:</string>
+    <string name="description_label">Descripción:</string>
+    <string name="star_date_label">Fecha de inicio:</string>
+    <string name="doctor_label">Doctor:</string>
+    <string name="register_device">Registrar dispositivo</string>
+    <string name="code_txt">Código</string>
+    <string name="search_button">Buscar</string>
+    <string name="mac">MAC</string>
+    <string name="link_button">Vincular</string>
+    <string name="name_txt">Nombre</string>
+    <string name="select_medicine_label">Medicamento:</string>
+
+    <string name="send_him_a_message_on_whatsapp">Toca a un doctor para enviarle un mensaje por WhatsApp</string>
+    <string name="gender_label">Género:</string>
+    <string name="birth_date_label">Fecha de nacimiento:</string>
+    <string name="you_have_not_selected_any_pill">No has seleccionado ninguna pastilla</string>
+    <string name="choose">Elegir</string>
+    <string name="select_date">Elegir fecha</string>
+    <string name="select_hour">Elegir hora</string>
+    <string name="you_not_have_selected_none_hour_and_date">No has seleccionado ninguna hora ni fecha</string>
+    <string name="quantity_txt">Cantidad</string>
+    <string name="save_dosage_button">Guardar dosis</string>
+    <string name="welcome_to_app_smart_pills_dispenser">Bienvenido a la App Smart Dispenser</string>
+    <string name="this_application_has_the_functionality_to_manage_">Esta aplicación tiene la funcionalidad de gestionar la lista de pacientes que un cuidador tiene para asignar dosis en el dispensador de pastillas, permitirá administrar pacientes, doctores, tratamientos, pastillas y, lo más importante, asignar dosis en un momento específico.</string>
+    <string name="now_you_can_manage_your_patients_by_pressing_the_button">Ahora puedes gestionar a tus pacientes presionando el botón:</string>
+    <string name="view_patients_button">Ver Pacientes</string>
+    <string name="coming_out_label">Saliendo</string>
+    <string name="start_date">Fecha de inicio</string>
+    <string name="select_doctor">Seleccionar doctor:</string>
+    <string name="you_have_not_selected_any_doctor">No has seleccionado ningún doctor</string>
+    <string name="save_treatment_and_add_dosege">Guardar tratamiento y agregar dosis</string>
+    <string name="patient_label_menu">PACIENTE:</string>
+    <string name="medical_treatment_label_menu">Tratamiento médico</string>
+    <string name="schedule_label_menu">Horario</string>
+    <string name="reports_label_menu">Reportes</string>
+    <string name="settings_label_menu">Configuración</string>
+    <string name="profile_label">Perfil</string>
+    <string name="link_device_label">Vincular dispositivo</string>
+    <string name="help_label">Ayuda</string>
+    <string name="select_for_generate_a_report">Selecciona para generar un reporte</string>
+    <string name="treatments_button">Tratamientos</string>
+    <string name="dosages_button">Dosis</string>
+    <string name="date_schedule">Fecha</string>
+    <string name="hour_schedule">Hora</string>
+    <string name="medicine_schedule">Medicina</string>
+    <string name="quantity_schedule">Cantidad</string>
+    <string name="closed_session">Sesión cerrada</string>
+    <string name="log_out">Cerrar sesión</string>
+    <!-- Traducciones pendientes -->
+    <string name="patient_registration_label">Registro de Paciente</string>
+    <string name="menu_patient_label">Menú del Paciente</string>
+    <string name="medicine_registration_label">Registro de Medicamento</string>
+    <string name="medical_treatment_label">Tratamiento médico</string>
+    <string name="treatment_registration_label">Registro de tratamiento</string>
+    <string name="doctors_label">Doctores</string>
+    <string name="dosage_registration_label">Registro de dosis</string>
+    <string name="doctor_registration_label">Registro de doctor</string>
+    <string name="reports_of_patient_label">Reportes del paciente</string>
+    <string name="schedule_of_patient_label">Horario del paciente</string>
+    <string name="link_device_label_procedure">Vincular dispositivo</string>
+    <string name="whatsapp_is_not_installed">¡WhatsApp no está instalado!</string>
+    <string name="hi_doctor">Hola doctor</string>
+    <string name="i_write_to_you_by">le escribo por</string>
+
+    <!-- Géneros -->
+    <string name="female_recyclerview">Mujer</string>
+    <string name="male_recyclerview">Hombre</string>
+    <string name="non_binary_recyclerview">No binario</string>
+
+    <!-- Medicamentos -->
+    <string name="medicines_label">Medicamentos</string>
+    <string name="dosages_label">Dosages</string>
+    <string name="logout_label">Cerrar sesión</string>
 
 </resources>

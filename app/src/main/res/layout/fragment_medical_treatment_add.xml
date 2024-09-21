@@ -23,21 +23,25 @@
                 android:orientation="vertical"
                 android:padding="10px">
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/baseline_border_color_24"
+                    app:endIconMode="clear_text">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTreatmentDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:hint="Description"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/txtTreatmentDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Start date"
+                    android:text="@string/start_date"
                     android:textStyle="bold" />
 
                 <EditText
@@ -59,7 +63,7 @@
                         android:layout_width="125dp"
                         android:layout_height="50px"
                         android:layout_marginTop="40dp"
-                        android:text="Select doctor: "
+                        android:text="@string/select_doctor"
                         android:textStyle="bold" />
 
                     <Button
@@ -68,14 +72,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="40dp"
                         android:backgroundTint="#4BAEFD"
-                        android:text="Choose " />
+                        android:text="@string/choose" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/tvNameSelectedDoctor"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:text="You have not selected any doctor"
+                    android:text="@string/you_have_not_selected_any_doctor"
                     android:textAlignment="center"
                     android:textStyle="bold" />
 
@@ -88,7 +92,7 @@
                         android:id="@+id/btnMedicalTreatmentSave"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Save Treatment and add dosege" />
+                        android:text="@string/save_treatment_and_add_dosege" />
 
                 </LinearLayout>
 

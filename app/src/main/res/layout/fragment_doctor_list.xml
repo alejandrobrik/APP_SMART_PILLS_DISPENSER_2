@@ -16,7 +16,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="Touch a doctor to send him a message on whatsapp "
+            android:text="@string/send_him_a_message_on_whatsapp"
             android:textAlignment="center"
             android:textColor="#040404"
             android:textSize="17dp"

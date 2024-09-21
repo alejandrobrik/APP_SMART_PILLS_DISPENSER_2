@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="combo_gender">
+        <item>Hombre</item>
+        <item>Mujer</item>
+        <item>No binario</item>
+    </string-array>
+
+    <string-array name="combo_register_as">
+        <item>Solo Cuidador</item>
+        <item>Cuidador y Paciente</item>
+    </string-array>
+
+</resources>

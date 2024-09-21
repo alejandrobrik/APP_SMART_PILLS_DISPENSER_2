@@ -44,7 +44,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Names:" />
+                    android:text="@string/name_label" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -64,7 +64,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Description:" />
+                    android:text="@string/description_label" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"

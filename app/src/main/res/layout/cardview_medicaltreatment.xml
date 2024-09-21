@@ -43,7 +43,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Description:" />
+                    android:text="@string/description_label" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -63,7 +63,7 @@
                 android:layout_width="0dp"
                 android:textStyle="bold"
                 android:layout_height="wrap_content"
-                android:text="Star Date:" />
+                android:text="@string/star_date_label" />
             <TextView
                 android:text="N/D"
                 android:layout_weight="1"
@@ -83,7 +83,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Doctor:" />
+                    android:text="@string/doctor_label" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"

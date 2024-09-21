@@ -18,7 +18,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="Settings"
+            android:text="@string/settings_label_menu"
             android:textAlignment="center"
             android:textColor="#040404"
             android:textSize="17dp"
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:text="Profile"
+                    android:text="@string/profile_label"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -103,11 +103,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:text="Link Device"
+                    android:text="@string/link_device_label"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                    <TextView
+<!--                    <TextView
                         android:id="@+id/txtDeviceInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
                         android:layout_weight="1"
                         android:text="MAC: N/D"
                         android:textSize="14dp"
-                        android:textStyle="normal" />
+                        android:textStyle="normal" />-->
 
                 </LinearLayout>
 
@@ -165,7 +165,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:text="Help"
+                    android:text="@string/help_label"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 

@@ -16,7 +16,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register Device"
+            android:text="@string/register_device"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:hint="Code"
+                android:hint="@string/code_txt"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
     <Button
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Search"
+        android:text="@string/search_button"
         app:iconifiedByDefault="false"
         app:queryHint="Search" />
 
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:hint="Name"
+                android:hint="@string/name_txt"
                 android:enabled="false"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:hint="MAC"
+                android:hint="@string/mac"
                 android:enabled="false"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_margin="100dp"
-            android:text="Link"
+            android:text="@string/link_button"
             android:visibility="invisible"
             app:iconifiedByDefault="false"
             app:queryHint="Escanear" />

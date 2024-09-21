@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
         android:layout_marginTop="16dp"
-        android:text="Select for generate a report"
+        android:text="@string/select_for_generate_a_report"
         android:textColor="#040404"
         android:textSize="17dp"
         android:textStyle="bold" />
@@ -40,7 +40,7 @@
         android:layout_gravity="start"
         android:layout_marginStart="36dp"
         android:layout_marginTop="275dp"
-        android:text="Treatments" />
+        android:text="@string/treatments_button" />
 
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -64,7 +64,7 @@
         android:layout_marginTop="275dp"
         android:layout_marginEnd="36dp"
         android:layout_gravity="right"
-        android:text="Dosages"
+        android:text="@string/dosages_button"
         />
 
 </FrameLayout>

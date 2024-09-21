@@ -117,11 +117,11 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
                     boolean installed = isAppInstalled("com.whatsapp");
                     if (installed) {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + doctor.getPhoneNumber() +"&text="+ "Hi doctor " + doctor.getName() +" I write to you by" ));
+                        intent.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + doctor.getPhoneNumber() +"&text="+ context.getString(R.string.hi_doctor) + doctor.getName() +context.getString(R.string.i_write_to_you_by) ));
                         context.startActivity(intent);
                     }
                     else {
-                        Toast.makeText(view.getContext(), "Whatsapp is not installed!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), R.string.whatsapp_is_not_installed, Toast.LENGTH_SHORT).show();
                     }
                 }
             });

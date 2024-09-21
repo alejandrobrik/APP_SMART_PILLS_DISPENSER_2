@@ -46,7 +46,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Pill:" />
+                    android:text="@string/medicine_label" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -67,7 +67,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Hours:" />
+                    android:text="@string/hour" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -87,7 +87,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Quantity:" />
+                    android:text="@string/quantity" />
                 <TextView
                     android:text="N/D"
                     android:layout_weight="1"
@@ -108,7 +108,7 @@
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text="Prescription:" />
+                    android:text="@string/prescription_label" />
                 <TextView
 
                     android:text="N/D"

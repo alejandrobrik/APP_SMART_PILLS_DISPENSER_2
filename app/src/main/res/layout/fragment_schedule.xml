@@ -22,7 +22,7 @@
                 android:layout_margin="20dp"
                 android:layout_marginTop="16dp"
                 android:textAlignment="center"
-                android:text="Schedule"
+                android:text="@string/schedule_label_menu"
                 android:textColor="#040404"
                 android:textSize="17dp"
                 android:textStyle="bold" />
@@ -50,7 +50,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:text="Date"
+                            android:text="@string/date_schedule"
                             android:layout_weight="1"
                             android:id="@+id/tvScheduleDate"
                             android:textStyle="bold"
@@ -67,7 +67,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:text="Hour"
+                            android:text="@string/hour_schedule"
                             android:layout_weight="1"
                             android:textStyle="bold"
                             android:layout_width="0dp"
@@ -82,7 +82,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:text="Pill"
+                            android:text="@string/medicine_schedule"
                             android:layout_weight="1"
                             android:textStyle="bold"
                             android:layout_width="0dp"
@@ -98,7 +98,7 @@
                         android:layout_height="match_parent">
                         <TextView
 
-                            android:text="Quantity"
+                            android:text="@string/quantity_schedule"
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:textStyle="bold"

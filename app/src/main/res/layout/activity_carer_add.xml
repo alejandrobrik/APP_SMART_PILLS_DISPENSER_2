@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:hint="@string/name"
+                android:hint="@string/names_txt"
 
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -44,7 +44,7 @@
             android:id="@+id/birthdateCarer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/carer_birthday"
+            android:text="@string/birthday_txt"
             android:textStyle="bold" />
 
 

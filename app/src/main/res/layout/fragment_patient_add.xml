@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:hint="Name"
+                        android:hint="@string/names_txt"
 
                         android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -45,7 +45,7 @@
                     android:id="@+id/birthdatePatient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Patient Birthday"
+                    android:text="@string/birthday_txt"
                     android:textStyle="bold" />
 
                 <EditText
@@ -86,7 +86,7 @@
                     android:id="@+id/tvGenderPatient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gender"
+                    android:text="@string/gender"
                     android:textStyle="bold" />
 
                 <Spinner
@@ -100,7 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="23dp"
-                    android:text="Select Photo" />
+                    android:text="@string/select_photo" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imgPatientPhoto"
@@ -127,7 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="90dp"
-                        android:text="SAVE" />
+                        android:text="@string/save" />
 
                 </LinearLayout>
 

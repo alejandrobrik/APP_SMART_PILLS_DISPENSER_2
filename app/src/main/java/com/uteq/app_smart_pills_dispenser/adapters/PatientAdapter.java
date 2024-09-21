@@ -56,7 +56,9 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
         Patient patient = data.get(position);
 
         holder.txtname.setText(MoreUtils.coalesce(patient.getName(), "N/D"));
-        holder.txtgender.setText(MoreUtils.coalesce(patient.getGender(), "N/D"));
+        holder.txtgender.setText(getLocalizedGender(context, patient.getGender()));
+
+/*        holder.txtgender.setText(MoreUtils.coalesce(patient.getGender(), "N/D"));*/
         holder.txtbirthDate.setText(MoreUtils.coalesce(patient.getBirthDate(), "N/D"));
 
 //        View.OnClickListener listener = new View.OnClickListener() {
@@ -93,13 +95,13 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
         });
 
         if (patient.getGender() != null){
-        if (patient.getGender().equals("Female")) {
+            if (patient.getGender().equals("Female") || patient.getGender().equals("Mujer")){
             Glide.with(context)
                     .load(patient.getUrlImage())
                     .error(R.drawable.ic_female)
                     .into(holder.imgPatient);
         }
-        if (patient.getGender().equals("Male")){
+            if (patient.getGender().equals("Male") || patient.getGender().equals("Hombre")){
             Glide.with(context)
                     .load(patient.getUrlImage())
                     .error(R.drawable.ic_male)
@@ -146,6 +148,26 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
         }
         notifyDataSetChanged();
     }
+    private String getLocalizedGender(Context context, String gender) {
+        if (gender == null) {
+            return "N/D";  // En caso de que el género sea nulo
+        }
+
+        gender = gender.toLowerCase();
+
+        // Comparar con los géneros posibles y devolver la traducción adecuada
+        if (gender.equals("female") || gender.equals("mujer")) {
+            return context.getString(R.string.female_recyclerview); // Accede a la cadena traducida
+        } else if (gender.equals("male") || gender.equals("hombre")) {
+            return context.getString(R.string.male_recyclerview); // Accede a la cadena traducida
+        } else if (gender.equals("non_binary") || gender.equals("no binario")) {
+            return context.getString(R.string.non_binary_recyclerview); // Accede a la cadena traducida
+        } else {
+            return "N/D";  // Para otros casos no manejados
+        }
+    }
+
+
 
     public class PatientViewHolder extends RecyclerView.ViewHolder {
 

@@ -69,7 +69,7 @@ public class LogoutFragment extends Fragment {
         }
 
 
-        Toast.makeText(getActivity(), "Closed session", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), R.string.closed_session, Toast.LENGTH_SHORT).show();
 
 
 

@@ -21,7 +21,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="150dp"
-        android:text="Coming out"
+        android:text="@string/coming_out_label"
         android:textAlignment="center"
         android:textSize="25sp" />
 

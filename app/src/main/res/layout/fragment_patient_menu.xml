@@ -29,7 +29,7 @@
 
         android:layout_marginEnd="16dp"
 
-        android:text="PATIENT:"
+        android:text="@string/patient_label_menu"
         android:textAlignment="center"
         android:textColor="@color/white"
 
@@ -116,9 +116,10 @@
 
                     android:layout_height="wrap_content"
 
+                    android:textAlignment="center"
                     android:textSize="20dp"
 
-                    android:text="Medical Treatment"/>
+                    android:text="@string/medical_treatment_label_menu"/>
 
 
 
@@ -184,7 +185,7 @@
 
                     android:textSize="20dp"
 
-                    android:text="Schedule"/>
+                    android:text="@string/schedule_label_menu"/>
 
 
 
@@ -246,7 +247,7 @@
 
                     android:textSize="20dp"
 
-                    android:text="Reports"/>
+                    android:text="@string/reports_label_menu"/>
 
 
 
@@ -309,7 +310,7 @@
 
                     android:textSize="20dp"
 
-                    android:text="Settings"/>
+                    android:text="@string/settings_label_menu"/>
 
 
 
